@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b2ee73341964ef40a227cf9f396e9ad, type: 3}
+  m_Name: Sword
+  m_EditorClassIdentifier: 
+  id: 2ec392eda0786f649a77c41913f25ea0
+  ItemName: 
+  MaximumStacks: 1
+  Icon: {fileID: 21300000, guid: 79aba0b290c471c4ba3d3f818d4e9b15, type: 3}
+  EquipmentType: 4
+  MaxHealthBonus: 0
+  MaxManaBonus: 0
+  StrengthBonus: 0
+  DexterityBonus: 0
+  CharismaBonus: 0
+  WeaponArmourBonus: 0
+  MagicArmourBonus: 0
+  ProjectileArmourBonus: 0
+  ArmourPiercingBonus: 0
+  MaxHealthPercentBonus: 0
+  MaxManaPercentBonus: 0
+  StrengthPercentBonus: 0
+  DexterityPercentBonus: 0
+  CharismaPercentBonus: 0
+  WeaponArmourPercentBonus: 0
+  MagicArmourPercentBonus: 0
+  ProjectileArmourPercentBonus: 0
+  ArmourPiercingPercentBonus: 0
+  weaponPrefab: {fileID: 1797724652276833524, guid: 5af8550bc2013954b9e899d8c5a656fa, type: 3}
+  weaponDamage: 20
+  npcAttackRange: 2
+  attacks:
+  - <AnimationName>k__BackingField: SwordAttack1
+    <TransitionDuration>k__BackingField: 0.1
+    <ComboStateIndex>k__BackingField: 1
+    <ComboAttackTime>k__BackingField: 0.9
+    <ForceTime>k__BackingField: 0.35
+    <Force>k__BackingField: 3
+    <Knockback>k__BackingField: 5
+    <DamageMultiplier>k__BackingField: 1
+    <StaminaCost>k__BackingField: 10
+  - <AnimationName>k__BackingField: SwordAttack2
+    <TransitionDuration>k__BackingField: 0.1
+    <ComboStateIndex>k__BackingField: 2
+    <ComboAttackTime>k__BackingField: 0.9
+    <ForceTime>k__BackingField: 0.4
+    <Force>k__BackingField: 3
+    <Knockback>k__BackingField: 5
+    <DamageMultiplier>k__BackingField: 1
+    <StaminaCost>k__BackingField: 10
+  - <AnimationName>k__BackingField: SwordAttack3
+    <TransitionDuration>k__BackingField: 0.1
+    <ComboStateIndex>k__BackingField: -1
+    <ComboAttackTime>k__BackingField: 0
+    <ForceTime>k__BackingField: 0.6
+    <Force>k__BackingField: 2
+    <Knockback>k__BackingField: 7
+    <DamageMultiplier>k__BackingField: 1.4
+    <StaminaCost>k__BackingField: 15

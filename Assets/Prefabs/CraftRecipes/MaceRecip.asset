@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e835c69014357f0489f58b47059bfee5, type: 3}
+  m_Name: MaceRecip
+  m_EditorClassIdentifier: 
+  Materials:
+  - Item: {fileID: 11400000, guid: e8b2221d0956b95459ffdcfdeda49539, type: 2}
+    Amount: 1
+  - Item: {fileID: 11400000, guid: f7126bbe61e78634c8caa4f4ec3e4ebd, type: 2}
+    Amount: 1
+  Results:
+  - Item: {fileID: 11400000, guid: 88138b43f3ab28840a7363028e732025, type: 2}
+    Amount: 1

@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b2ee73341964ef40a227cf9f396e9ad, type: 3}
+  m_Name: Unarmed
+  m_EditorClassIdentifier: 
+  id: c567f97a834ed074986130c400a9f2f1
+  ItemName: Unarmed
+  MaximumStacks: 1
+  Icon: {fileID: 0}
+  EquipmentType: 4
+  MaxHealthBonus: 0
+  MaxManaBonus: 0
+  StrengthBonus: 0
+  DexterityBonus: 0
+  CharismaBonus: 0
+  WeaponArmourBonus: 0
+  MagicArmourBonus: 0
+  ProjectileArmourBonus: 0
+  ArmourPiercingBonus: 0
+  MaxHealthPercentBonus: 0
+  MaxManaPercentBonus: 0
+  StrengthPercentBonus: 0
+  DexterityPercentBonus: 0
+  CharismaPercentBonus: 0
+  WeaponArmourPercentBonus: 0
+  MagicArmourPercentBonus: 0
+  ProjectileArmourPercentBonus: 0
+  ArmourPiercingPercentBonus: 0
+  weaponPrefab: {fileID: 2234389815245182768, guid: e82540046c930d147890d7edbe489bc4, type: 3}
+  weaponDamage: 5
+  npcAttackRange: 1.3
+  attacks:
+  - <AnimationName>k__BackingField: UnarmAttack1
+    <TransitionDuration>k__BackingField: 0.1
+    <ComboStateIndex>k__BackingField: 1
+    <ComboAttackTime>k__BackingField: 0.95
+    <ForceTime>k__BackingField: 0.6
+    <Force>k__BackingField: 5
+    <Knockback>k__BackingField: 3
+    <DamageMultiplier>k__BackingField: 1
+    <StaminaCost>k__BackingField: 10
+  - <AnimationName>k__BackingField: UnarmAttack2
+    <TransitionDuration>k__BackingField: 0.1
+    <ComboStateIndex>k__BackingField: -1
+    <ComboAttackTime>k__BackingField: 0.95
+    <ForceTime>k__BackingField: 0.5
+    <Force>k__BackingField: 5
+    <Knockback>k__BackingField: 3
+    <DamageMultiplier>k__BackingField: 1
+    <StaminaCost>k__BackingField: 10

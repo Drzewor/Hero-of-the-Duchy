@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75f310d288e9c8e49a622dca583611ba, type: 3}
+  m_Name: Hat
+  m_EditorClassIdentifier: 
+  id: 0ea6ce4c1e5af694d9dc42a9e1c6eb72
+  ItemName: Hat
+  Icon: {fileID: 21300000, guid: 4ce2a27d3879fa54d939b65a4d1792db, type: 3}
+  EquipmentType: 0
+  MaxHealthBonus: 10
+  MaxManaBonus: 0
+  StrengthBonus: 100
+  DexterityBonus: 0
+  CharismaBonus: 0
+  WeaponArmourBonus: 0
+  MagicArmourBonus: 0
+  ProjectileArmourBonus: 0
+  ArmourPiercingBonus: 0
+  MaxHealthPercentBonus: 0
+  MaxManaPercentBonus: 0
+  StrengthPercentBonus: 0
+  DexterityPercentBonus: 0
+  CharismaPercentBonus: 0
+  WeaponArmourPercentBonus: 0
+  MagicArmourPercentBonus: 0
+  ProjectileArmourPercentBonus: 0
+  ArmourPiercingPercentBonus: 0
