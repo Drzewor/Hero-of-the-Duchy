@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,15 +9,23 @@ namespace RPG.Dialogue
     
     public class DialogueTrigger : MonoBehaviour
     {
-        [SerializeField] string action;
-        [SerializeField] UnityEvent onTrigger;
+        [SerializeField] private Trigger[] triggers;
+        public IEnumerable<Trigger> Triggers => triggers;
 
-        public void Trigger(string actionToTrigger)
+
+        [Serializable]
+        public class Trigger
         {
-            if(actionToTrigger == action)
+            [SerializeField] string action;
+            [SerializeField] UnityEvent onTrigger;
+            public void TriggerAction(string actionToTrigger)
             {
-                onTrigger.Invoke();
+                if(actionToTrigger == action)
+                {
+                    onTrigger.Invoke();
+                }
             }
         }
+
     }
 }

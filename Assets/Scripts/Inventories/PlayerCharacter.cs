@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 using RPG.Combat;
 using RPG.Saving;
 
-public class Character : MonoBehaviour, ISaveable
+public class PlayerCharacter : Character, ISaveable, IPredicateEvaluator
 {
     [SerializeField] EquipmentPanel equipmentPanel;
     [SerializeField] StatPanel statPanel;
@@ -22,16 +22,6 @@ public class Character : MonoBehaviour, ISaveable
     [SerializeField] public GameObject CharacterPanel;
     [SerializeField] public CraftingWindow CraftingWindow;
     [SerializeField] public GameObject QuestWindow;
-    public CharacterStat MaxHealth;
-    public CharacterStat MaxMana;
-    public CharacterStat Strength;
-    public CharacterStat Dexterity;
-    public CharacterStat Charisma;
-    public CharacterStat WeaponArmour;
-    public CharacterStat MagicArmour;
-    public CharacterStat ProjectileArmour;
-    public CharacterStat ArmourPiercing;
-
     private BaseItemSlot dragItemSlot;
     private ItemContainer openItemContainer;
 
@@ -359,6 +349,19 @@ public class Character : MonoBehaviour, ISaveable
     private void UnequipWeapon()
     {
         EquipWeapon(null);
+    }
+
+    public bool? Evaluate(string predicate, string[] parameters)
+    {
+        if(predicate != "HasItem") return null;
+        foreach(string parameter in parameters)
+        {
+            if(!inventory.HasItem(parameter))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     public object CaptureState()

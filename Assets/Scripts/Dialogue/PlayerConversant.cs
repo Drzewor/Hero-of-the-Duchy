@@ -60,7 +60,7 @@ namespace RPG.Dialogue
 
         public IEnumerable<DialogueNode> GetChoices()
         {
-            return currentDialogue.GetPlayerChildren(currentNode);
+            return FilterOnCondition(currentDialogue.GetPlayerChildren(currentNode));
         }
 
         public void SelectChoice(DialogueNode chosenNode)
@@ -73,7 +73,7 @@ namespace RPG.Dialogue
 
         public void Next()
         {
-            int numPlayerResponses = currentDialogue.GetPlayerChildren(currentNode).Count();
+            int numPlayerResponses = FilterOnCondition(currentDialogue.GetPlayerChildren(currentNode)).Count();
             if(numPlayerResponses > 0)
             {
                 isChoosing = true;
@@ -84,7 +84,7 @@ namespace RPG.Dialogue
             }
             isChoosing = false;
 
-            DialogueNode[] children = currentDialogue.GetAIChildren(currentNode).ToArray();
+            DialogueNode[] children = FilterOnCondition(currentDialogue.GetAIChildren(currentNode)).ToArray();
             int randomIndex = UnityEngine.Random.Range(0, children.Count());
             TriggerExitAction();
             currentNode = children[randomIndex];
@@ -96,7 +96,7 @@ namespace RPG.Dialogue
         public bool HasNext()
         {
             
-            return currentDialogue.GetAllChildren(currentNode).Count() > 0;
+            return FilterOnCondition(currentDialogue.GetAllChildren(currentNode)).Count() > 0;
         }
 
         private void TriggerEnterAction()
@@ -115,13 +115,35 @@ namespace RPG.Dialogue
             }
         }
 
-        private void TriggerAction(string action)
+        private IEnumerable<DialogueNode> FilterOnCondition(IEnumerable<DialogueNode> inputNode)
         {
-            if(action == "") return;
-
-            foreach(DialogueTrigger trigger in currentConversant.GetComponents<DialogueTrigger>())
+            foreach(DialogueNode node in inputNode)
             {
-                trigger.Trigger(action);
+                if(node.CheckCondition(GetEvaluators()))
+                {
+                    yield return node;
+                }
+            }
+        }
+
+        private IEnumerable<IPredicateEvaluator> GetEvaluators()
+        {
+            return GetComponents<IPredicateEvaluator>();
+        }
+
+        private void TriggerAction(List<string> actions)
+        {
+            if(actions.Count == 0) return;
+            DialogueTrigger dialogueTrigger;
+
+            if(!currentConversant.TryGetComponent<DialogueTrigger>(out dialogueTrigger)) return;
+            
+            foreach (string action in actions)
+            {
+                foreach(var trigger in dialogueTrigger.Triggers)
+                {
+                    trigger.TriggerAction(action);
+                }
             }
         }
 

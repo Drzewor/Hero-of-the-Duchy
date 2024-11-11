@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using RPG.Combat;
+using RPG.Quests;
 using RPG.Saving;
 using UnityEngine;
 
@@ -17,8 +18,9 @@ namespace RPG.StateMachine.Player
         [field: SerializeField] public ForceReceiver ForceReceiver {get; private set;}
         [field: SerializeField] public WeaponLogic WeaponLogic {get; private set;}
         [field: SerializeField] public LedgeDetector LedgeDetector {get; private set;}
-        [field: SerializeField] public Character Character {get; private set;}
+        [field: SerializeField] public PlayerCharacter Character {get; private set;}
         [field: SerializeField] public Stamina Stamina {get; private set;}
+        [field: SerializeField] public QuestManager QuestManager {get; private set;}
         [field: SerializeField] public float FreeLookMovmentSpeed {get; private set;}
         [field: SerializeField] public float TargetingMovmentSpeed {get; private set;}
         [field: SerializeField] public float SprintMovmentSpeed {get; private set;}
@@ -28,6 +30,14 @@ namespace RPG.StateMachine.Player
         [field: SerializeField] public float PreviousDodgeTime {get; private set;}  = Mathf.NegativeInfinity;
         [field: SerializeField] public float JumpForce {get; private set;}
         [field: SerializeField] public float AttackDamage {get; private set;}
+        [field: SerializeField] public statDamageBonus StatDamageBonus {get; private set;}
+        public float DamageBonus 
+        {
+            get
+            {
+                return GetDamageBonus(StatDamageBonus);
+            }
+        }
         [field: SerializeField] public float InteractionRadius = 2f;
         [field: SerializeField] public float InteractionDistance = 10f;
         [field: SerializeField] public Attack[] Attacks {get; private set;}
@@ -46,16 +56,12 @@ namespace RPG.StateMachine.Player
         {
             Health.OnTakeDamage += HandleTakeDamage;
             Health.OnDie += HandleDeath;
-            InputReader.PressIEvent += HandleInventory;
-            InputReader.PressJEvent += HandleQuestlog;
         }
 
         private void OnDisable() 
         {
             Health.OnTakeDamage -= HandleTakeDamage;
             Health.OnDie -= HandleDeath;
-            InputReader.PressIEvent -= HandleInventory;
-            InputReader.PressJEvent -= HandleQuestlog;
         }
 
         private void HandleTakeDamage()
@@ -65,15 +71,6 @@ namespace RPG.StateMachine.Player
         private void HandleDeath()
         {
             SwitchState(new PlayerDeadState(this));
-        }
-        private void HandleInventory()
-        {
-            SwitchState(new PlayerInventoryState(this));
-        }
-
-        private void HandleQuestlog()
-        {
-            SwitchState(new PlayerQuestlogState(this));
         }
 
         public void SetDodgeTime(float time)
@@ -95,6 +92,31 @@ namespace RPG.StateMachine.Player
         public void SetAttackDamage(float attackDamage)
         {
             AttackDamage = attackDamage;
+        }
+
+        public void SetStatDamageBonus(statDamageBonus statDamageBonus)
+        {
+            StatDamageBonus = statDamageBonus;
+        }
+
+        private float GetDamageBonus(statDamageBonus statDamageBonus)
+        {
+            if(statDamageBonus == statDamageBonus.Strength)
+            {
+                return Character.Strength.Value;
+            }
+            else if(statDamageBonus == statDamageBonus.Dexterity)
+            {
+                return Character.Dexterity.Value;
+            }
+            else if(statDamageBonus == statDamageBonus.Charisma)
+            {
+                return Character.Charisma.Value;
+            }
+            else
+            {
+                return 0;
+            }
         }
 
         public object CaptureState()

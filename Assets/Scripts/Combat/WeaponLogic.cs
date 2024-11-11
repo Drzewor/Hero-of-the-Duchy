@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using RPG.StateMachine;
@@ -11,6 +12,7 @@ namespace RPG.Combat
         [SerializeField] public Projectile projectilePrefab;
         private float damage = 0;
         private float knockback = 0;
+        public event Action<string> OnKill;
         
 
         private List<Collider> alreadyCollidedWith = new List<Collider>();
@@ -23,6 +25,10 @@ namespace RPG.Combat
             if(other.TryGetComponent<Health>(out Health health))
             {
                 health.DealDamage(damage, mycollider.gameObject);
+                if(health.isDead)
+                {
+                    OnKill?.Invoke(health.gameObject.name);
+                }
             }
             if(other.TryGetComponent<ForceReceiver>(out ForceReceiver forceReceiver))
             {
@@ -31,15 +37,15 @@ namespace RPG.Combat
             }
         }
 
-        public void SetAttack(float damage, float knockback)
+        public void SetAttack(float damage, float damageStatBonus, float knockback)
         {
-            this.damage = damage;
+            this.damage = damage + damageStatBonus;
             this.knockback = knockback;
         }
 
-        public void SetAttack(float damage, float knockback, float damageMultiplier)
+        public void SetAttack(float damage, float damageStatBonus, float knockback, float damageMultiplier)
         {
-            this.damage = damage * damageMultiplier;
+            this.damage = (damage+damageStatBonus) * damageMultiplier;
             this.knockback = knockback;
         }
 

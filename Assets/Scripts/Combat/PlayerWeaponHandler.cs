@@ -35,6 +35,7 @@ namespace RPG.Combat
             weaponInstance = Instantiate(weapon.weaponPrefab, weaponSlot).gameObject;
             weaponLogic = weaponInstance.GetComponentInChildren<WeaponLogic>();
             weaponLogic.SetMyCollider(stateMachine.GetComponent<Collider>());
+            weaponLogic.OnKill += HandleKill;
             SetWeapon();
             DisableWepon();
         }
@@ -67,7 +68,14 @@ namespace RPG.Combat
 
             stateMachine.SetAttackDamage(equippedWeapon.weaponDamage);
 
+            stateMachine.SetStatDamageBonus(equippedWeapon.statDamageBonus);
+
             stateMachine.SetAttacks(equippedWeapon.attacks);
+        }
+
+        private void HandleKill(string name)
+        {
+            stateMachine.QuestManager.TryToAdvanceQuests(name);
         }
     }
 }

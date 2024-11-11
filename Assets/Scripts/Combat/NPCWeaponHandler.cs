@@ -64,6 +64,8 @@ namespace RPG.Combat
 
             stateMachine.SetAttackRange(weaponRange);
 
+            stateMachine.SetStatDamageBonus(weapon.statDamageBonus);
+
             stateMachine.SetAttackDamage(weapon.weaponDamage);
 
             stateMachine.SetAttacks(weapon.attacks);

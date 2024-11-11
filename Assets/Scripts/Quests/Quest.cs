@@ -4,20 +4,33 @@ using UnityEngine;
 
 namespace RPG.Quests
 {
-    [CreateAssetMenu(fileName = "New Quest", menuName = "RPG/Quest", order = 0)]
+    [CreateAssetMenu(fileName = "New Quest", menuName = "RPG/Quests/Quest", order = 0)]
     public class Quest : ScriptableObject
     {
-        [SerializeField] string[] objectives;
+        [SerializeField] private string questTitle;
+        [SerializeField] public List<QuestStep> steps;
+        [SerializeField] private Quest nextQuest;
+        public bool isFinished = false;
 
         public string GetTitle()
         {
-            return name;
+            return questTitle;
         }
 
-        public int GetObjectiveCount()
+        public QuestStep GetQuestStep(int step)
         {
-            return objectives.Length;
+            return steps[step];
         }
 
+        public Quest GetNextQuest()
+        {
+            if(nextQuest == null) return null;
+            return nextQuest;
+        }
+
+        public void EndQuest()
+        {
+            isFinished = true;
+        }
     }
 }

@@ -38,6 +38,7 @@ MonoBehaviour:
   weaponPrefab: {fileID: 5269975454966099300, guid: 836479a6458ef8949bcf39c9245dea2b, type: 3}
   weaponDamage: 20
   npcAttackRange: 20
+  statDamageBonus: 1
   attacks:
   - <AnimationName>k__BackingField: BowShoot1
     <TransitionDuration>k__BackingField: 0.1

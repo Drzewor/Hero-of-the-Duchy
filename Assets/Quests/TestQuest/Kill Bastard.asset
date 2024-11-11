@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1459b79a3c78dbf47b87357912de4f27, type: 3}
+  m_Name: Kill Bastard
+  m_EditorClassIdentifier: 
+  questTitle: Kill Bastard
+  steps:
+  - {fileID: 11400000, guid: c1ff529013372ac41a63ac3008bd9553, type: 2}
+  - {fileID: 11400000, guid: 7c1f46948c640204d8966dff6bab39ef, type: 2}
+  - {fileID: 11400000, guid: d2e79f3060b47344aae4719f1db84987, type: 2}
+  nextQuest: {fileID: 0}
+  isFinished: 1

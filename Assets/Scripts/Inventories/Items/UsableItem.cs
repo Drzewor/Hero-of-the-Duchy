@@ -7,7 +7,7 @@ public class UsableItem : Item
 {
     public bool IsConsumable = true;
     public List<UsableItemEffect> Effects;
-    public virtual void Use(Character character)
+    public virtual void Use(PlayerCharacter character)
     {
         foreach(UsableItemEffect effect in Effects)
         {

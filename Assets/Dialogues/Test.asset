@@ -89,6 +89,7 @@ MonoBehaviour:
   - {fileID: 9041894891455671905}
   - {fileID: -6412158148520948668}
   - {fileID: -6872091733843141712}
+  - {fileID: 6289160138670997580}
   newNodeOffset: {x: 250, y: 0}
 --- !u!114 &666100268150239172
 MonoBehaviour:
@@ -112,6 +113,29 @@ MonoBehaviour:
     serializedVersion: 2
     x: 9
     y: 108
+    width: 200
+    height: 100
+  OnEnterAction: 
+  onExitAction: 
+--- !u!114 &6289160138670997580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 4e278a3f-e873-437f-bb20-0217c8c08ed2
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: O! To fajnie.
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 519
+    y: 225
     width: 200
     height: 100
   OnEnterAction: 
@@ -153,12 +177,13 @@ MonoBehaviour:
   m_Name: 5eb55986-ff36-42b2-9011-76e557438977
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: test 3
-  children: []
+  text: "Zrobi\u0142em zadanie"
+  children:
+  - 4e278a3f-e873-437f-bb20-0217c8c08ed2
   rect:
     serializedVersion: 2
-    x: 265
-    y: 214
+    x: 280
+    y: 226
     width: 200
     height: 100
   OnEnterAction: 

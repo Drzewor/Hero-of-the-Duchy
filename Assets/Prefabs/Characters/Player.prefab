@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: 3118335481621493684}
   - component: {fileID: 2476743830239232745}
   - component: {fileID: 8836872206651184952}
+  - component: {fileID: 1835784104301947245}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -233,6 +234,7 @@ MonoBehaviour:
   <LedgeDetector>k__BackingField: {fileID: 8046532520204066680}
   <Character>k__BackingField: {fileID: 1337029670376892876}
   <Stamina>k__BackingField: {fileID: 8836872206651184952}
+  <QuestManager>k__BackingField: {fileID: 1835784104301947245}
   <FreeLookMovmentSpeed>k__BackingField: 6
   <TargetingMovmentSpeed>k__BackingField: 4.5
   <SprintMovmentSpeed>k__BackingField: 6
@@ -424,6 +426,18 @@ MonoBehaviour:
   maxStamina: 100
   regenSpeed: 8
   RegenCooldown: 3
+--- !u!114 &1835784104301947245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602087484127655058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76e51e1085eded0488808a06b8537868, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2008224401525974266
 GameObject:
   m_ObjectHideFlags: 0

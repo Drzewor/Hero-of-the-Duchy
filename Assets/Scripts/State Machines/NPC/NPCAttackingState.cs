@@ -21,7 +21,7 @@ namespace RPG.StateMachine.NPC
         {
             FaceTarget();
 
-            stateMachine.WeaponLogic.SetAttack(stateMachine.AttackDamage, attack.Knockback);
+            stateMachine.WeaponLogic.SetAttack(stateMachine.AttackDamage, stateMachine.StatDamageBonus,attack.Knockback);
             stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
         }
 

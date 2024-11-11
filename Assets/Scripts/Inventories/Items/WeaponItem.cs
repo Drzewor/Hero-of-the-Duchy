@@ -1,16 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
-//using RPG.Inventory;
 using UnityEngine;
 
 namespace RPG.Combat
 {
+    [System.Serializable] 
+    public enum statDamageBonus
+    {
+        Strength = 0,
+        Dexterity = 1,
+        Charisma = 2,
+        none = 3
+    }
+
     [CreateAssetMenu(fileName = "Weapon", menuName = "RPG/Weapon")]
     public class WeaponItem : EquippableItem
     {
         public GameObject weaponPrefab;
         public float weaponDamage = 0;
         public float npcAttackRange = 2;
+        public statDamageBonus statDamageBonus;
         public Attack[] attacks;
 
         public override string GetItemType()

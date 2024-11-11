@@ -26,6 +26,8 @@ namespace RPG.StateMachine.Player
             stateMachine.InputReader.TargetEvent += OnTarget;
             stateMachine.InputReader.JumpEvent += OnJump;
             stateMachine.InputReader.InteractEvent += OnInteract;
+            stateMachine.InputReader.PressIEvent += HandleInventory;
+            stateMachine.InputReader.PressJEvent += HandleQuestlog;
 
             stateMachine.Animator.SetFloat(FreelookSpeedHash,0);
 
@@ -72,6 +74,8 @@ namespace RPG.StateMachine.Player
             stateMachine.InputReader.TargetEvent -= OnTarget;
             stateMachine.InputReader.JumpEvent -= OnJump;
             stateMachine.InputReader.InteractEvent -= OnInteract;
+            stateMachine.InputReader.PressIEvent -= HandleInventory;
+            stateMachine.InputReader.PressJEvent -= HandleQuestlog;
         }
 
         protected void OnTarget()
@@ -125,6 +129,16 @@ namespace RPG.StateMachine.Player
                     }
                 }
             }
+        }
+
+        protected void HandleInventory()
+        {
+            stateMachine.SwitchState(new PlayerInventoryState(stateMachine));
+        }
+
+        protected void HandleQuestlog()
+        {
+            stateMachine.SwitchState(new PlayerQuestlogState(stateMachine));
         }
     }
 

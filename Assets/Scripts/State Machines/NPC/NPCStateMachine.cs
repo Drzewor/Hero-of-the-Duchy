@@ -18,9 +18,11 @@ namespace RPG.StateMachine.NPC
         [field: SerializeField] public WeaponLogic WeaponLogic {get; private set;}
         [field: SerializeField] public Health Health {get; private set;}
         [field: SerializeField] public Target Target {get; private set;}
+        [field: SerializeField] public Character Character {get; private set;}
         [field: SerializeField] public float MovementSpeed {get; private set;}
         [field: SerializeField] public float AttackRange {get; private set;}
         [field: SerializeField] public float AttackDamage {get; private set;} = 10;
+        [field: SerializeField] public float StatDamageBonus {get; private set;} = 0;
         [field: SerializeField] public float AttackKnockback {get; private set;} = 0;  
         [field: SerializeField] public float MaxCircleRange {get; private set;} = 10;  
         [field: SerializeField] public float MinCircleRange {get; private set;} = 5.5f;  
@@ -87,6 +89,29 @@ namespace RPG.StateMachine.NPC
         public void SetGuardingPosition(Vector3 GuardingPoint)
         {
             GuardingPosition = GuardingPoint;
+        }
+
+        public void SetStatDamageBonus(statDamageBonus statDamageBonus)
+        {
+            if(statDamageBonus == statDamageBonus.Strength)
+            {
+                StatDamageBonus = Character.Strength.Value;
+                return;
+            }
+            else if(statDamageBonus == statDamageBonus.Dexterity)
+            {
+                StatDamageBonus = Character.Dexterity.Value;
+                return;
+            }
+            else if(statDamageBonus == statDamageBonus.Charisma)
+            {
+                StatDamageBonus = Character.Charisma.Value;
+                return;
+            }
+            else
+            {
+                StatDamageBonus = 0;
+            }
         }
 
         public object CaptureState()

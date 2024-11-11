@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using RPG.CharacterStats;
 using RPG.Saving;
 using RPG.StateMachine.NPC;
@@ -19,7 +20,7 @@ namespace RPG.Combat
         public bool isDead = false;
         private bool isBlocking = false;
         private bool isDodging = false;
-        [SerializeField] CharacterAttributes characterAttr;
+        [SerializeField] Character character;
         
         private void Awake() 
         {
@@ -37,7 +38,7 @@ namespace RPG.Combat
             this.isDodging = isDodging;
         }
 
-        public void DealDamage(float damage, GameObject dealer)
+        public void DealDamage(float damage, GameObject dealer, float armourPiercing = 0, bool isMagic = false)
         {
             if(healthPoints == 0) return;
             if(isDodging) return;
@@ -49,6 +50,19 @@ namespace RPG.Combat
                 {
                     return;
                 } 
+            }
+
+            if(isMagic)
+            {
+                damage = Mathf.Max(damage-Mathf.Max(character.MagicArmour.Value - armourPiercing,0),0);
+                if(damage <= 0)
+                {
+                    return;
+                }
+            }
+            else
+            {
+                damage = Mathf.Max(damage-Mathf.Max(character.WeaponArmour.Value - armourPiercing,0),5);
             }
 
             healthPoints = Mathf.Max(healthPoints-damage, 0f);
@@ -87,7 +101,11 @@ namespace RPG.Combat
             if(healthPoints <= 0)
             {
                 isDead = true;
-            } 
+            }
+            else
+            {
+                isDead = false;
+            }
 
             if(TryGetComponent(out NPCStateMachine npcStateMachine))
             {

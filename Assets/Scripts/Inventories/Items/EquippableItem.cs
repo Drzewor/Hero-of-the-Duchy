@@ -51,7 +51,7 @@ public class EquippableItem : Item
         Destroy(this);
     }
 
-    public void Equip(Character c)
+    public void Equip(PlayerCharacter c)
     {
         if(MaxHealthBonus != 0) 
             c.MaxHealth.AddModifier(new StatModifier(MaxHealthBonus, statModType.Flat, this)); 
@@ -94,7 +94,7 @@ public class EquippableItem : Item
             c.ArmourPiercing.AddModifier(new StatModifier(ArmourPiercingPercentBonus, statModType.PercentAdd, this));
     }
 
-    public void Unequip(Character c)
+    public void Unequip(PlayerCharacter c)
     {
         c.MaxHealth.RemoveAllModifiersFromSource(this);
         c.MaxMana.RemoveAllModifiersFromSource(this);

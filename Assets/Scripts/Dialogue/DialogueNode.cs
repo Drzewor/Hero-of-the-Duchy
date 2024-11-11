@@ -12,8 +12,9 @@ namespace RPG.Dialogue
         [SerializeField] private string text;
         [SerializeField] private List<string> children = new List<string>();
         [SerializeField] private Rect rect = new Rect(0,0,200,100);
-        [SerializeField] private string OnEnterAction;
-        [SerializeField] private string onExitAction;
+        [SerializeField] private List<string> OnEnterAction;
+        [SerializeField] private List<string> onExitAction;
+        [SerializeField] private Condition condition;
 
         public Rect GetRect()
         {
@@ -35,14 +36,19 @@ namespace RPG.Dialogue
             return isPlayerSpeaking;
         }
 
-        public string GetOnEnterAction()
+        public List<string> GetOnEnterAction()
         {
             return OnEnterAction;
         }
 
-        public string GetOnExitAction()
+        public List<string> GetOnExitAction()
         {
             return onExitAction;
+        }
+
+        public bool CheckCondition(IEnumerable<IPredicateEvaluator> evaluators)
+        {
+            return condition.Check(evaluators);
         }
 
 #if UNITY_EDITOR

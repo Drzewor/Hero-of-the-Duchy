@@ -1,0 +1,285 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8875400952850514937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: baea0a3a-4d1b-41d5-bc26-d2bfb6252273
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Good.
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 556
+    y: 122
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &-6779151017581638894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 5773dda4-c269-458b-84c6-3907920f42d3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Hello!
+  children:
+  - 8e7f468d-ab52-4810-a5fc-4e10a2eab345
+  - 5c122171-885d-47f6-afd9-c77c24983a0f
+  - 958ecbe4-9989-42c6-b45f-2ebe88e4a9c2
+  - 8d47f66e-fc23-4a31-a69e-340a1a522b01
+  rect:
+    serializedVersion: 2
+    x: 24
+    y: 116
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &-3240730463469668352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 958ecbe4-9989-42c6-b45f-2ebe88e4a9c2
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Hello
+  children:
+  - 940ad9fd-0119-496a-b361-d2fe302e073e
+  rect:
+    serializedVersion: 2
+    x: 308
+    y: 226
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and:
+    - or:
+      - predicate: CompletedQuest
+        parameters:
+        - Kill Bastard
+        negate: 0
+--- !u!114 &-2560076953979787356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 940ad9fd-0119-496a-b361-d2fe302e073e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: It's my favorite murderer!
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 559
+    y: 226
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f0543d552de974980a7a95047de48f, type: 3}
+  m_Name: Test QuestGiver
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -6779151017581638894}
+  - {fileID: 4134143443440221670}
+  - {fileID: 3656358725176473949}
+  - {fileID: 1892613693042935912}
+  - {fileID: -8875400952850514937}
+  - {fileID: -3240730463469668352}
+  - {fileID: -2560076953979787356}
+  - {fileID: 7087480201640587216}
+  - {fileID: 1066880144610664114}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &1066880144610664114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: bb95c64a-2d42-4cea-9283-37ea77ff29bc
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Good for you!
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 562
+    y: 340
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &1892613693042935912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 5c122171-885d-47f6-afd9-c77c24983a0f
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I Kill thoes Bastards.
+  children:
+  - baea0a3a-4d1b-41d5-bc26-d2bfb6252273
+  rect:
+    serializedVersion: 2
+    x: 308
+    y: 122
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction:
+  - CompleteQuestKillBastards
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Kill Bastard
+        negate: 0
+    - or:
+      - predicate: CompletedQuest
+        parameters:
+        - Kill Bastard
+        negate: 1
+--- !u!114 &3656358725176473949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: e90fb92b-8ca0-436e-81e3-8b297f7304d5
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Ok. You see that bastard in green? Kill him!
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 550
+    y: 17
+    width: 200
+    height: 100
+  OnEnterAction:
+  - GiveQuestKillBastards
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &4134143443440221670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 8e7f468d-ab52-4810-a5fc-4e10a2eab345
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I want quest
+  children:
+  - e90fb92b-8ca0-436e-81e3-8b297f7304d5
+  rect:
+    serializedVersion: 2
+    x: 313
+    y: 17
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and:
+    - or:
+      - predicate: HasQuest
+        parameters:
+        - Kill Bastard
+        negate: 1
+--- !u!114 &7087480201640587216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 8d47f66e-fc23-4a31-a69e-340a1a522b01
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I have gold coin!
+  children:
+  - bb95c64a-2d42-4cea-9283-37ea77ff29bc
+  rect:
+    serializedVersion: 2
+    x: 312
+    y: 339
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and:
+    - or:
+      - predicate: HasItem
+        parameters:
+        - 14c7e927ef4f675469367f6e8ba70e21
+        negate: 0

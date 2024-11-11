@@ -19,7 +19,7 @@ namespace RPG.StateMachine.Player
 
         public override void Enter()
         {
-            stateMachine.WeaponLogic.SetAttack(stateMachine.AttackDamage, attack.Knockback, attack.DamageMultiplier);
+            stateMachine.WeaponLogic.SetAttack(stateMachine.AttackDamage, stateMachine.DamageBonus, attack.Knockback, attack.DamageMultiplier);
             stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
         }
 
@@ -45,7 +45,6 @@ namespace RPG.StateMachine.Player
             {
                 ReturnToLocomotion();
             }
-            //TryApplyforce();
             previousFrameTime = normalizedTime;
         }
 

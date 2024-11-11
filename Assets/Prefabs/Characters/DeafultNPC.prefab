@@ -208,6 +208,7 @@ GameObject:
   - component: {fileID: 3986924407807926569}
   - component: {fileID: 6079956189316156445}
   - component: {fileID: 4946407024067824553}
+  - component: {fileID: 768196888239681938}
   m_Layer: 0
   m_Name: DeafultNPC
   m_TagString: Untagged
@@ -257,10 +258,22 @@ MonoBehaviour:
   <WeaponLogic>k__BackingField: {fileID: 0}
   <Health>k__BackingField: {fileID: 2041321274726584334}
   <Target>k__BackingField: {fileID: 535129523262198457}
+  <Character>k__BackingField: {fileID: 768196888239681938}
   <MovementSpeed>k__BackingField: 3
   <AttackRange>k__BackingField: 2
   <AttackDamage>k__BackingField: 25
+  <StatDamageBonus>k__BackingField: 0
   <AttackKnockback>k__BackingField: 25
+  <MaxCircleRange>k__BackingField: 10
+  <MinCircleRange>k__BackingField: 5.5
+  <MaxCirclingTime>k__BackingField: 4
+  <MinCirclingTime>k__BackingField: 0.5
+  <ChargeRange>k__BackingField: 5
+  <DodgeDuration>k__BackingField: 1
+  <DodgeDistance>k__BackingField: 4
+  <GuardingPosition>k__BackingField: {x: 0, y: 0, z: 0}
+  <MaxSuspiciousTime>k__BackingField: 2
+  <MinSuspiciousTime>k__BackingField: 6
   <Attacks>k__BackingField: []
 --- !u!143 &9049456146632275658
 CharacterController:
@@ -294,7 +307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   isDead: 0
-  characterAttr: {fileID: 0}
+  character: {fileID: 768196888239681938}
 --- !u!95 &62897069713328634
 Animator:
   serializedVersion: 3
@@ -416,6 +429,36 @@ MonoBehaviour:
   defaultHands: {fileID: 11400000, guid: addfd07a3afb7024da9f6e3e06c0008d, type: 2}
   defaultFoots: {fileID: 11400000, guid: 19347b57c11189e43acdcc6d1bebe144, type: 2}
   defaultShield: {fileID: 0}
+--- !u!114 &768196888239681938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215947765747640045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c816c927abb0a74580b3db5dee8ddce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth:
+    BaseValue: 100
+  MaxMana:
+    BaseValue: 10
+  Strength:
+    BaseValue: 5
+  Dexterity:
+    BaseValue: 5
+  Charisma:
+    BaseValue: 5
+  WeaponArmour:
+    BaseValue: 0
+  MagicArmour:
+    BaseValue: 0
+  ProjectileArmour:
+    BaseValue: 0
+  ArmourPiercing:
+    BaseValue: 0
 --- !u!1 &1752834372638464446
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,6 +615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  lastTargetPosition: {x: 0, y: 0, z: 0}
 --- !u!54 &8707441999843624698
 Rigidbody:
   m_ObjectHideFlags: 0

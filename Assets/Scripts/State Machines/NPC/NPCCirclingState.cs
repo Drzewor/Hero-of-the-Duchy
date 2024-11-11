@@ -50,7 +50,10 @@ public class NPCCirclingState : NPCBaseState
 
     public override void Exit()
     {
-        stateMachine.Agent.ResetPath();
+        if(stateMachine.Agent.isOnNavMesh)
+        {
+            stateMachine.Agent.ResetPath();
+        }
     }
 
     private void MoveSideWay(float deltaTime)

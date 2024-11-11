@@ -86,6 +86,20 @@ public abstract class ItemContainer : MonoBehaviour, IItemContainer, ISaveable
         return false;
     }
 
+    
+    public virtual bool HasItem(string itemID)
+    {
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            Item item = itemSlots[i].Item;
+            if(item != null && item.ID == itemID)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public virtual Item RemoveItem(string itemID)
     {
         for (int i = 0; i < itemSlots.Length; i++)
@@ -166,4 +180,5 @@ public abstract class ItemContainer : MonoBehaviour, IItemContainer, ISaveable
             }
         }
     }
+
 }
