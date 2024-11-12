@@ -12,7 +12,7 @@ public class Pickup : MonoBehaviour, IInteractable
     
     public void Iteraction(GameObject player)
     {
-        inventory = player.GetComponent<PlayerStateMachine>().Character.GetInventory();
+        inventory = player.GetComponent<PlayerStateMachine>().Character.inventory;
         Item itemCopy = item.GetCopy();
         for(int i = 0; i < amount;)
         {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,7 @@ namespace RPG.Quests
         [SerializeField] private string questTitle;
         [SerializeField] public List<QuestStep> steps;
         [SerializeField] private Quest nextQuest;
+        [SerializeField] public string id;
         public bool isFinished = false;
 
         public string GetTitle()

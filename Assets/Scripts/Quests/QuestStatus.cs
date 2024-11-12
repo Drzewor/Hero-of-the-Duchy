@@ -8,8 +8,8 @@ namespace RPG.Quests
     public class QuestStatus 
     {
         private Quest quest;
-        private int stepInProgress;
-        private int progressOfStep;
+        public int stepInProgress;
+        public int progressOfStep;
 
         public QuestStatus(Quest quest, int stepInProgress = 0, int progressOfStep = 0)
         {
@@ -17,10 +17,24 @@ namespace RPG.Quests
             this.quest.isFinished = false;
             this.stepInProgress = stepInProgress;
             this.progressOfStep = progressOfStep;
-            foreach(QuestStep questStep in quest.steps)
+            for(int i = 0; i < quest.steps.Count; i++)
             {
-                questStep.isFinished = false;
-                questStep.SetStepProgress(this.progressOfStep);
+                if(i < stepInProgress)
+                {
+                    quest.steps[i].isFinished = true;
+                    continue;
+                }
+                else if (i == stepInProgress)
+                {
+                    quest.steps[i].isFinished = false;
+                    quest.steps[i].SetStepProgress(this.progressOfStep);
+                    continue;
+                }
+                else if(i > stepInProgress)
+                {
+                    quest.steps[i].isFinished = false;
+                }
+                
             }
         }
 
@@ -36,9 +50,11 @@ namespace RPG.Quests
 
         public void TryMoveToNextQuestStep()
         {
+            progressOfStep = quest.GetQuestStep(stepInProgress).GetStepProgress();
             if(quest.GetQuestStep(stepInProgress).isFinished)
             {
                 stepInProgress += 1;
+                progressOfStep = 0;
             }
             if(stepInProgress >= quest.steps.Count)
             {

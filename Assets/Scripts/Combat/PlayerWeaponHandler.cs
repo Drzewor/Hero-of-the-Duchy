@@ -59,7 +59,7 @@ namespace RPG.Combat
                 weaponLogic.LaunchProjectile(stateMachine.gameObject);
                 return;
             }
-            weaponLogic.LaunchProjectile(stateMachine.gameObject,stateMachine.Targeter.CurrentTarget.gameObject);
+            weaponLogic.LaunchProjectile(stateMachine.gameObject, stateMachine.Targeter.CurrentTarget.gameObject);
         }
 
         private void SetWeapon()
@@ -73,8 +73,9 @@ namespace RPG.Combat
             stateMachine.SetAttacks(equippedWeapon.attacks);
         }
 
-        private void HandleKill(string name)
+        public void HandleKill(string name)
         {
+            Debug.Log("Go");
             stateMachine.QuestManager.TryToAdvanceQuests(name);
         }
     }

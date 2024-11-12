@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,6 +26,7 @@ namespace RPG.Combat
         private void OnCollisionEnter(Collision other) 
         {
             if(other.gameObject == shooter) return;
+            shooter.TryGetComponent<PlayerWeaponHandler>(out PlayerWeaponHandler handler);
             Health health = other.gameObject.GetComponent<Health>();
             if(health == null)
             {
@@ -32,6 +34,10 @@ namespace RPG.Combat
                 return;
             }
             health.DealDamage(damage, shooter);
+            if(health.isDead)
+            {
+                handler?.HandleKill(health.gameObject.name);
+            }
             Destroy(gameObject);
         }
 

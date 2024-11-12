@@ -49,20 +49,25 @@ namespace RPG.Combat
             this.knockback = knockback;
         }
 
-        public void LaunchProjectile(GameObject shooter, GameObject target)
+        public Projectile LaunchProjectile(GameObject shooter, GameObject target)
         {
-
-            projectilePrefab.damage = damage;
             projectilePrefab.target = target;
             projectilePrefab.shooter = shooter;
-            Instantiate(projectilePrefab,gameObject.transform.position,shooter.transform.rotation);
-        }
-        public void LaunchProjectile( GameObject shooter)
-        {
             projectilePrefab.damage = damage;
+
+            Instantiate(projectilePrefab,gameObject.transform.position,shooter.transform.rotation);
+
+            return projectilePrefab.GetComponent<Projectile>();
+        }
+        public Projectile LaunchProjectile( GameObject shooter)
+        {
             projectilePrefab.target = null;
             projectilePrefab.shooter = shooter;
+            projectilePrefab.damage = damage;
+
             Instantiate(projectilePrefab,gameObject.transform.position,shooter.transform.rotation);
+
+            return projectilePrefab.GetComponent<Projectile>();
         }
 
         public void SetMyCollider(Collider mycollider)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,6 @@ namespace RPG.Quests
         protected void FinishQuestStep()
         {
             isFinished = true;
-            Debug.Log($"End of queststep {name}");
         }
 
         public string GetDescription()
@@ -29,6 +29,11 @@ namespace RPG.Quests
             {
                 FinishQuestStep();
             }
+        }
+
+        public int GetStepProgress()
+        {
+            return stepProgress;
         }
 
         public abstract void TryToAdvance(object argument);
