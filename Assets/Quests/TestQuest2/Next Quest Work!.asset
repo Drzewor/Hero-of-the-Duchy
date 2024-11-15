@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba34d6d71288ec04e86ae4027174e843, type: 3}
-  m_Name: QuestDataBase
+  m_Script: {fileID: 11500000, guid: 1459b79a3c78dbf47b87357912de4f27, type: 3}
+  m_Name: Next Quest Work!
   m_EditorClassIdentifier: 
-  quests:
-  - {fileID: 11400000, guid: a9429fde786e5c2439c580c048697adc, type: 2}
-  - {fileID: 11400000, guid: bfcbbfb7ebc9d07409aff4918d8c949b, type: 2}
+  questTitle: Next Quest Work!
+  steps:
+  - {fileID: 11400000, guid: ca4221ba02ee9344383583364eb8a6f5, type: 2}
+  nextQuest: {fileID: 0}
+  id: Next Quest Work!
+  isFinished: 0

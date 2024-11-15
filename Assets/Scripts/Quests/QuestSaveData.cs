@@ -12,12 +12,14 @@ namespace RPG.Quests
         public string questID;
         public int stepInProgress;
         public int progressOfStep;
+        public bool isFinished;
 
-        public QuestSaveData(string questID, int stepInProgress, int progressOfStep)
+        public QuestSaveData(string questID, int stepInProgress, int progressOfStep, bool isFinished)
         {
             this.questID = questID;
             this.stepInProgress = stepInProgress;
             this.progressOfStep = progressOfStep;
+            this.isFinished = isFinished;
         }
     }
 

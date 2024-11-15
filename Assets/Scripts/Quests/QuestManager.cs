@@ -29,11 +29,19 @@ namespace RPG.Quests
         public void TryToAdvanceQuests(object argument)
         {
             if(quests.Count == 0) return;
-            foreach(QuestStatus questStatus in quests)
+
+            for(int i = 0; i < quests.Count; i++)
             {
-                if(questStatus.GetQuest().isFinished) return;
-                questStatus.GetCurrentQuestStep().TryToAdvance(argument);
-                questStatus.TryMoveToNextQuestStep();
+                if(quests[i].GetQuest().isFinished) continue;
+                quests[i].GetCurrentQuestStep().TryToAdvance(argument);
+                quests[i].TryMoveToNextQuestStep();
+
+                if(quests[i].GetQuest().isFinished)
+                {
+                    Quest nextQuest = quests[i].GetQuest().GetNextQuest();
+                    if(nextQuest == null) continue;
+                    AddQuest(nextQuest);
+                }
             }
         }
 
@@ -73,7 +81,7 @@ namespace RPG.Quests
             foreach(QuestStatus status in quests)
             {
                 Debug.Log(status.progressOfStep);
-                QuestSaveData questSave = new QuestSaveData(status.GetQuest().id, status.stepInProgress, status.progressOfStep);
+                QuestSaveData questSave = new QuestSaveData(status.GetQuest().id, status.stepInProgress, status.progressOfStep, status.GetQuest().isFinished);
                 questSaveDatas.Add(questSave);
             }
 
@@ -92,12 +100,13 @@ namespace RPG.Quests
 
             foreach(QuestSaveData savedQuest in saveData.questSaveDatas)
             {
-                Debug.Log($"step{savedQuest.stepInProgress} progress{savedQuest.progressOfStep}");
                 QuestStatus questStatus = new QuestStatus
                 (
                     questDataBase.GetQuestById(savedQuest.questID), 
                     savedQuest.stepInProgress, 
-                    savedQuest.progressOfStep
+                    savedQuest.progressOfStep,
+                    savedQuest.isFinished 
+                    
                 );
                 quests.Add(questStatus);
             }

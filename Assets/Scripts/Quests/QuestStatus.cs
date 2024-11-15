@@ -11,10 +11,10 @@ namespace RPG.Quests
         public int stepInProgress;
         public int progressOfStep;
 
-        public QuestStatus(Quest quest, int stepInProgress = 0, int progressOfStep = 0)
+        public QuestStatus(Quest quest, int stepInProgress = 0, int progressOfStep = 0, bool isQuestFinished = false)
         {
             this.quest = quest;
-            this.quest.isFinished = false;
+            this.quest.isFinished = isQuestFinished;
             this.stepInProgress = stepInProgress;
             this.progressOfStep = progressOfStep;
             for(int i = 0; i < quest.steps.Count; i++)

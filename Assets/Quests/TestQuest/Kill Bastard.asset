@@ -17,6 +17,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c1ff529013372ac41a63ac3008bd9553, type: 2}
   - {fileID: 11400000, guid: 7c1f46948c640204d8966dff6bab39ef, type: 2}
   - {fileID: 11400000, guid: d2e79f3060b47344aae4719f1db84987, type: 2}
-  nextQuest: {fileID: 0}
+  nextQuest: {fileID: 11400000, guid: bfcbbfb7ebc9d07409aff4918d8c949b, type: 2}
   id: KillBastard
   isFinished: 0
