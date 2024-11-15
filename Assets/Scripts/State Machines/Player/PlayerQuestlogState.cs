@@ -11,7 +11,7 @@ public class PlayerQuestlogState : PlayerBaseState
     public override void Enter()
     {
         ShowMouseCursor();
-        stateMachine.Character.QuestWindow.SetActive(true);
+        stateMachine.InventoryManager.QuestWindow.SetActive(true);
 
         stateMachine.InputReader.PressJEvent += OnExit;
         stateMachine.InputReader.PressESCEvent += OnExit;
@@ -22,7 +22,7 @@ public class PlayerQuestlogState : PlayerBaseState
     public override void Exit()
     {
         HideMouseCursor();
-        stateMachine.Character.QuestWindow.SetActive(false);
+        stateMachine.InventoryManager.QuestWindow.SetActive(false);
 
         stateMachine.InputReader.PressJEvent -= OnExit;
         stateMachine.InputReader.PressESCEvent -= OnExit;

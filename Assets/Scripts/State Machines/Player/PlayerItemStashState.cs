@@ -17,8 +17,8 @@ public class PlayerItemStashState : PlayerBaseState
     {
         ShowMouseCursor();
         itemsParent.gameObject.SetActive(true);
-        stateMachine.Character.inventory.gameObject.SetActive(true);
-        stateMachine.Character.OpenItemContainer(container);
+        stateMachine.InventoryManager.inventory.gameObject.SetActive(true);
+        stateMachine.InventoryManager.OpenItemContainer(container);
 
         stateMachine.InputReader.PressESCEvent += OnExit;
         stateMachine.InputReader.InteractEvent += OnExit;
@@ -32,8 +32,8 @@ public class PlayerItemStashState : PlayerBaseState
     {
         HideMouseCursor();
         itemsParent.gameObject.SetActive(false);
-        stateMachine.Character.inventory.gameObject.SetActive(false);
-        stateMachine.Character.CloseItemContainer(container);
+        stateMachine.InventoryManager.inventory.gameObject.SetActive(false);
+        stateMachine.InventoryManager.CloseItemContainer(container);
 
         stateMachine.InputReader.PressESCEvent -= OnExit;
         stateMachine.InputReader.InteractEvent -= OnExit;

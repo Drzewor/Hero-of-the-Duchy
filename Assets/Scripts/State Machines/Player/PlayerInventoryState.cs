@@ -11,8 +11,8 @@ public class PlayerInventoryState : PlayerBaseState
     public override void Enter()
     {
         ShowMouseCursor();
-        stateMachine.Character.inventory.gameObject.SetActive(true);
-        stateMachine.Character.EquipmentStats.gameObject.SetActive(true);
+        stateMachine.InventoryManager.inventory.gameObject.SetActive(true);
+        stateMachine.InventoryManager.EquipmentStats.gameObject.SetActive(true);
 
         stateMachine.InputReader.PressIEvent += OnExit;
         stateMachine.InputReader.PressESCEvent += OnExit;
@@ -23,8 +23,8 @@ public class PlayerInventoryState : PlayerBaseState
     public override void Exit()
     {
         HideMouseCursor();
-        stateMachine.Character.inventory.gameObject.SetActive(false);
-        stateMachine.Character.EquipmentStats.gameObject.SetActive(false);
+        stateMachine.InventoryManager.inventory.gameObject.SetActive(false);
+        stateMachine.InventoryManager.EquipmentStats.gameObject.SetActive(false);
 
         stateMachine.InputReader.PressIEvent -= OnExit;
         stateMachine.InputReader.PressESCEvent -= OnExit;

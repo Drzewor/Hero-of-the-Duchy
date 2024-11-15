@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace RPG.UI
 {
-    public class StaminaDisplay : MonoBehaviour
+    public class StaminaBar : MonoBehaviour
     {
         [SerializeField] Stamina stamina;
         [SerializeField] GameObject bar;

@@ -11,8 +11,8 @@ public class PlayerCraftingState : PlayerBaseState
     public override void Enter()
     {
         ShowMouseCursor();
-        stateMachine.Character.CraftingWindow.gameObject.SetActive(true);
-        stateMachine.Character.inventory.gameObject.SetActive(true);
+        stateMachine.InventoryManager.CraftingWindow.gameObject.SetActive(true);
+        stateMachine.InventoryManager.inventory.gameObject.SetActive(true);
         stateMachine.InputReader.PressESCEvent += OnExit;
     }
 
@@ -23,8 +23,8 @@ public class PlayerCraftingState : PlayerBaseState
     public override void Exit()
     {
         HideMouseCursor();
-        stateMachine.Character.inventory.gameObject.SetActive(false);
-        stateMachine.Character.CraftingWindow.gameObject.SetActive(false);
+        stateMachine.InventoryManager.inventory.gameObject.SetActive(false);
+        stateMachine.InventoryManager.CraftingWindow.gameObject.SetActive(false);
         stateMachine.InputReader.PressESCEvent -= OnExit;
     }
 

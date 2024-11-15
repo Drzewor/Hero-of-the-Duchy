@@ -73,10 +73,11 @@ namespace RPG.Combat
             stateMachine.SetAttacks(equippedWeapon.attacks);
         }
 
-        public void HandleKill(string name)
+        public void HandleKill(string name, int? exp)
         {
-            Debug.Log("Go");
             stateMachine.QuestManager.TryToAdvanceQuests(name);
+            if(exp == null) return;
+            stateMachine.characterExperience.AddExp((int)exp);
         }
     }
 }

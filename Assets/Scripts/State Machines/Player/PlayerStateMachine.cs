@@ -18,9 +18,11 @@ namespace RPG.StateMachine.Player
         [field: SerializeField] public ForceReceiver ForceReceiver {get; private set;}
         [field: SerializeField] public WeaponLogic WeaponLogic {get; private set;}
         [field: SerializeField] public LedgeDetector LedgeDetector {get; private set;}
-        [field: SerializeField] public PlayerCharacter Character {get; private set;}
+        [field: SerializeField] public InventoryManager InventoryManager {get; private set;}
+        [field: SerializeField] public Character character {get; private set;}
         [field: SerializeField] public Stamina Stamina {get; private set;}
         [field: SerializeField] public QuestManager QuestManager {get; private set;}
+        [field: SerializeField] public CharacterExperience characterExperience {get; private set;}
         [field: SerializeField] public float FreeLookMovmentSpeed {get; private set;}
         [field: SerializeField] public float TargetingMovmentSpeed {get; private set;}
         [field: SerializeField] public float SprintMovmentSpeed {get; private set;}
@@ -103,15 +105,15 @@ namespace RPG.StateMachine.Player
         {
             if(statDamageBonus == statDamageBonus.Strength)
             {
-                return Character.Strength.Value;
+                return character.Strength.Value;
             }
             else if(statDamageBonus == statDamageBonus.Dexterity)
             {
-                return Character.Dexterity.Value;
+                return character.Dexterity.Value;
             }
             else if(statDamageBonus == statDamageBonus.Charisma)
             {
-                return Character.Charisma.Value;
+                return character.Charisma.Value;
             }
             else
             {
@@ -139,8 +141,8 @@ namespace RPG.StateMachine.Player
         private IEnumerator SetInventory()
         {
             yield return new WaitForEndOfFrame();
-            Character.inventory.gameObject.SetActive(false);
-            Character.EquipmentStats.gameObject.SetActive(false);
+            InventoryManager.inventory.gameObject.SetActive(false);
+            InventoryManager.EquipmentStats.gameObject.SetActive(false);
         }
     }
 

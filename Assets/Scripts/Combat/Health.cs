@@ -22,10 +22,17 @@ namespace RPG.Combat
         private bool isDodging = false;
         [SerializeField] Character character;
         
-        private void Awake() 
+        private void Start() 
         {
+            character.OnMaxHealthUpdate += UpdateMaxHealth;
+            maxHealth = character.MaxHealth.Value;
             healthPoints = maxHealth;
-            return;
+        }
+
+        private void UpdateMaxHealth()
+        {
+            healthPoints += character.MaxHealth.Value - maxHealth;
+            maxHealth = character.MaxHealth.Value;
         }
 
         public void SetBlock(bool isBlocking)
@@ -88,6 +95,11 @@ namespace RPG.Combat
         public float GetPercentageOfHealth()
         {
             return healthPoints / maxHealth;
+        }
+
+        public float GeHealthPoints()
+        {
+            return healthPoints;
         }
 
         public object CaptureState()

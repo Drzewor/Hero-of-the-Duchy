@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 6079956189316156445}
   - component: {fileID: 4946407024067824553}
   - component: {fileID: 768196888239681938}
+  - component: {fileID: 8331141790499056076}
   m_Layer: 0
   m_Name: DeafultNPC
   m_TagString: Untagged
@@ -455,10 +456,21 @@ MonoBehaviour:
     BaseValue: 0
   MagicArmour:
     BaseValue: 0
-  ProjectileArmour:
-    BaseValue: 0
   ArmourPiercing:
     BaseValue: 0
+--- !u!114 &8331141790499056076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215947765747640045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc17c56dabd04f4db9704886488da20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expBounty: 0
 --- !u!1 &1752834372638464446
 GameObject:
   m_ObjectHideFlags: 0

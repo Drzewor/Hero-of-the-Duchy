@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 using RPG.Combat;
 using RPG.Saving;
 
-public class PlayerCharacter : Character, ISaveable, IPredicateEvaluator
+public class InventoryManager : MonoBehaviour ,ISaveable, IPredicateEvaluator
 {
     [SerializeField] EquipmentPanel equipmentPanel;
     [SerializeField] StatPanel statPanel;
@@ -17,6 +17,7 @@ public class PlayerCharacter : Character, ISaveable, IPredicateEvaluator
     [SerializeField] DropItemArea dropItemArea;
     [SerializeField] ItemDropper itemDropper;
     [SerializeField] EquipmentMenager equipmentMenager;
+    [SerializeField] public Character character;
     [SerializeField] public Inventory inventory;
     [SerializeField] public GameObject EquipmentStats;
     [SerializeField] public GameObject CharacterPanel;
@@ -34,7 +35,7 @@ public class PlayerCharacter : Character, ISaveable, IPredicateEvaluator
     {
         statPanel.SetStats
         (
-            MaxHealth, MaxMana, Strength, Dexterity, Charisma,WeaponArmour, MagicArmour, ProjectileArmour, ArmourPiercing
+            character.MaxHealth, character.MaxMana, character.Strength, character.Dexterity, character.Charisma, character.WeaponArmour, character.MagicArmour, character.ArmourPiercing
         );
         statPanel.UpdateStatValues();
 
@@ -156,7 +157,15 @@ public class PlayerCharacter : Character, ISaveable, IPredicateEvaluator
         if(dragItemSlot is EquipmentSlot)
         {
             EquippableItem item = (EquippableItem)dragItemSlot.Item;
-            item.Unequip(this);
+            item.Unequip(character);
+            if(item is ArmorItem)
+            {
+                equipmentMenager.UnequipItem(item.EquipmentType);
+            }
+            else if(item.EquipmentType == EquipmentType.MainHand)
+            {
+                UnequipWeapon();
+            }
             statPanel.UpdateStatValues();
         }
 
@@ -182,22 +191,52 @@ public class PlayerCharacter : Character, ISaveable, IPredicateEvaluator
 		{
 			if (dragEquipItem != null) 
             {
-                dragEquipItem.Equip(this);
-                EquipWeapon(dragEquipItem);
+                dragEquipItem.Equip(character);
+                if(dragEquipItem is ArmorItem)
+                {
+                    equipmentMenager.EquipItem((ArmorItem)dragEquipItem);
+                }
+                else if(dragEquipItem.EquipmentType == EquipmentType.MainHand)
+                {
+                    EquipWeapon(dragEquipItem);
+                }
             }
-			if (dropEquipItem != null) dropEquipItem.Unequip(this);
+
+            if(dropEquipItem is ArmorItem)
+            {
+                equipmentMenager.UnequipItem(dropEquipItem.EquipmentType);
+            }
+			else if (dropEquipItem != null) 
+            {
+                dropEquipItem.Unequip(character);
+            }
 		}
 		if (dragItemSlot is EquipmentSlot)
 		{
 			if (dragEquipItem != null)
             {
-                dragEquipItem.Unequip(this);
-                UnequipWeapon();
+                dragEquipItem.Unequip(character);
+                if(dragEquipItem is ArmorItem)
+                {
+                    equipmentMenager.UnequipItem(dragEquipItem.EquipmentType);
+                }
+                else if(dragEquipItem.EquipmentType == EquipmentType.MainHand)
+                {
+                    UnequipWeapon();
+                }
+                
             } 
 			if (dropEquipItem != null)
             {
-                dropEquipItem.Equip(this);
-                EquipWeapon(dragEquipItem);
+                dropEquipItem.Equip(character);
+                if(dropEquipItem is ArmorItem)
+                {
+                    equipmentMenager.EquipItem((ArmorItem)dropEquipItem);
+                }
+                else if(dropEquipItem.EquipmentType == EquipmentType.MainHand)
+                {
+                    EquipWeapon(dropEquipItem);
+                }
             } 
 		}
         statPanel.UpdateStatValues();
@@ -222,10 +261,10 @@ public class PlayerCharacter : Character, ISaveable, IPredicateEvaluator
                 if(previousItem != null)
                 {
                     inventory.AddItem(previousItem);
-                    previousItem.Unequip(this);
+                    previousItem.Unequip(character);
                     statPanel.UpdateStatValues();
                 }
-                item.Equip(this);
+                item.Equip(character);
                 EquipWeapon(item);
                 statPanel.UpdateStatValues();
                 if(item is ArmorItem)
@@ -244,7 +283,7 @@ public class PlayerCharacter : Character, ISaveable, IPredicateEvaluator
     {
         if(inventory.CanAddItem(item) && equipmentPanel.RemoveItem(item))
         {
-            item.Unequip(this);
+            item.Unequip(character);
             statPanel.UpdateStatValues();
             inventory.AddItem(item);
             if(item.EquipmentType == EquipmentType.MainHand)
@@ -323,11 +362,11 @@ public class PlayerCharacter : Character, ISaveable, IPredicateEvaluator
         equipmentPanel.AddItem(item, out previousItem);
         if(previousItem != null)
         {
-            previousItem.Unequip(this);
+            previousItem.Unequip(character);
             previousItem.Destroy();
         }
         
-        item.Equip(this);
+        item.Equip(character);
         EquipWeapon(item);
         statPanel.UpdateStatValues();
     }

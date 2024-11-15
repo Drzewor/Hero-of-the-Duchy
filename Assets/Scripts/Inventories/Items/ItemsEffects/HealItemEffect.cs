@@ -7,7 +7,7 @@ using UnityEngine;
 public class HealItemEffect : UsableItemEffect
 {
     public float HealthAmount = 10;
-    public override void ExecuteEffect(UsableItem parentItem, PlayerCharacter character)
+    public override void ExecuteEffect(UsableItem parentItem, InventoryManager character)
     {
         character.GetComponent<Health>().Heal(HealthAmount);
     }

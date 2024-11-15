@@ -145,6 +145,8 @@ GameObject:
   - component: {fileID: 2476743830239232745}
   - component: {fileID: 8836872206651184952}
   - component: {fileID: 1835784104301947245}
+  - component: {fileID: 2362263335625245551}
+  - component: {fileID: 4347799521534060457}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -232,9 +234,11 @@ MonoBehaviour:
   <ForceReceiver>k__BackingField: {fileID: 2214617560937079637}
   <WeaponLogic>k__BackingField: {fileID: 0}
   <LedgeDetector>k__BackingField: {fileID: 8046532520204066680}
-  <Character>k__BackingField: {fileID: 1337029670376892876}
+  <InventoryManager>k__BackingField: {fileID: 1337029670376892876}
+  <character>k__BackingField: {fileID: 4347799521534060457}
   <Stamina>k__BackingField: {fileID: 8836872206651184952}
   <QuestManager>k__BackingField: {fileID: 1835784104301947245}
+  <characterExperience>k__BackingField: {fileID: 2362263335625245551}
   <FreeLookMovmentSpeed>k__BackingField: 6
   <TargetingMovmentSpeed>k__BackingField: 4.5
   <SprintMovmentSpeed>k__BackingField: 6
@@ -244,6 +248,7 @@ MonoBehaviour:
   <PreviousDodgeTime>k__BackingField: -Infinity
   <JumpForce>k__BackingField: 5
   <AttackDamage>k__BackingField: 0
+  <StatDamageBonus>k__BackingField: 0
   InteractionRadius: 1
   InteractionDistance: 7
   <Attacks>k__BackingField: []
@@ -303,7 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   isDead: 0
-  characterAttr: {fileID: 0}
+  character: {fileID: 4347799521534060457}
 --- !u!114 &4391389242249559727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,29 +342,12 @@ MonoBehaviour:
   dropItemArea: {fileID: 0}
   itemDropper: {fileID: 789932916040893690}
   equipmentMenager: {fileID: 2476743830239232745}
+  character: {fileID: 4347799521534060457}
   inventory: {fileID: 0}
   EquipmentStats: {fileID: 0}
   CharacterPanel: {fileID: 0}
   CraftingWindow: {fileID: 0}
   QuestWindow: {fileID: 0}
-  MaxHealth:
-    BaseValue: 0
-  MaxMana:
-    BaseValue: 0
-  Strength:
-    BaseValue: 0
-  Dexterity:
-    BaseValue: 0
-  Charisma:
-    BaseValue: 0
-  WeaponArmour:
-    BaseValue: 0
-  MagicArmour:
-    BaseValue: 0
-  ProjectileArmour:
-    BaseValue: 0
-  ArmourPiercing:
-    BaseValue: 0
 --- !u!114 &789932916040893690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,6 +426,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76e51e1085eded0488808a06b8537868, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questDataBase: {fileID: 11400000, guid: 3c2f2febf78cfbb42981bc755697d659, type: 2}
+--- !u!114 &2362263335625245551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602087484127655058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80f1427510d1bfc4bac0557fed26cde6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  expToNextLevel: 640000002c010000bc020000dc050000c4090000740e000088130000641900003421000004290000
+  levelValueText: {fileID: 0}
+  expValueText: {fileID: 0}
+  LerningPointsValueText: {fileID: 0}
+--- !u!114 &4347799521534060457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602087484127655058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c816c927abb0a74580b3db5dee8ddce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth:
+    BaseValue: 100
+  MaxMana:
+    BaseValue: 10
+  Strength:
+    BaseValue: 5
+  Dexterity:
+    BaseValue: 5
+  Charisma:
+    BaseValue: 5
+  WeaponArmour:
+    BaseValue: 5
+  MagicArmour:
+    BaseValue: 5
+  ArmourPiercing:
+    BaseValue: 5
+  characterExperience: {fileID: 2362263335625245551}
+  statPanel: {fileID: 0}
 --- !u!1 &2008224401525974266
 GameObject:
   m_ObjectHideFlags: 0

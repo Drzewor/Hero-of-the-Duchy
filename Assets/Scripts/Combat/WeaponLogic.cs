@@ -12,7 +12,7 @@ namespace RPG.Combat
         [SerializeField] public Projectile projectilePrefab;
         private float damage = 0;
         private float knockback = 0;
-        public event Action<string> OnKill;
+        public event Action<string,int?> OnKill;
         
 
         private List<Collider> alreadyCollidedWith = new List<Collider>();
@@ -27,7 +27,7 @@ namespace RPG.Combat
                 health.DealDamage(damage, mycollider.gameObject);
                 if(health.isDead)
                 {
-                    OnKill?.Invoke(health.gameObject.name);
+                    OnKill?.Invoke(health.gameObject.name, health.GetComponent<NPCLoot>()?.expBounty);
                 }
             }
             if(other.TryGetComponent<ForceReceiver>(out ForceReceiver forceReceiver))

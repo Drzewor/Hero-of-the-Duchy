@@ -51,7 +51,7 @@ public class EquippableItem : Item
         Destroy(this);
     }
 
-    public void Equip(PlayerCharacter c)
+    public void Equip(Character c)
     {
         if(MaxHealthBonus != 0) 
             c.MaxHealth.AddModifier(new StatModifier(MaxHealthBonus, statModType.Flat, this)); 
@@ -67,8 +67,6 @@ public class EquippableItem : Item
             c.WeaponArmour.AddModifier(new StatModifier(WeaponArmourBonus, statModType.Flat, this));
         if(MagicArmourBonus != 0) 
             c.MagicArmour.AddModifier(new StatModifier(MagicArmourBonus, statModType.Flat, this));
-        if(ProjectileArmourBonus != 0) 
-            c.ProjectileArmour.AddModifier(new StatModifier(ProjectileArmourBonus, statModType.Flat, this));
         if(ArmourPiercingBonus != 0) 
             c.ArmourPiercing.AddModifier(new StatModifier(ArmourPiercingBonus, statModType.Flat, this));
 
@@ -88,13 +86,11 @@ public class EquippableItem : Item
             c.WeaponArmour.AddModifier(new StatModifier(WeaponArmourPercentBonus, statModType.PercentAdd, this));
         if(MagicArmourPercentBonus != 0) 
             c.MagicArmour.AddModifier(new StatModifier(MagicArmourPercentBonus, statModType.PercentAdd, this));
-        if(ProjectileArmourPercentBonus != 0) 
-            c.ProjectileArmour.AddModifier(new StatModifier(ProjectileArmourPercentBonus, statModType.PercentAdd, this));
         if(ArmourPiercingPercentBonus != 0) 
             c.ArmourPiercing.AddModifier(new StatModifier(ArmourPiercingPercentBonus, statModType.PercentAdd, this));
     }
 
-    public void Unequip(PlayerCharacter c)
+    public void Unequip(Character c)
     {
         c.MaxHealth.RemoveAllModifiersFromSource(this);
         c.MaxMana.RemoveAllModifiersFromSource(this);
@@ -103,7 +99,6 @@ public class EquippableItem : Item
         c.Charisma.RemoveAllModifiersFromSource(this);
         c.WeaponArmour.RemoveAllModifiersFromSource(this);
         c.MagicArmour.RemoveAllModifiersFromSource(this);
-        c.ProjectileArmour.RemoveAllModifiersFromSource(this);
         c.ArmourPiercing.RemoveAllModifiersFromSource(this);
     }
 
@@ -122,7 +117,6 @@ public class EquippableItem : Item
         AddStats(CharismaBonus,"Charisma");
         AddStats(WeaponArmourBonus,"Weapon Armour");
         AddStats(MagicArmourBonus,"Magic Armour");
-        AddStats(ProjectileArmourBonus,"Projectile Armour");
         AddStats(ArmourPiercingBonus,"Armour Piercing");
 
         AddStats(MaxHealthPercentBonus,"Max Health", true);
@@ -132,7 +126,6 @@ public class EquippableItem : Item
         AddStats(CharismaPercentBonus,"Charisma", true);
         AddStats(WeaponArmourPercentBonus,"Weapon Armour", true);
         AddStats(MagicArmourPercentBonus,"Magic Armour", true);
-        AddStats(ProjectileArmourPercentBonus,"Projectile Armour", true);
         AddStats(ArmourPiercingPercentBonus,"Armour Piercing", true);
 
         return sb.ToString();
