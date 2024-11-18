@@ -6,4 +6,5 @@ using UnityEngine;
 public interface IInteractable
 {
     public void Iteraction(GameObject player);
+    public void HandleRaycast(GameObject player);
 }

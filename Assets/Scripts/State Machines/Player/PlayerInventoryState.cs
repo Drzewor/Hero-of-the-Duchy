@@ -6,13 +6,16 @@ using UnityEngine;
 
 public class PlayerInventoryState : PlayerBaseState
 {
+    private readonly int IdleAnimationHash = Animator.StringToHash("Idle");
+    private const float CrossFadeDuration = 0.3f;
     public PlayerInventoryState(PlayerStateMachine stateMachine) : base(stateMachine){}
 
     public override void Enter()
     {
-        ShowMouseCursor();
+        EnterUIMode();
         stateMachine.InventoryManager.inventory.gameObject.SetActive(true);
         stateMachine.InventoryManager.EquipmentStats.gameObject.SetActive(true);
+        stateMachine.Animator.CrossFadeInFixedTime(IdleAnimationHash,CrossFadeDuration);
 
         stateMachine.InputReader.PressIEvent += OnExit;
         stateMachine.InputReader.PressESCEvent += OnExit;
@@ -22,7 +25,7 @@ public class PlayerInventoryState : PlayerBaseState
 
     public override void Exit()
     {
-        HideMouseCursor();
+        ExitUIMode();
         stateMachine.InventoryManager.inventory.gameObject.SetActive(false);
         stateMachine.InventoryManager.EquipmentStats.gameObject.SetActive(false);
 

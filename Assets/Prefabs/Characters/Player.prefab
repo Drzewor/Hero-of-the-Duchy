@@ -228,6 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <InputReader>k__BackingField: {fileID: 1534195462088263635}
   <characterController>k__BackingField: {fileID: 1230566908119579371}
+  <cinemachineFreeLook>k__BackingField: {fileID: 0}
   <Animator>k__BackingField: {fileID: 2517361454055208072}
   <Targeter>k__BackingField: {fileID: 289537250425223115}
   <Health>k__BackingField: {fileID: 692042723920629469}
@@ -235,13 +236,14 @@ MonoBehaviour:
   <WeaponLogic>k__BackingField: {fileID: 0}
   <LedgeDetector>k__BackingField: {fileID: 8046532520204066680}
   <InventoryManager>k__BackingField: {fileID: 1337029670376892876}
-  <character>k__BackingField: {fileID: 4347799521534060457}
+  <Character>k__BackingField: {fileID: 4347799521534060457}
   <Stamina>k__BackingField: {fileID: 8836872206651184952}
   <QuestManager>k__BackingField: {fileID: 1835784104301947245}
-  <characterExperience>k__BackingField: {fileID: 2362263335625245551}
+  <CharacterExperience>k__BackingField: {fileID: 2362263335625245551}
+  <InteractionText>k__BackingField: {fileID: 0}
   <FreeLookMovmentSpeed>k__BackingField: 6
   <TargetingMovmentSpeed>k__BackingField: 4.5
-  <SprintMovmentSpeed>k__BackingField: 6
+  <SprintMovmentSpeed>k__BackingField: 8
   <RotationDamping>k__BackingField: 6
   <DodgeDuration>k__BackingField: 1
   <DodgeDistance>k__BackingField: 4
@@ -249,7 +251,7 @@ MonoBehaviour:
   <JumpForce>k__BackingField: 5
   <AttackDamage>k__BackingField: 0
   <StatDamageBonus>k__BackingField: 0
-  InteractionRadius: 1
+  InteractionRadius: 0.2
   InteractionDistance: 7
   <Attacks>k__BackingField: []
 --- !u!114 &1534195462088263635
@@ -374,7 +376,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversantName: Player Name
-  testDialogue: {fileID: 0}
 --- !u!114 &2476743830239232745
 MonoBehaviour:
   m_ObjectHideFlags: 0

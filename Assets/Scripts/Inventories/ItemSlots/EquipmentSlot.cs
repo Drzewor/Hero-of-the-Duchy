@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EquipmentSlot : ItemSlot
 {
-     public EquipmentType EquipmentType;
+    public EquipmentType EquipmentType;
 
-     protected override void OnValidate()
-     {
-        base.OnValidate();
-        gameObject.name = EquipmentType.ToString() + " Slot";
-     }
+    protected override void OnValidate()
+    {
+       base.OnValidate();
+       gameObject.name = EquipmentType.ToString() + " Slot";
+    }
 
     public override bool CanReceiveItem(Item item)
     {

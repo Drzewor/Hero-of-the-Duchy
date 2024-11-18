@@ -73,11 +73,15 @@ namespace RPG.Combat
             stateMachine.SetAttacks(equippedWeapon.attacks);
         }
 
-        public void HandleKill(string name, int? exp)
+        public void HandleKill(GameObject victim)
         {
-            stateMachine.QuestManager.TryToAdvanceQuests(name);
-            if(exp == null) return;
-            stateMachine.characterExperience.AddExp((int)exp);
+            stateMachine.QuestManager.TryToAdvanceQuests(victim.name);
+
+            NPCLoot victimLoot = victim.GetComponent<NPCLoot>();
+            if(victimLoot == null) return;
+
+            victimLoot.GrantExpBounty(stateMachine.CharacterExperience);
+            victimLoot.SpawnLoot();
         }
     }
 }

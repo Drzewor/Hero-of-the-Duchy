@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class PlayerItemStashState : PlayerBaseState
 {
+    private readonly int OpenItemStashAnimationtHash = Animator.StringToHash("OpenItemStash");
+    private const float CrossFadeDuration = 0.5f;
     private Transform itemsParent;
     private ItemContainer container;
     public PlayerItemStashState(PlayerStateMachine stateMachine, Transform itemsParent, ItemContainer container) : base(stateMachine)
@@ -15,10 +17,11 @@ public class PlayerItemStashState : PlayerBaseState
 
      public override void Enter()
     {
-        ShowMouseCursor();
+        EnterUIMode();
         itemsParent.gameObject.SetActive(true);
         stateMachine.InventoryManager.inventory.gameObject.SetActive(true);
         stateMachine.InventoryManager.OpenItemContainer(container);
+        stateMachine.Animator.CrossFadeInFixedTime(OpenItemStashAnimationtHash,CrossFadeDuration);
 
         stateMachine.InputReader.PressESCEvent += OnExit;
         stateMachine.InputReader.InteractEvent += OnExit;
@@ -30,7 +33,7 @@ public class PlayerItemStashState : PlayerBaseState
 
     public override void Exit()
     {
-        HideMouseCursor();
+        ExitUIMode();
         itemsParent.gameObject.SetActive(false);
         stateMachine.InventoryManager.inventory.gameObject.SetActive(false);
         stateMachine.InventoryManager.CloseItemContainer(container);

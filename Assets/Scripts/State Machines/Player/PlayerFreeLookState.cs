@@ -14,11 +14,13 @@ namespace RPG.StateMachine.Player
         private readonly int FreeLookBlendTreeHash = Animator.StringToHash("FreeLookBlendTree");
         private const float AnimatorDampTime = 0.1f;
         private const float CrossFadeDuration = 0.1f;
+        private float startSpeed = 0;
         private Attack firstAttack;
 
-        public PlayerFreeLookState(PlayerStateMachine stateMachine, bool shouldFade = true) : base(stateMachine)
+        public PlayerFreeLookState(PlayerStateMachine stateMachine, bool shouldFade = true, float speed = 0) : base(stateMachine)
         {
             this.shouldFade = shouldFade;
+            this.startSpeed = speed;
         }
 
         public override void Enter()
@@ -29,7 +31,7 @@ namespace RPG.StateMachine.Player
             stateMachine.InputReader.PressIEvent += HandleInventory;
             stateMachine.InputReader.PressJEvent += HandleQuestlog;
 
-            stateMachine.Animator.SetFloat(FreelookSpeedHash,0);
+            stateMachine.Animator.SetFloat(FreelookSpeedHash,startSpeed);
 
             firstAttack = stateMachine.Attacks[0];
 
@@ -55,6 +57,12 @@ namespace RPG.StateMachine.Player
                 stateMachine.SwitchState(new PlayerSprintingState(stateMachine));
                 return;
             }
+            if(stateMachine.InputReader.IsBlocking)
+            {
+                stateMachine.SwitchState(new PlayerBlockingState(stateMachine));
+            }
+
+            RaycastInteractable();
 
             Vector3 movment = CalculateMovement();
 
@@ -76,6 +84,8 @@ namespace RPG.StateMachine.Player
             stateMachine.InputReader.InteractEvent -= OnInteract;
             stateMachine.InputReader.PressIEvent -= HandleInventory;
             stateMachine.InputReader.PressJEvent -= HandleQuestlog;
+
+            stateMachine.InteractionText.enabled = false;
         }
 
         protected void OnTarget()
@@ -110,6 +120,27 @@ namespace RPG.StateMachine.Player
         protected void OnJump()
         {
             stateMachine.SwitchState(new PlayerJumpingState(stateMachine));
+        }
+
+        protected void RaycastInteractable()
+        {
+            RaycastHit[] hits = Physics.SphereCastAll(
+                stateMachine.MainCameraTransform.position, stateMachine.InteractionRadius, 
+                stateMachine.MainCameraTransform.forward, stateMachine.InteractionDistance
+                );
+            foreach(RaycastHit hit in hits)
+            {
+                IInteractable[] interactables = hit.transform.GetComponents<IInteractable>();
+                foreach(IInteractable interactable in interactables)
+                {
+                    if(interactable !=null)
+                    {
+                        interactable.HandleRaycast(stateMachine.gameObject);
+                        return;
+                    }
+                }
+                stateMachine.InteractionText.enabled = false;
+            }
         }
 
         protected void OnInteract()

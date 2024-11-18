@@ -21,12 +21,12 @@ namespace RPG.StateMachine.Player
             Move(deltaTime);
             if(!stateMachine.InputReader.IsBlocking)
             {
+                if(stateMachine.Targeter.CurrentTarget == null)
+                {
+                    stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
+                    return;
+                }
                 stateMachine.SwitchState(new PlayerTargetingState(stateMachine));
-                return;
-            }
-            if(stateMachine.Targeter.CurrentTarget == null)
-            {
-                stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
                 return;
             }
         }

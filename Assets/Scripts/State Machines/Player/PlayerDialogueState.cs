@@ -9,7 +9,7 @@ public class PlayerDialogueState : PlayerBaseState
 
     public override void Enter()
     {
-        ShowMouseCursor();
+        EnterUIMode();
     }
 
     public override void Tick(float deltaTime)
@@ -18,6 +18,6 @@ public class PlayerDialogueState : PlayerBaseState
 
     public override void Exit()
     {
-        HideMouseCursor();
+        ExitUIMode();
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using RPG.StateMachine.Player;
+using TMPro;
 using UnityEngine;
 
 public class Pickup : MonoBehaviour, IInteractable
@@ -9,7 +10,7 @@ public class Pickup : MonoBehaviour, IInteractable
     public int amount;
     public PickupSpawner spawner;
     private Inventory inventory;
-    
+
     public void Iteraction(GameObject player)
     {
         inventory = player.GetComponent<PlayerStateMachine>().InventoryManager.inventory;
@@ -34,5 +35,22 @@ public class Pickup : MonoBehaviour, IInteractable
                 }
             }
         } 
+    }
+
+    public void HandleRaycast(GameObject player)
+    {
+        TMP_Text interactionText = player.GetComponent<PlayerStateMachine>().InteractionText;
+        interactionText.enabled = true;
+        if(amount == 1)
+        {
+            interactionText.text = $"Press F to pickup {item.ItemName}";
+            return;
+        }
+        else
+        {
+            interactionText.text = $"Press F to pickup {item.ItemName} x{amount}";
+            return;            
+        }
+
     }
 }

@@ -15,7 +15,7 @@ namespace RPG.StateMachine.Player
         private readonly int SprintBlendTreeHash = Animator.StringToHash("SprintBlendTree");
         private const float AnimatorDampTime = 0.1f;
         private const float CrossFadeDuration = 0.1f;
-        private const float staminaCost = 2f;
+        private const float staminaCost = 4f;
         private Attack firstAttack;
 
         public override void Enter()
@@ -38,7 +38,7 @@ namespace RPG.StateMachine.Player
             }
             if(!stateMachine.InputReader.IsSprinting || !stateMachine.Stamina.ReduceStamina(staminaCost * deltaTime))
             {
-                stateMachine.SwitchState(new PlayerFreeLookState(stateMachine));
+                stateMachine.SwitchState(new PlayerFreeLookState(stateMachine,true,1));
                 return;
             }
 

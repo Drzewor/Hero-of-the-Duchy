@@ -9,8 +9,10 @@ namespace RPG.Quests
     public class Quest : ScriptableObject
     {
         [SerializeField] private string questTitle;
-        [SerializeField] public List<QuestStep> steps;
         [SerializeField] private Quest nextQuest;
+        [SerializeField] public List<QuestStep> steps;
+        [SerializeField] public int expReward;
+        [SerializeField] public List<Item> itemReward;
         [SerializeField] public string id;
         public bool isFinished = false;
 

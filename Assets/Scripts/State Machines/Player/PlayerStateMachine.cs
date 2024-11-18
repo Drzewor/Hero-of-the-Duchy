@@ -1,10 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using RPG.Combat;
 using RPG.Quests;
 using RPG.Saving;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace RPG.StateMachine.Player
 {
@@ -12,6 +15,7 @@ namespace RPG.StateMachine.Player
     {
         [field: SerializeField] public InputReader InputReader {get; private set;}
         [field: SerializeField] public CharacterController characterController {get; private set;}
+        [field: SerializeField] public CinemachineFreeLook cinemachineFreeLook {get; private set;}
         [field: SerializeField] public Animator Animator {get; private set;}
         [field: SerializeField] public Targeter Targeter {get; private set;}
         [field: SerializeField] public Health Health {get; private set;}
@@ -19,10 +23,11 @@ namespace RPG.StateMachine.Player
         [field: SerializeField] public WeaponLogic WeaponLogic {get; private set;}
         [field: SerializeField] public LedgeDetector LedgeDetector {get; private set;}
         [field: SerializeField] public InventoryManager InventoryManager {get; private set;}
-        [field: SerializeField] public Character character {get; private set;}
+        [field: SerializeField, FormerlySerializedAs("character")] public Character Character {get; private set;}
         [field: SerializeField] public Stamina Stamina {get; private set;}
         [field: SerializeField] public QuestManager QuestManager {get; private set;}
-        [field: SerializeField] public CharacterExperience characterExperience {get; private set;}
+        [field: SerializeField, FormerlySerializedAs("characterExperience")] public CharacterExperience CharacterExperience {get; private set;}
+        [field: SerializeField] public TMP_Text InteractionText {get; private set;}
         [field: SerializeField] public float FreeLookMovmentSpeed {get; private set;}
         [field: SerializeField] public float TargetingMovmentSpeed {get; private set;}
         [field: SerializeField] public float SprintMovmentSpeed {get; private set;}
@@ -105,20 +110,26 @@ namespace RPG.StateMachine.Player
         {
             if(statDamageBonus == statDamageBonus.Strength)
             {
-                return character.Strength.Value;
+                return Character.Strength.Value;
             }
             else if(statDamageBonus == statDamageBonus.Dexterity)
             {
-                return character.Dexterity.Value;
+                return Character.Dexterity.Value;
             }
             else if(statDamageBonus == statDamageBonus.Charisma)
             {
-                return character.Charisma.Value;
+                return Character.Charisma.Value;
             }
             else
             {
                 return 0;
             }
+        }
+        private IEnumerator SetInventory()
+        {
+            yield return new WaitForEndOfFrame();
+            InventoryManager.inventory.gameObject.SetActive(false);
+            InventoryManager.EquipmentStats.gameObject.SetActive(false);
         }
 
         public object CaptureState()
@@ -136,13 +147,6 @@ namespace RPG.StateMachine.Player
             transform.position = ((SerializableVector3)data["position"]).ToVector();
             transform.eulerAngles = ((SerializableVector3)data["rotation"]).ToVector();
             characterController.enabled = true;
-        }
-
-        private IEnumerator SetInventory()
-        {
-            yield return new WaitForEndOfFrame();
-            InventoryManager.inventory.gameObject.SetActive(false);
-            InventoryManager.EquipmentStats.gameObject.SetActive(false);
         }
     }
 

@@ -9,14 +9,14 @@ using RPG.Saving;
 
 public class InventoryManager : MonoBehaviour ,ISaveable, IPredicateEvaluator
 {
-    [SerializeField] EquipmentPanel equipmentPanel;
-    [SerializeField] StatPanel statPanel;
-    [SerializeField] ItemTooltip itemTooltip;
-    [SerializeField] Image draggableItem;
-    [SerializeField] PlayerWeaponHandler weaponHandler;
-    [SerializeField] DropItemArea dropItemArea;
-    [SerializeField] ItemDropper itemDropper;
-    [SerializeField] EquipmentMenager equipmentMenager;
+    [SerializeField] private EquipmentPanel equipmentPanel;
+    [SerializeField] private StatPanel statPanel;
+    [SerializeField] private ItemTooltip itemTooltip;
+    [SerializeField] private Image draggableItem;
+    [SerializeField] private PlayerWeaponHandler weaponHandler;
+    [SerializeField] private DropItemArea dropItemArea;
+    [SerializeField] private ItemDropper itemDropper;
+    [SerializeField] private EquipmentMenager equipmentMenager;
     [SerializeField] public Character character;
     [SerializeField] public Inventory inventory;
     [SerializeField] public GameObject EquipmentStats;

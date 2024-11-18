@@ -11,7 +11,6 @@ namespace RPG.Dialogue
     public class PlayerConversant : MonoBehaviour
     {
         [SerializeField] string conversantName = "Player Name";
-        [SerializeField] Dialogue testDialogue;
         private AIConversant currentConversant = null;
         private Dialogue currentDialogue;
         private DialogueNode currentNode = null;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using RPG.StateMachine.Player;
+using TMPro;
 using UnityEngine;
 
 namespace RPG.Dialogue
@@ -22,6 +23,14 @@ namespace RPG.Dialogue
             conversant.StartDialogue(this, dialogue);
             PlayerStateMachine stateMachine = player.GetComponent<PlayerStateMachine>();
             stateMachine.SwitchState(new PlayerDialogueState(stateMachine));    
+        }
+
+        public void HandleRaycast(GameObject player)
+        {
+            TMP_Text interactionText = player.GetComponent<PlayerStateMachine>().InteractionText;
+            interactionText.enabled = true;
+            interactionText.text = $"Press F to speak with {conversantName}";
+            return;  
         }
     }
 }

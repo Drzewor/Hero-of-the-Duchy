@@ -36,7 +36,7 @@ namespace RPG.Combat
             health.DealDamage(damage, shooter);
             if(health.isDead)
             {
-                handler?.HandleKill(health.gameObject.name, other.gameObject.GetComponent<NPCLoot>()?.expBounty);
+                handler?.HandleKill(other.gameObject);
             }
             Destroy(gameObject);
         }

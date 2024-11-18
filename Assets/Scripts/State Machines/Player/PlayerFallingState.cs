@@ -7,7 +7,7 @@ namespace RPG.StateMachine.Player
 {
     public class PlayerFallingState : PlayerBaseState
     {
-        private readonly int LandAnimationtHash = Animator.StringToHash("Fall");
+        private readonly int FallAnimationtHash = Animator.StringToHash("Fall");
         private const float CrossFadeDuration = 0.1f;
         private Vector3 momentum;
         public PlayerFallingState(PlayerStateMachine stateMachine) : base(stateMachine)
@@ -18,7 +18,7 @@ namespace RPG.StateMachine.Player
         {
             momentum = stateMachine.characterController.velocity;
             momentum.y = 0f;
-            stateMachine.Animator.CrossFadeInFixedTime(LandAnimationtHash, CrossFadeDuration);
+            stateMachine.Animator.CrossFadeInFixedTime(FallAnimationtHash, CrossFadeDuration);
 
             stateMachine.LedgeDetector.OnLedgeDetect += HandleLedgeDetect;
         }

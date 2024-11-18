@@ -38,9 +38,35 @@ namespace RPG.Quests
 
                 if(quests[i].GetQuest().isFinished)
                 {
+                    GiveRewards(quests[i].GetQuest());
+
                     Quest nextQuest = quests[i].GetQuest().GetNextQuest();
                     if(nextQuest == null) continue;
                     AddQuest(nextQuest);
+                }
+            }
+        }
+
+        private void GiveRewards(Quest quest)
+        {
+            GetComponent<CharacterExperience>().AddExp(quest.expReward);
+
+            Debug.Log(quest.itemReward.Count);
+            if(quest.itemReward.Count == 0) return;
+            Inventory inventory = GetComponent<InventoryManager>().inventory;
+            ItemDropper itemDropper = GetComponent<ItemDropper>();
+            foreach(Item item in quest.itemReward)
+            {
+                Debug.Log("Weszło do pętli");
+                if(inventory.CanAddItem(item))
+                {
+                    Debug.Log("dało item");
+                    inventory.AddItem(item);
+                }
+                else
+                {
+                    Debug.Log("Wyrzuciło item");
+                    itemDropper.DropItem(item);
                 }
             }
         }

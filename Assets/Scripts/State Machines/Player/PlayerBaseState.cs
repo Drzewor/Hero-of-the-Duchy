@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using UnityEngine;
 
 namespace RPG.StateMachine.Player
@@ -7,6 +8,8 @@ namespace RPG.StateMachine.Player
     public abstract class PlayerBaseState : State
     {
         protected PlayerStateMachine stateMachine;
+        private float YAxisSpeed;
+        private float XAxisSpeed;
 
         public PlayerBaseState(PlayerStateMachine stateMachine)
         {
@@ -46,14 +49,20 @@ namespace RPG.StateMachine.Player
             }
         }
 
-        protected void ShowMouseCursor()
+        protected void EnterUIMode()
         {
+            YAxisSpeed = stateMachine.cinemachineFreeLook.m_YAxis.m_MaxSpeed;
+            XAxisSpeed = stateMachine.cinemachineFreeLook.m_XAxis.m_MaxSpeed;
+            stateMachine.cinemachineFreeLook.m_YAxis.m_MaxSpeed = 0;
+            stateMachine.cinemachineFreeLook.m_XAxis.m_MaxSpeed = 0;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;        
         }
 
-        protected void HideMouseCursor()
+        protected void ExitUIMode()
         {
+            stateMachine.cinemachineFreeLook.m_YAxis.m_MaxSpeed = YAxisSpeed;
+            stateMachine.cinemachineFreeLook.m_XAxis.m_MaxSpeed = XAxisSpeed;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
