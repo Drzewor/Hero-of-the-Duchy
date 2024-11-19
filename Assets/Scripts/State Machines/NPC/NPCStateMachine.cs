@@ -61,7 +61,7 @@ namespace RPG.StateMachine.NPC
             SwitchState(new NPCImpactState(this));
         }
         
-        private void HandleDeath()
+        private void HandleDeath(Health health)
         {
             SwitchState(new NPCDeadState(this));
         }
@@ -129,7 +129,7 @@ namespace RPG.StateMachine.NPC
             transform.position = ((SerializableVector3)data["position"]).ToVector();
             transform.eulerAngles = ((SerializableVector3)data["rotation"]).ToVector();
             Controller.enabled = true;
-            NPCTargeter.target = null;
+            NPCTargeter.currentTarget = null;
         }
     }
 

@@ -243,7 +243,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 768196888239681938, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
-      propertyPath: WeaponArmour.BaseValue
+      propertyPath: MaxHealth.BaseValue
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1080971644257897505, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
@@ -252,15 +252,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1080971644257897505, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.88
+      value: 7.6
       objectReference: {fileID: 0}
     - target: {fileID: 1080971644257897505, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.885
+      value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: 1080971644257897505, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -16.64
+      value: 1.55
       objectReference: {fileID: 0}
     - target: {fileID: 1080971644257897505, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -294,6 +294,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC To Speak
       objectReference: {fileID: 0}
+    - target: {fileID: 1215947765747640045, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218795210497160605, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
+      propertyPath: factionSO
+      value: 
+      objectReference: {fileID: 11400000, guid: d8b2200c223eb3d4db975b3dea32cbc7, type: 2}
+    - target: {fileID: 2247632159170369092, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2543748472723231709, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: <DodgeDistance>k__BackingField
       value: 4
@@ -305,10 +317,6 @@ PrefabInstance:
     - target: {fileID: 2543748472723231709, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: <MinCirclingTime>k__BackingField
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3503706309301111187, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
-      propertyPath: m_Radius
-      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 3986924407807926569, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: defaultWeapon
@@ -1545,11 +1553,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 923227261627985947, guid: 23eb604639ad8f04fbf8efceea230288, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.036324948
+      value: 0.03632495
       objectReference: {fileID: 0}
     - target: {fileID: 923227261627985947, guid: 23eb604639ad8f04fbf8efceea230288, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000059604645
+      value: 0.000000029802322
       objectReference: {fileID: 0}
     - target: {fileID: 923227261627985947, guid: 23eb604639ad8f04fbf8efceea230288, type: 3}
       propertyPath: m_LocalRotation.z
@@ -1605,11 +1613,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 923227261849726713, guid: 23eb604639ad8f04fbf8efceea230288, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 1.143127
+      value: 2.981586
       objectReference: {fileID: 0}
     - target: {fileID: 923227261849726713, guid: 23eb604639ad8f04fbf8efceea230288, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -4.096165
+      value: -5.145654
       objectReference: {fileID: 0}
     - target: {fileID: 923227261897227924, guid: 23eb604639ad8f04fbf8efceea230288, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1629,15 +1637,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 923227261897227924, guid: 23eb604639ad8f04fbf8efceea230288, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.0000000037252903
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 923227261897227924, guid: 23eb604639ad8f04fbf8efceea230288, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000029802322
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 923227261897227924, guid: 23eb604639ad8f04fbf8efceea230288, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000007450581
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 923227262104259765, guid: 23eb604639ad8f04fbf8efceea230288, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1653,19 +1661,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 923227262626491911, guid: 23eb604639ad8f04fbf8efceea230288, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 1.143127
+      value: 2.981586
       objectReference: {fileID: 0}
     - target: {fileID: 923227262626491911, guid: 23eb604639ad8f04fbf8efceea230288, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -4.096165
+      value: -5.145654
       objectReference: {fileID: 0}
     - target: {fileID: 923227263161923071, guid: 23eb604639ad8f04fbf8efceea230288, type: 3}
       propertyPath: m_FollowOffset.y
-      value: 1.143127
+      value: 2.981586
       objectReference: {fileID: 0}
     - target: {fileID: 923227263161923071, guid: 23eb604639ad8f04fbf8efceea230288, type: 3}
       propertyPath: m_FollowOffset.z
-      value: -4.096165
+      value: -5.145654
       objectReference: {fileID: 0}
     - target: {fileID: 924040076426636154, guid: 23eb604639ad8f04fbf8efceea230288, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1729,11 +1737,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1435346225657173589, guid: 23eb604639ad8f04fbf8efceea230288, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.14278997
+      value: -0.14279
       objectReference: {fileID: 0}
     - target: {fileID: 1435346225657173589, guid: 23eb604639ad8f04fbf8efceea230288, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.026417343
+      value: 0.02641735
       objectReference: {fileID: 0}
     - target: {fileID: 2507842736813538896, guid: 23eb604639ad8f04fbf8efceea230288, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2128,6 +2136,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC To Speak small guy
       objectReference: {fileID: 0}
+    - target: {fileID: 1215947765747640045, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218795210497160605, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
+      propertyPath: factionSO
+      value: 
+      objectReference: {fileID: 11400000, guid: d8b2200c223eb3d4db975b3dea32cbc7, type: 2}
     - target: {fileID: 2543748472723231709, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: <DodgeDistance>k__BackingField
       value: 4
@@ -2335,6 +2351,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeafultNPC (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1215947765747640045, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218795210497160605, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
+      propertyPath: factionSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 297697cc4d38c974f810e61219c6b462, type: 2}
     - target: {fileID: 2543748472723231709, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: <DodgeDistance>k__BackingField
       value: 4
@@ -2681,6 +2705,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: DeafultNPC (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1215947765747640045, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218795210497160605, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
+      propertyPath: factionSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 297697cc4d38c974f810e61219c6b462, type: 2}
     - target: {fileID: 2543748472723231709, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: <DodgeDistance>k__BackingField
       value: 4
@@ -3639,6 +3671,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bastard
       objectReference: {fileID: 0}
+    - target: {fileID: 1215947765747640045, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218795210497160605, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
+      propertyPath: factionSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 297697cc4d38c974f810e61219c6b462, type: 2}
     - target: {fileID: 2041321274726584334, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: maxHealth
       value: 10
@@ -3822,7 +3862,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 768196888239681938, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: MaxHealth.BaseValue
-      value: 10
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 1080971644257897505, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: m_RootOrder
@@ -3830,7 +3870,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1080971644257897505, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.35
+      value: 13.15
       objectReference: {fileID: 0}
     - target: {fileID: 1080971644257897505, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3838,7 +3878,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1080971644257897505, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 11.69
+      value: 14.56
       objectReference: {fileID: 0}
     - target: {fileID: 1080971644257897505, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3872,6 +3912,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bastard
       objectReference: {fileID: 0}
+    - target: {fileID: 1218795210497160605, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
+      propertyPath: factionSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 297697cc4d38c974f810e61219c6b462, type: 2}
     - target: {fileID: 2041321274726584334, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: maxHealth
       value: 10
@@ -4183,6 +4227,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bob
       objectReference: {fileID: 0}
+    - target: {fileID: 1215947765747640045, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218795210497160605, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
+      propertyPath: factionSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 297697cc4d38c974f810e61219c6b462, type: 2}
     - target: {fileID: 2543748472723231709, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: <DodgeDistance>k__BackingField
       value: 4

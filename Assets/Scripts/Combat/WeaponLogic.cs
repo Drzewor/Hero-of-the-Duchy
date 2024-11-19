@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using RPG.Factions;
 using RPG.StateMachine;
 using UnityEngine;
 
@@ -20,8 +21,15 @@ namespace RPG.Combat
         private void OnTriggerEnter(Collider other) 
         {
             if(other == mycollider) return;
+
             if(alreadyCollidedWith.Contains(other)) return;
             alreadyCollidedWith.Add(other);
+
+            if(other.TryGetComponent<FactionManager>(out FactionManager fManager))
+            {
+                if(mycollider.GetComponent<FactionManager>().isAlly(fManager.GetFaction())) return;
+            }
+
             if(other.TryGetComponent<Health>(out Health health))
             {
                 health.DealDamage(damage, mycollider.gameObject);

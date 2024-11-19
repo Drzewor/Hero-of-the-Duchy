@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 768196888239681938}
   - component: {fileID: 8331141790499056076}
   - component: {fileID: 553617114788364613}
+  - component: {fileID: 1218795210497160605}
   m_Layer: 0
   m_Name: DeafultNPC
   m_TagString: Untagged
@@ -489,6 +490,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickup: {fileID: 2414689392509904233, guid: f2c887e32641f4b4783936709924b63b, type: 3}
+  scatterDistance: 1
+--- !u!114 &1218795210497160605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215947765747640045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cee48f0e2ded64449453b318eb06de0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  factionSO: {fileID: 0}
 --- !u!1 &1752834372638464446
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,6 +659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e170cb8fd8e72924d8ec9a54cf01620c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myFManager: {fileID: 1218795210497160605}
   target: {fileID: 0}
   lastTargetPosition: {x: 0, y: 0, z: 0}
 --- !u!54 &8707441999843624698

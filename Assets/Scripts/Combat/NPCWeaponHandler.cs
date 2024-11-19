@@ -50,12 +50,12 @@ namespace RPG.Combat
         public void Shoot()
         {
             if(weaponLogic.projectilePrefab == null) return;
-            if(stateMachine.NPCTargeter.target ==null)
+            if(stateMachine.NPCTargeter.currentTarget ==null)
             {
                 weaponLogic.LaunchProjectile(stateMachine.gameObject);
                 return;
             }
-            weaponLogic.LaunchProjectile(stateMachine.gameObject,stateMachine.NPCTargeter.target.gameObject);
+            weaponLogic.LaunchProjectile(stateMachine.gameObject,stateMachine.NPCTargeter.currentTarget.gameObject);
         }
 
         private void SetWeapon()

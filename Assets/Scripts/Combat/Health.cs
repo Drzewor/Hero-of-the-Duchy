@@ -12,11 +12,11 @@ namespace RPG.Combat
 {
     public class Health : MonoBehaviour, ISaveable
     {
-        [SerializeField] private float maxHealth = 100;
+        private float maxHealth = 100;
         //private float HealthThreshold;
         private float healthPoints;
         public event Action OnTakeDamage;
-        public event Action OnDie;
+        public event Action<Health> OnDie;
         public bool isDead = false;
         private bool isBlocking = false;
         private bool isDodging = false;
@@ -77,7 +77,7 @@ namespace RPG.Combat
             if(healthPoints <= 0 && !isDead)
             {
                 isDead = true;
-                OnDie?.Invoke();
+                OnDie?.Invoke(this);
             }
             else
             {

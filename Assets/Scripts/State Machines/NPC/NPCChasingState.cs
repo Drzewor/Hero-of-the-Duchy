@@ -27,9 +27,9 @@ namespace RPG.StateMachine.NPC
             dodgeRoll = Random.Range(1,101);
             circlingRange = Random.Range(stateMachine.MinCircleRange,stateMachine.MaxCircleRange);
 
-            if(stateMachine.NPCTargeter.target != null)
+            if(stateMachine.NPCTargeter.currentTarget != null)
             {
-                targetStateMachine = stateMachine.NPCTargeter.target.gameObject.GetComponent<StateMachine>();
+                targetStateMachine = stateMachine.NPCTargeter.currentTarget.gameObject.GetComponent<StateMachine>();
             }
             
             stateMachine.Animator.CrossFadeInFixedTime(LocomotionBlendTreeHash,CrossFadeDuration);
@@ -39,11 +39,11 @@ namespace RPG.StateMachine.NPC
         {
             Move(deltaTime);
 
-            if(stateMachine.NPCTargeter.target != null && stateMachine.NPCTargeter.target.isDead)
+            if(stateMachine.NPCTargeter.currentTarget != null && stateMachine.NPCTargeter.currentTarget.isDead)
             {
                 stateMachine.SwitchState(new NPCsuspiciousState(stateMachine));
             }
-            else if(stateMachine.NPCTargeter.target == null)
+            else if(stateMachine.NPCTargeter.currentTarget == null)
             {
                 stateMachine.SwitchState(new NPCMovingState(stateMachine, stateMachine.NPCTargeter.lastTargetPosition, true));
                 return;
@@ -61,7 +61,8 @@ namespace RPG.StateMachine.NPC
             else if
                 (
                 dodgeRoll >= 51 && 
-                targetStateMachine.GetCurrentState() is PlayerAttackingState &&
+                (targetStateMachine.GetCurrentState() is PlayerAttackingState || 
+                targetStateMachine.GetCurrentState() is NPCAttackingState) &&
                 stateMachine.NPCTargeter.GetDistanceToTargetSqr() <= DodgingDistance
                 )
             {
@@ -69,7 +70,7 @@ namespace RPG.StateMachine.NPC
                 return;
             }
 
-            MoveToTarget(deltaTime, stateMachine.NPCTargeter.target.gameObject);
+            MoveToTarget(deltaTime, stateMachine.NPCTargeter.currentTarget.gameObject);
             FaceTarget();
 
             stateMachine.Animator.SetFloat(SpeedHash,1, AnimatorDampTime, deltaTime);

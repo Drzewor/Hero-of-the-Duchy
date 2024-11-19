@@ -24,10 +24,10 @@ namespace RPG.StateMachine.NPC
 
         protected void FaceTarget()
         {
-            if(stateMachine.NPCTargeter.target == null) return;
+            if(stateMachine.NPCTargeter.currentTarget == null) return;
 
             Vector3 lookPosition = 
-            stateMachine.NPCTargeter.target.transform.position - stateMachine.transform.position;
+            stateMachine.NPCTargeter.currentTarget.transform.position - stateMachine.transform.position;
             lookPosition.y = 0f;
 
             stateMachine.transform.rotation = Quaternion.LookRotation(lookPosition);

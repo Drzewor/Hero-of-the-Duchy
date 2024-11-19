@@ -37,7 +37,8 @@ MonoBehaviour:
   ArmourPiercingPercentBonus: 0
   weaponPrefab: {fileID: 3062718525320430686, guid: a67235285168f7040bbf8c54e30612b5, type: 3}
   weaponDamage: 30
-  npcAttackRange: 2
+  npcAttackRange: 2.2
+  statDamageBonus: 0
   attacks:
   - <AnimationName>k__BackingField: MaceAttack1
     <TransitionDuration>k__BackingField: 0.1

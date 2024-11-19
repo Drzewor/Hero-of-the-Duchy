@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 1835784104301947245}
   - component: {fileID: 2362263335625245551}
   - component: {fileID: 4347799521534060457}
+  - component: {fileID: 1231212173641928869}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -363,6 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickup: {fileID: 2414689392509904233, guid: f2c887e32641f4b4783936709924b63b, type: 3}
+  scatterDistance: 2
 --- !u!114 &3118335481621493684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,6 +476,19 @@ MonoBehaviour:
     BaseValue: 5
   characterExperience: {fileID: 2362263335625245551}
   statPanel: {fileID: 0}
+--- !u!114 &1231212173641928869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602087484127655058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cee48f0e2ded64449453b318eb06de0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  factionSO: {fileID: 11400000, guid: a0c01020f13c3864690f734c599c7a6d, type: 2}
 --- !u!1 &2008224401525974266
 GameObject:
   m_ObjectHideFlags: 0

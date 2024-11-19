@@ -22,7 +22,7 @@ public class NPCsuspiciousState : NPCBaseState
     public override void Tick(float deltaTime)
     {
         suspiciousTime -= deltaTime;
-        if(stateMachine.NPCTargeter.target != null && !stateMachine.NPCTargeter.target.isDead)
+        if(stateMachine.NPCTargeter.currentTarget != null && !stateMachine.NPCTargeter.currentTarget.isDead)
         {
             stateMachine.SwitchState(new NPCChasingState(stateMachine));
             return;

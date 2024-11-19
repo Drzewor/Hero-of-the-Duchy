@@ -30,9 +30,9 @@ public class NPCCirclingState : NPCBaseState
             stateMachine.SwitchState(new NPCChasingState(stateMachine, true));
             return;
         }
-        else if(stateMachine.NPCTargeter.target == null || stateMachine.NPCTargeter.target.isDead)
+        else if(stateMachine.NPCTargeter.currentTarget == null || stateMachine.NPCTargeter.currentTarget.isDead)
         {
-            stateMachine.SwitchState(new NPCsuspiciousState(stateMachine));
+            stateMachine.SwitchState(new NPCMovingState(stateMachine, stateMachine.NPCTargeter.lastTargetPosition, true));
             return;
         }
         else if(distanceToTarget <= stateMachine.AttackRange * stateMachine.AttackRange)

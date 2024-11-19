@@ -75,7 +75,7 @@ namespace RPG.StateMachine.Player
         {
             SwitchState(new PlayerImpactState(this));
         }
-        private void HandleDeath()
+        private void HandleDeath(Health health)
         {
             SwitchState(new PlayerDeadState(this));
         }

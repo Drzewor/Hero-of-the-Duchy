@@ -29,7 +29,7 @@ namespace RPG.StateMachine.NPC
         {
             Move(deltaTime);
 
-            if(stateMachine.NPCTargeter.target != null && !stateMachine.NPCTargeter.target.isDead)
+            if(stateMachine.NPCTargeter.currentTarget != null && !stateMachine.NPCTargeter.currentTarget.isDead)
             {
                 stateMachine.SwitchState(new NPCChasingState(stateMachine));
                 return;
