@@ -10,7 +10,6 @@ namespace RPG.UI
     public class StaminaBar : MonoBehaviour
     {
         [SerializeField] Stamina stamina;
-        [SerializeField] GameObject bar;
         [SerializeField] RectTransform foreground;
     
 

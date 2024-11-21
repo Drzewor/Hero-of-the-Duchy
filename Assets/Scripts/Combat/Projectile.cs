@@ -15,6 +15,7 @@ namespace RPG.Combat
         [SerializeField] private float speed = 10;
         [SerializeField] private float timeToDestroy = 4;
         public float damage = 10;
+        public bool isMagic = false;
         
 
         private void Update() 

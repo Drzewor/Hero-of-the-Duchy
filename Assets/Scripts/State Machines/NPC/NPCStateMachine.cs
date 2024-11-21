@@ -23,6 +23,7 @@ namespace RPG.StateMachine.NPC
         [field: SerializeField] public float AttackRange {get; private set;}
         [field: SerializeField] public float AttackDamage {get; private set;} = 10;
         [field: SerializeField] public float StatDamageBonus {get; private set;} = 0;
+        [field: SerializeField] public bool IsWeaponMagic {get; private set;} = false;
         [field: SerializeField] public float AttackKnockback {get; private set;} = 0;  
         [field: SerializeField] public float MaxCircleRange {get; private set;} = 10;  
         [field: SerializeField] public float MinCircleRange {get; private set;} = 5.5f;  
@@ -79,6 +80,11 @@ namespace RPG.StateMachine.NPC
         public void SetAttackDamage(float attackDamage)
         {
             AttackDamage = attackDamage;
+        }
+
+        public void SetIsWeaponMagic(bool isMagic)
+        {
+            IsWeaponMagic = isMagic;
         }
 
         public void SetAttackRange(float attackRange)

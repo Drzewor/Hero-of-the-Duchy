@@ -19,7 +19,13 @@ namespace RPG.StateMachine.Player
 
         public override void Enter()
         {
-            stateMachine.WeaponLogic.SetAttack(stateMachine.AttackDamage, stateMachine.DamageBonus, attack.Knockback, attack.DamageMultiplier);
+            stateMachine.WeaponLogic.SetAttack(
+                stateMachine.AttackDamage, 
+                stateMachine.DamageBonus, 
+                attack.Knockback, 
+                attack.DamageMultiplier, 
+                stateMachine.Character.ArmourPiercing.Value, 
+                stateMachine.IsWeaponMagic);
             stateMachine.Animator.CrossFadeInFixedTime(attack.AnimationName, attack.TransitionDuration);
         }
 
@@ -27,24 +33,27 @@ namespace RPG.StateMachine.Player
         {
             Move(deltaTime);
             FaceTarget();
-
             float normalizedTime = GetNormalizedTime(stateMachine.Animator, "Attack");
             if(normalizedTime >= previousFrameTime && normalizedTime < 1f)
             {
                 if(attack.ForceTime <= normalizedTime)
                 {
+                    Debug.Log("test1");
                     TryApplyforce();
                 }
 
                 if(stateMachine.InputReader.IsAttacking)
                 {
+                    Debug.Log("test2");
                     TryComboAttack(normalizedTime);
                 }
             }
             else
             {
+                Debug.Log("test3");
                 ReturnToLocomotion();
             }
+            Debug.Log("test4");
             previousFrameTime = normalizedTime;
         }
 
@@ -59,9 +68,15 @@ namespace RPG.StateMachine.Player
 
             if (normalizedTime < attack.ComboAttackTime) { return; }
 
-            if (!stateMachine.Stamina.ReduceStamina(stateMachine.Attacks[attack.ComboStateIndex].StaminaCost)) 
+            if (!stateMachine.Stamina.ReduceStamina(stateMachine.Attacks[attack.ComboStateIndex].StaminaCost))
             { 
                 return; 
+            }
+
+            if(!stateMachine.Mana.ReduceMana(stateMachine.Attacks[attack.ComboStateIndex].ManaCost))
+            {
+
+                return;
             }
 
             stateMachine.SwitchState

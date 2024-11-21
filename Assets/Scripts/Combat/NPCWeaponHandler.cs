@@ -69,6 +69,8 @@ namespace RPG.Combat
             stateMachine.SetAttackDamage(weapon.weaponDamage);
 
             stateMachine.SetAttacks(weapon.attacks);
+
+            stateMachine.SetIsWeaponMagic(weapon.isMagical);
         }
     }
 

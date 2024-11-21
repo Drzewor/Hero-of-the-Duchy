@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 2362263335625245551}
   - component: {fileID: 4347799521534060457}
   - component: {fileID: 1231212173641928869}
+  - component: {fileID: 1258038641083300092}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -251,6 +252,7 @@ MonoBehaviour:
   <PreviousDodgeTime>k__BackingField: -Infinity
   <JumpForce>k__BackingField: 5
   <AttackDamage>k__BackingField: 0
+  <IsWeaponMagic>k__BackingField: 0
   <StatDamageBonus>k__BackingField: 0
   InteractionRadius: 0.2
   InteractionDistance: 7
@@ -309,7 +311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338f2bb72a6150a439db4e31af22c5b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
   isDead: 0
   character: {fileID: 4347799521534060457}
 --- !u!114 &4391389242249559727
@@ -489,6 +490,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   factionSO: {fileID: 11400000, guid: a0c01020f13c3864690f734c599c7a6d, type: 2}
+--- !u!114 &1258038641083300092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1602087484127655058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03cdece81edcb7b438904c30b4b3a6fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxMana: 100
+  character: {fileID: 4347799521534060457}
 --- !u!1 &2008224401525974266
 GameObject:
   m_ObjectHideFlags: 0

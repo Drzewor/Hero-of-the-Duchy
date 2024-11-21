@@ -7,11 +7,11 @@ namespace RPG.Combat
 {
     public class Stamina : MonoBehaviour
     {
-        [SerializeField] float maxStamina = 100;
-        [SerializeField] float regenSpeed = 5;
-        [SerializeField] float RegenCooldown = 2;
-        float timeSinceReduced = Mathf.Infinity;
-        bool isRecentlyReduced = false;
+        [SerializeField] private float maxStamina = 100;
+        [SerializeField] private float regenSpeed = 5;
+        [SerializeField] private float RegenCooldown = 2;
+        private float timeSinceReduced = Mathf.Infinity;
+        private bool isRecentlyReduced = false;
         private float stamina;
         
         private void Awake() 

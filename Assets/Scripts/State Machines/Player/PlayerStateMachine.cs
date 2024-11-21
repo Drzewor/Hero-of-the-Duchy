@@ -25,6 +25,7 @@ namespace RPG.StateMachine.Player
         [field: SerializeField] public InventoryManager InventoryManager {get; private set;}
         [field: SerializeField, FormerlySerializedAs("character")] public Character Character {get; private set;}
         [field: SerializeField] public Stamina Stamina {get; private set;}
+        [field: SerializeField] public Mana Mana {get; private set;}
         [field: SerializeField] public QuestManager QuestManager {get; private set;}
         [field: SerializeField, FormerlySerializedAs("characterExperience")] public CharacterExperience CharacterExperience {get; private set;}
         [field: SerializeField] public TMP_Text InteractionText {get; private set;}
@@ -37,6 +38,7 @@ namespace RPG.StateMachine.Player
         [field: SerializeField] public float PreviousDodgeTime {get; private set;}  = Mathf.NegativeInfinity;
         [field: SerializeField] public float JumpForce {get; private set;}
         [field: SerializeField] public float AttackDamage {get; private set;}
+        [field: SerializeField] public bool IsWeaponMagic {get; private set;}
         [field: SerializeField] public statDamageBonus StatDamageBonus {get; private set;}
         public float DamageBonus 
         {
@@ -85,7 +87,7 @@ namespace RPG.StateMachine.Player
             PreviousDodgeTime = time;
         }
 
-        public void SetWeapon(WeaponLogic weapon)
+        public void SetWeaponLogic(WeaponLogic weapon)
         {
             this.WeaponLogic = weapon;
 
@@ -99,6 +101,11 @@ namespace RPG.StateMachine.Player
         public void SetAttackDamage(float attackDamage)
         {
             AttackDamage = attackDamage;
+        }
+
+        public void SetIsWeaponMagic(bool isMagic)
+        {
+            IsWeaponMagic = isMagic;
         }
 
         public void SetStatDamageBonus(statDamageBonus statDamageBonus)

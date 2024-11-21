@@ -13,6 +13,8 @@ namespace RPG.Combat
         [SerializeField] public Projectile projectilePrefab;
         private float damage = 0;
         private float knockback = 0;
+        private float armourPiercing = 0;
+        private bool isMagic = false;
         public event Action<GameObject> OnKill;
         
 
@@ -32,7 +34,7 @@ namespace RPG.Combat
 
             if(other.TryGetComponent<Health>(out Health health))
             {
-                health.DealDamage(damage, mycollider.gameObject);
+                health.DealDamage(damage, mycollider.gameObject, armourPiercing, isMagic);
                 if(health.isDead)
                 {
                     OnKill?.Invoke(other.gameObject);
@@ -45,23 +47,27 @@ namespace RPG.Combat
             }
         }
 
-        public void SetAttack(float damage, float damageStatBonus, float knockback)
-        {
-            this.damage = damage + damageStatBonus;
-            this.knockback = knockback;
-        }
-
-        public void SetAttack(float damage, float damageStatBonus, float knockback, float damageMultiplier)
-        {
-            this.damage = (damage+damageStatBonus) * damageMultiplier;
-            this.knockback = knockback;
-        }
+        public void SetAttack
+        (
+            float damage, 
+            float damageStatBonus, 
+            float knockback, 
+            float damageMultiplier,
+            float armourPiercing, 
+            bool isMagic)
+            {
+                this.damage = (damage+damageStatBonus) * damageMultiplier;
+                this.knockback = knockback;
+                this.isMagic = isMagic;
+                this.armourPiercing = armourPiercing;
+            }
 
         public Projectile LaunchProjectile(GameObject shooter, GameObject target)
         {
             projectilePrefab.target = target;
             projectilePrefab.shooter = shooter;
             projectilePrefab.damage = damage;
+            projectilePrefab.isMagic = isMagic;
 
             Instantiate(projectilePrefab,gameObject.transform.position,shooter.transform.rotation);
 
@@ -72,6 +78,7 @@ namespace RPG.Combat
             projectilePrefab.target = null;
             projectilePrefab.shooter = shooter;
             projectilePrefab.damage = damage;
+            projectilePrefab.isMagic = isMagic;
 
             Instantiate(projectilePrefab,gameObject.transform.position,shooter.transform.rotation);
 

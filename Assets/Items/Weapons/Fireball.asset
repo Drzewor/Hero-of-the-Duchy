@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b2ee73341964ef40a227cf9f396e9ad, type: 3}
-  m_Name: Bow
+  m_Name: Fireball
   m_EditorClassIdentifier: 
-  id: 19711bdccc8ce894288c34cc373d3388
-  ItemName: Bow
+  id: 8e2abaca46ab47d479b3640b55977a22
+  ItemName: Fireball
   MaximumStacks: 1
-  Icon: {fileID: 21300000, guid: ef569e9630fa762429c710af4f8feb58, type: 3}
+  Icon: {fileID: 21300000, guid: 65f0e363b74cf5845ab8c3fbc14f39ac, type: 3}
   EquipmentType: 4
   MaxHealthBonus: 0
   MaxManaBonus: 0
@@ -35,19 +35,19 @@ MonoBehaviour:
   MagicArmourPercentBonus: 0
   ProjectileArmourPercentBonus: 0
   ArmourPiercingPercentBonus: 0
-  weaponPrefab: {fileID: 5269975454966099300, guid: 836479a6458ef8949bcf39c9245dea2b, type: 3}
-  weaponDamage: 20
+  weaponPrefab: {fileID: 4373446379179597930, guid: 8dd91cbbb253be64fbf0e08b3297090d, type: 3}
+  weaponDamage: 50
   npcAttackRange: 20
-  statDamageBonus: 1
-  isMagical: 0
+  statDamageBonus: 3
+  isMagical: 1
   attacks:
-  - <AnimationName>k__BackingField: BowShoot1
+  - <AnimationName>k__BackingField: FireballAttack1
     <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: -1
     <ComboAttackTime>k__BackingField: 0.9
     <ForceTime>k__BackingField: 0.5
-    <Force>k__BackingField: 0
-    <Knockback>k__BackingField: 2
+    <Force>k__BackingField: 2
+    <Knockback>k__BackingField: 0
     <DamageMultiplier>k__BackingField: 1
-    <StaminaCost>k__BackingField: 10
-    <ManaCost>k__BackingField: 0
+    <StaminaCost>k__BackingField: 0
+    <ManaCost>k__BackingField: 5

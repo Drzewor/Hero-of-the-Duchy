@@ -19,6 +19,7 @@ public class Character : MonoBehaviour, ISaveable
     [SerializeField] private CharacterExperience characterExperience;
     [SerializeField] private StatPanel statPanel;
     public event Action OnMaxHealthUpdate;
+    public event Action OnMaxManaUpdate;
 
     //Called On StatIncreaseButtons
     public void IncreaseAttribute(string stat)
@@ -34,6 +35,7 @@ public class Character : MonoBehaviour, ISaveable
             case "MaxMana":
                 MaxMana.BaseValue += 10;
                 statPanel?.UpdateStatValues();
+                OnMaxManaUpdate?.Invoke();
                 return;
             case "Strength":
                 Strength.BaseValue += 1;

@@ -64,13 +64,15 @@ namespace RPG.Combat
 
         private void SetWeapon()
         {
-            stateMachine.SetWeapon(weaponLogic);
+            stateMachine.SetWeaponLogic(weaponLogic);
 
             stateMachine.SetAttackDamage(equippedWeapon.weaponDamage);
 
             stateMachine.SetStatDamageBonus(equippedWeapon.statDamageBonus);
 
             stateMachine.SetAttacks(equippedWeapon.attacks);
+
+            stateMachine.SetIsWeaponMagic(equippedWeapon.isMagical);
         }
 
         public void HandleKill(GameObject victim)

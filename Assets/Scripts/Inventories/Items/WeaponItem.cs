@@ -20,6 +20,7 @@ namespace RPG.Combat
         public float weaponDamage = 0;
         public float npcAttackRange = 2;
         public statDamageBonus statDamageBonus;
+        public bool isMagical;
         public Attack[] attacks;
 
         public override string GetItemType()

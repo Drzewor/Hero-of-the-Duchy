@@ -32,7 +32,10 @@ namespace RPG.StateMachine.Player
 
         public override void Tick(float deltaTime)
         {
-            if(stateMachine.InputReader.IsAttacking && stateMachine.Stamina.ReduceStamina(firstAttack.StaminaCost))
+            if(
+                stateMachine.InputReader.IsAttacking && 
+                stateMachine.Stamina.ReduceStamina(firstAttack.StaminaCost) && 
+                stateMachine.Mana.ReduceMana(firstAttack.ManaCost))
             {
                 stateMachine.SwitchState(new PlayerAttackingState(stateMachine,0));
                 return;
