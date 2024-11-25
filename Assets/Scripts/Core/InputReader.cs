@@ -20,6 +20,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public event Action PressIEvent;
     public event Action PressESCEvent;
     public event Action PressJEvent;
+    public bool isGamePaused = false;
 
     private Controls controls;
     private void Start()
@@ -37,12 +38,14 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnJump(InputAction.CallbackContext context)
     {
+        if(isGamePaused) return;
         if(!context.performed) return;
         JumpEvent?.Invoke();
     }
 
     public void OnDodge(InputAction.CallbackContext context)
     {
+        if(isGamePaused) return;
         if(!context.performed) return;
         DodgeEvent?.Invoke();
     }
@@ -59,13 +62,14 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnTarget(InputAction.CallbackContext context)
     {
+        if(isGamePaused) return;
         if (!context.performed) return;
-
         TargetEvent?.Invoke();
     }
 
     public void OnAttack(InputAction.CallbackContext context)
     {
+        if(isGamePaused) return;
         if(context.performed)
         {
             IsAttacking = true;
@@ -79,6 +83,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnBlock(InputAction.CallbackContext context)
     {
+        if(isGamePaused) return;
         if(context.performed)
         {
             IsBlocking = true;
@@ -91,6 +96,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnInteraction(InputAction.CallbackContext context)
     {
+        if(isGamePaused) return;
         if(!context.performed) return;
 
         InteractEvent?.Invoke();
@@ -98,24 +104,28 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnSave(InputAction.CallbackContext context)
     {
+        if(isGamePaused) return;
         if(!context.performed) return;
         SaveEvent?.Invoke();
     }
 
     public void OnLoad(InputAction.CallbackContext context)
     {
+        if(isGamePaused) return;
         if(!context.performed) return;
         LoadEvent?.Invoke();
     }
 
     public void OnDelete(InputAction.CallbackContext context)
     {
+        if(isGamePaused) return;
         if(!context.performed) return;
         DeleteEvent?.Invoke();
     }
 
     public void OnPressI(InputAction.CallbackContext context)
     {
+        if(isGamePaused) return;
         if(!context.performed) return;
         PressIEvent?.Invoke();
     }
@@ -128,6 +138,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
 
     public void OnPressJ(InputAction.CallbackContext context)
     {
+        if(isGamePaused) return;
         if(!context.performed) return;
         PressJEvent?.Invoke();
     }
@@ -142,5 +153,10 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
         {
             IsSprinting = false;
         }
+    }
+
+    public bool ESCHasMultipleHandleres()
+    {
+        return PressESCEvent.GetInvocationList().Length > 1;
     }
 }

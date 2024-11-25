@@ -21,12 +21,12 @@ namespace RPG.SceneManagement
 
         public IEnumerator FadeOut(float time)
         {
-            return Fade(1, time);
+            yield return Fade(1, time);
         }
 
         public IEnumerator FadeIn(float time)
         {
-            return Fade(0, time);
+            yield return Fade(0, time);
         }
 
         public IEnumerator Fade(float target, float time)
@@ -43,7 +43,7 @@ namespace RPG.SceneManagement
         {
             while(!Mathf.Approximately(canvas.alpha, target))
             {
-                canvas.alpha = Mathf.MoveTowards(canvas.alpha, target,Time.deltaTime / time);
+                canvas.alpha = Mathf.MoveTowards(canvas.alpha, target, Time.unscaledDeltaTime / time);
                 yield return null;
             }
         }

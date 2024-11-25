@@ -33,17 +33,32 @@ namespace RPG.Saving
             SaveFile(saveFile, state);
         }
 
-
-
         public void Load(string saveFile)
         {
             RestorState(LoadFile(saveFile));
         }
-
+        
         public void Delete(string saveFile)
         {
             string path = GetPathFromSavingFile(saveFile);
             File.Delete(path);
+        }
+
+        public bool SaveFileExists(string saveFileName)
+        {
+            string path = GetPathFromSavingFile(saveFileName);
+            return File.Exists(path);
+        }
+
+        public IEnumerable<string> ListSaves()
+        {
+            foreach(string path in Directory.EnumerateFiles(Application.persistentDataPath))
+            {
+                if(Path.GetExtension(path) == ".sav")
+                {
+                    yield return Path.GetFileNameWithoutExtension(path);
+                }
+            }
         }
 
         private void SaveFile(string saveFile, object state)
@@ -79,6 +94,7 @@ namespace RPG.Saving
 
             state["lastSceneBuildIndex"] = SceneManager.GetActiveScene().buildIndex;
         }
+
         private void RestorState( Dictionary<string, object> state)
         {
             foreach(SaveableEntity saveable in FindObjectsOfType<SaveableEntity>(includeInactive: true))
@@ -91,7 +107,6 @@ namespace RPG.Saving
 
             }
         }
-
 
         private string GetPathFromSavingFile(string saveFile)
         {

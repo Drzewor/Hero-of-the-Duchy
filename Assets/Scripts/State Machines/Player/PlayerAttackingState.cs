@@ -38,22 +38,18 @@ namespace RPG.StateMachine.Player
             {
                 if(attack.ForceTime <= normalizedTime)
                 {
-                    Debug.Log("test1");
                     TryApplyforce();
                 }
 
                 if(stateMachine.InputReader.IsAttacking)
                 {
-                    Debug.Log("test2");
                     TryComboAttack(normalizedTime);
                 }
             }
             else
             {
-                Debug.Log("test3");
                 ReturnToLocomotion();
             }
-            Debug.Log("test4");
             previousFrameTime = normalizedTime;
         }
 

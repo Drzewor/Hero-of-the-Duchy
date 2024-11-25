@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using Cinemachine;
 using RPG.Combat;
 using RPG.Quests;
@@ -23,11 +24,12 @@ namespace RPG.StateMachine.Player
         [field: SerializeField] public WeaponLogic WeaponLogic {get; private set;}
         [field: SerializeField] public LedgeDetector LedgeDetector {get; private set;}
         [field: SerializeField] public InventoryManager InventoryManager {get; private set;}
-        [field: SerializeField, FormerlySerializedAs("character")] public Character Character {get; private set;}
+        [field: SerializeField] public Character Character {get; private set;}
         [field: SerializeField] public Stamina Stamina {get; private set;}
         [field: SerializeField] public Mana Mana {get; private set;}
         [field: SerializeField] public QuestManager QuestManager {get; private set;}
-        [field: SerializeField, FormerlySerializedAs("characterExperience")] public CharacterExperience CharacterExperience {get; private set;}
+        [field: SerializeField] public CharacterExperience CharacterExperience {get; private set;}
+        [field: SerializeField] public GameObject PauseWindow {get; private set;}
         [field: SerializeField] public TMP_Text InteractionText {get; private set;}
         [field: SerializeField] public float FreeLookMovmentSpeed {get; private set;}
         [field: SerializeField] public float TargetingMovmentSpeed {get; private set;}
@@ -65,21 +67,42 @@ namespace RPG.StateMachine.Player
         {
             Health.OnTakeDamage += HandleTakeDamage;
             Health.OnDie += HandleDeath;
+            InputReader.PressESCEvent += SwitchPauseMenu;
         }
 
         private void OnDisable() 
         {
             Health.OnTakeDamage -= HandleTakeDamage;
             Health.OnDie -= HandleDeath;
+            InputReader.PressESCEvent -= SwitchPauseMenu;
         }
 
         private void HandleTakeDamage()
         {
             SwitchState(new PlayerImpactState(this));
         }
+
         private void HandleDeath(Health health)
         {
             SwitchState(new PlayerDeadState(this));
+        }
+
+        public void SwitchPauseMenu()
+        {
+            if(InputReader.ESCHasMultipleHandleres()) return;
+            InputReader.isGamePaused = !InputReader.isGamePaused;
+            if(InputReader.isGamePaused)
+            {
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else
+            {
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;              
+            }
+               
+            PauseWindow.SetActive(!PauseWindow.activeInHierarchy);
         }
 
         public void SetDodgeTime(float time)
@@ -132,6 +155,9 @@ namespace RPG.StateMachine.Player
                 return 0;
             }
         }
+
+
+
         private IEnumerator SetInventory()
         {
             yield return new WaitForEndOfFrame();

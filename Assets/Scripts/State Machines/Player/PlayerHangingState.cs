@@ -47,8 +47,6 @@ namespace RPG.StateMachine.Player
         public override void Exit()
         {
         }
-
-
     }
 
 }

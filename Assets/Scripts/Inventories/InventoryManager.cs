@@ -368,17 +368,16 @@ public class InventoryManager : MonoBehaviour ,ISaveable, IPredicateEvaluator
         
         item.Equip(character);
         EquipWeapon(item);
+        if(item is ArmorItem)
+        {
+            equipmentMenager.EquipItem((ArmorItem)item);
+        }
         statPanel.UpdateStatValues();
     }
 
     private void EquipWeapon(EquippableItem item)
     {
-        if(item == null)
-        {
-            weaponHandler.EquipWeapon((WeaponItem)item);
-            return;
-        }
-        if(item.EquipmentType == EquipmentType.MainHand)
+        if(item.EquipmentType == EquipmentType.MainHand || item == null)
         {
             weaponHandler.EquipWeapon((WeaponItem)item);
             return;

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 
 public class EquipmentMenager : MonoBehaviour
@@ -25,7 +24,7 @@ public class EquipmentMenager : MonoBehaviour
     private GameObject rFoot;
     private GameObject shield;
 
-    private void Start() 
+    private void Awake() 
     {
         EquipItem(defaultHead);
         EquipItem(defaultTorso);
@@ -37,7 +36,6 @@ public class EquipmentMenager : MonoBehaviour
     public void EquipItem(ArmorItem item)
     {
         if(item == null) return;
-
         switch (item.EquipmentType)
         {
             case EquipmentType.Helmet:
