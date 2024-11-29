@@ -136,15 +136,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 264916200563348646, guid: 1c6389e27c4b6e642aac310c1ab445a2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.17999291
+      value: 0.17999288
       objectReference: {fileID: 0}
     - target: {fileID: 264916200563348646, guid: 1c6389e27c4b6e642aac310c1ab445a2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.14278996
+      value: -0.14279
       objectReference: {fileID: 0}
     - target: {fileID: 264916200563348646, guid: 1c6389e27c4b6e642aac310c1ab445a2, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.026417341
+      value: 0.02641735
       objectReference: {fileID: 0}
     - target: {fileID: 1182526627851028672, guid: 1c6389e27c4b6e642aac310c1ab445a2, type: 3}
       propertyPath: m_Name
@@ -160,11 +160,11 @@ PrefabInstance:
       objectReference: {fileID: 4721254331305930187}
     - target: {fileID: 2056318076324089414, guid: 1c6389e27c4b6e642aac310c1ab445a2, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.422076
+      value: 0.42207602
       objectReference: {fileID: 0}
     - target: {fileID: 2056318076324089414, guid: 1c6389e27c4b6e642aac310c1ab445a2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.07962821
+      value: -0.0796282
       objectReference: {fileID: 0}
     - target: {fileID: 2056318076390636647, guid: 1c6389e27c4b6e642aac310c1ab445a2, type: 3}
       propertyPath: m_LocalRotation.x
@@ -192,27 +192,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2056318077194711784, guid: 1c6389e27c4b6e642aac310c1ab445a2, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.036324956
+      value: 0.036324944
       objectReference: {fileID: 0}
     - target: {fileID: 2056318077194711784, guid: 1c6389e27c4b6e642aac310c1ab445a2, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.000000059604645
       objectReference: {fileID: 0}
     - target: {fileID: 2056318077194711784, guid: 1c6389e27c4b6e642aac310c1ab445a2, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000007450581
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2126234325775636976, guid: 1c6389e27c4b6e642aac310c1ab445a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.00000035762787
+      value: 0.00000011920929
       objectReference: {fileID: 0}
     - target: {fileID: 2126234325775636976, guid: 1c6389e27c4b6e642aac310c1ab445a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0000009536743
+      value: 0.00000035762787
       objectReference: {fileID: 0}
     - target: {fileID: 2126234325775636976, guid: 1c6389e27c4b6e642aac310c1ab445a2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.59017
+      value: 5.5901704
       objectReference: {fileID: 0}
     - target: {fileID: 4243755122327651810, guid: 1c6389e27c4b6e642aac310c1ab445a2, type: 3}
       propertyPath: m_AnimatedTarget
@@ -411,9 +411,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4911948940280976916}
     - target: {fileID: 2714198774071461062, guid: 4a355f6d9afde0d4e8b86f1d424fd9b9, type: 3}
-      propertyPath: <Mana>k__BackingField
+      propertyPath: <PauseWindow>k__BackingField
       value: 
-      objectReference: {fileID: 3549238144847692004}
+      objectReference: {fileID: 8493023478485560412}
     - target: {fileID: 2714198774071461062, guid: 4a355f6d9afde0d4e8b86f1d424fd9b9, type: 3}
       propertyPath: <InteractionText>k__BackingField
       value: 
@@ -1849,6 +1849,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8493023478485560412 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5026837565673161103, guid: a330622e111ad5f4588a5ceb3b64846c, type: 3}
+  m_PrefabInstance: {fileID: 3467681531204922835}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8897051934788657400 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5433311898447727915, guid: a330622e111ad5f4588a5ceb3b64846c, type: 3}

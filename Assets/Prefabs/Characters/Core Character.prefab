@@ -175,87 +175,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &3676096964032124484
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5598592022389245311}
-  - component: {fileID: 7306279593562537013}
-  - component: {fileID: 6071033396826069153}
-  m_Layer: 0
-  m_Name: Shield
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5598592022389245311
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3676096964032124484}
-  m_LocalRotation: {x: 0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0, z: -0.631}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
-  m_Children: []
-  m_Father: {fileID: 133321667244904652}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: -90}
---- !u!33 &7306279593562537013
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3676096964032124484}
-  m_Mesh: {fileID: -2432090755550338912, guid: 4c33f332e31d04e4b980b512dc3a4537, type: 3}
---- !u!23 &6071033396826069153
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3676096964032124484}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 949bc213e9cfe1248b67358fb842a596, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &3676810729991878530
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,21 +596,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <InputReader>k__BackingField: {fileID: 2141550817530122720}
   <characterController>k__BackingField: {fileID: 3938083112899812714}
+  <cinemachineFreeLook>k__BackingField: {fileID: 0}
   <Animator>k__BackingField: {fileID: 5363199259439875797}
   <Targeter>k__BackingField: {fileID: 538089499631775384}
   <Health>k__BackingField: {fileID: 947360844121974266}
   <ForceReceiver>k__BackingField: {fileID: 3992604978303407537}
   <WeaponLogic>k__BackingField: {fileID: 0}
   <LedgeDetector>k__BackingField: {fileID: 2066113294600973446}
-  <Character>k__BackingField: {fileID: 4191082712540736852}
+  <InventoryManager>k__BackingField: {fileID: 0}
+  <Character>k__BackingField: {fileID: 0}
+  <Stamina>k__BackingField: {fileID: 0}
+  <Mana>k__BackingField: {fileID: 0}
+  <QuestManager>k__BackingField: {fileID: 0}
+  <CharacterExperience>k__BackingField: {fileID: 0}
+  <PauseWindow>k__BackingField: {fileID: 0}
+  <InteractionText>k__BackingField: {fileID: 0}
   <FreeLookMovmentSpeed>k__BackingField: 6
   <TargetingMovmentSpeed>k__BackingField: 4.5
+  <SprintMovmentSpeed>k__BackingField: 0
   <RotationDamping>k__BackingField: 6
   <DodgeDuration>k__BackingField: 0.3
   <DodgeDistance>k__BackingField: 3
   <PreviousDodgeTime>k__BackingField: -Infinity
   <JumpForce>k__BackingField: 5
   <AttackDamage>k__BackingField: 0
+  <IsWeaponMagic>k__BackingField: 0
+  <StatDamageBonus>k__BackingField: 0
   InteractionRadius: 1
   InteractionDistance: 7
   <Attacks>k__BackingField: []
@@ -707,6 +637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 486372bb11ed90446910411ef0e808d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGamePaused: 0
 --- !u!95 &5363199259439875797
 Animator:
   serializedVersion: 3
@@ -786,9 +717,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338f2bb72a6150a439db4e31af22c5b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
   isDead: 0
-  characterAttr: {fileID: 0}
+  character: {fileID: 0}
 --- !u!114 &5543333658185316226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -821,28 +751,13 @@ MonoBehaviour:
   weaponHandler: {fileID: 4023841312001710513}
   dropItemArea: {fileID: 0}
   itemDropper: {fileID: 4465552081275280840}
+  equipmentMenager: {fileID: 0}
+  character: {fileID: 0}
   inventory: {fileID: 0}
   EquipmentStats: {fileID: 0}
   CharacterPanel: {fileID: 0}
   CraftingWindow: {fileID: 0}
-  MaxHealth:
-    BaseValue: 100
-  MaxMana:
-    BaseValue: 10
-  Strength:
-    BaseValue: 5
-  Dexterity:
-    BaseValue: 5
-  Charisma:
-    BaseValue: 5
-  WeaponArmour:
-    BaseValue: 0
-  MagicArmour:
-    BaseValue: 0
-  ProjectileArmour:
-    BaseValue: 0
-  ArmourPiercing:
-    BaseValue: 0
+  QuestWindow: {fileID: 0}
 --- !u!114 &4465552081275280840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -856,6 +771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickup: {fileID: 2414689392509904233, guid: f2c887e32641f4b4783936709924b63b, type: 3}
+  scatterDistance: 1
 --- !u!1 &6178829804817786858
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,8 +873,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.636, y: 0.368, z: 0.055}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 5598592022389245311}
+  m_Children: []
   m_Father: {fileID: 1178238066607507441}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

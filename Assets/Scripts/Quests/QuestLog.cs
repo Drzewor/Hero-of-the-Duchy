@@ -11,6 +11,8 @@ public class QuestLog : MonoBehaviour
     [SerializeField] private TMP_Text log;
     [SerializeField] private GameObject questButtonPrefab;
     [SerializeField] private QuestManager questManager;
+    private const string defaultTittle = "Quest Log";
+    private const string defaultLog = "You can check your task list here.";
     private void OnEnable() {
         if(questList.childCount > 0)
         {
@@ -19,6 +21,10 @@ public class QuestLog : MonoBehaviour
                 Destroy(transform.gameObject);
             }
         }
+
+        questTittle.text = defaultTittle;
+
+        log.text = defaultLog;
         
         if(questManager.GetQuests().Count == 0) return;
 

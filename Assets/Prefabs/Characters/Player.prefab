@@ -240,8 +240,10 @@ MonoBehaviour:
   <InventoryManager>k__BackingField: {fileID: 1337029670376892876}
   <Character>k__BackingField: {fileID: 4347799521534060457}
   <Stamina>k__BackingField: {fileID: 8836872206651184952}
+  <Mana>k__BackingField: {fileID: 1258038641083300092}
   <QuestManager>k__BackingField: {fileID: 1835784104301947245}
   <CharacterExperience>k__BackingField: {fileID: 2362263335625245551}
+  <PauseWindow>k__BackingField: {fileID: 0}
   <InteractionText>k__BackingField: {fileID: 0}
   <FreeLookMovmentSpeed>k__BackingField: 6
   <TargetingMovmentSpeed>k__BackingField: 4.5
@@ -269,6 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 486372bb11ed90446910411ef0e808d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGamePaused: 0
 --- !u!114 &2214617560937079637
 MonoBehaviour:
   m_ObjectHideFlags: 0

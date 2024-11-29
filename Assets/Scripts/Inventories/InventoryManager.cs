@@ -377,7 +377,7 @@ public class InventoryManager : MonoBehaviour ,ISaveable, IPredicateEvaluator
 
     private void EquipWeapon(EquippableItem item)
     {
-        if(item.EquipmentType == EquipmentType.MainHand || item == null)
+        if(item == null || item.EquipmentType == EquipmentType.MainHand)
         {
             weaponHandler.EquipWeapon((WeaponItem)item);
             return;
