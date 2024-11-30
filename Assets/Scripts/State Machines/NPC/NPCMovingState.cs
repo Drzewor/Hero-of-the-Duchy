@@ -64,7 +64,7 @@ namespace RPG.StateMachine.NPC
         }
 
         
-        private void MoveToDestination(float deltaTime,Vector3 destination)
+        private void MoveToDestination(float deltaTime, Vector3 destination)
         {
             if(stateMachine.Agent.isOnNavMesh)
             {

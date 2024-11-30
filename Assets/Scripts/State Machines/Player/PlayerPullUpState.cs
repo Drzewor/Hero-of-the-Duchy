@@ -8,7 +8,7 @@ namespace RPG.StateMachine.Player
     {
         private readonly int PullUpAnimationtHash = Animator.StringToHash("Pullup");
         private const float CrossFadeDuration = 0.1f;
-        private readonly Vector3 offSet = new Vector3(0f,1.2f,0.9f);
+        private readonly Vector3 offSet = new Vector3(0f,1.2f,1.3f);
         public PlayerPullUpState(PlayerStateMachine stateMachine) : base(stateMachine)
         {
         }

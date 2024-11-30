@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &378698371914122969
+--- !u!1001 &8280313586323678955
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -13,19 +13,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1080971644257897505, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 94.1
+      value: 128.89554
       objectReference: {fileID: 0}
     - target: {fileID: 1080971644257897505, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0073280334
+      value: -0.0073184967
       objectReference: {fileID: 0}
     - target: {fileID: 1080971644257897505, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 187.9
+      value: 194.09673
       objectReference: {fileID: 0}
     - target: {fileID: 1080971644257897505, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.66098046
+      value: 0.3778272
       objectReference: {fileID: 0}
     - target: {fileID: 1080971644257897505, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: m_LocalRotation.x
@@ -33,7 +33,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1080971644257897505, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.75040305
+      value: 0.9258761
       objectReference: {fileID: 0}
     - target: {fileID: 1080971644257897505, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: m_LocalRotation.z
@@ -45,7 +45,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1080971644257897505, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 97.251
+      value: 135.602
       objectReference: {fileID: 0}
     - target: {fileID: 1080971644257897505, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1215947765747640045, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: m_Name
-      value: Goblin
+      value: ArmorGoblin
       objectReference: {fileID: 0}
     - target: {fileID: 1218795210497160605, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: factionSO
@@ -62,26 +62,26 @@ PrefabInstance:
     - target: {fileID: 3986924407807926569, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: defaultWeapon
       value: 
-      objectReference: {fileID: 11400000, guid: 88138b43f3ab28840a7363028e732025, type: 2}
+      objectReference: {fileID: 11400000, guid: 2ec392eda0786f649a77c41913f25ea0, type: 2}
     - target: {fileID: 4946407024067824553, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: defaultHead
       value: 
-      objectReference: {fileID: 11400000, guid: 278e6fcf0d002364891267464d158371, type: 2}
+      objectReference: {fileID: 11400000, guid: 8d3ed0665c288864291b6a612b4dfebb, type: 2}
     - target: {fileID: 4946407024067824553, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: defaultFoots
       value: 
-      objectReference: {fileID: 11400000, guid: 58f5ca26a333c6841a63466c3b7ca9e0, type: 2}
+      objectReference: {fileID: 11400000, guid: 97a6722608d8a024e8c7d49dc48bb3ad, type: 2}
     - target: {fileID: 4946407024067824553, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: defaultHands
       value: 
-      objectReference: {fileID: 11400000, guid: 37c6e8db7cbc55344933de29ec927024, type: 2}
+      objectReference: {fileID: 11400000, guid: c64b61a8dbef6b148895dbf00352cc73, type: 2}
     - target: {fileID: 4946407024067824553, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: defaultTorso
       value: 
-      objectReference: {fileID: 11400000, guid: 626bf55df032d9e428aef6cd9ae3e9ff, type: 2}
+      objectReference: {fileID: 11400000, guid: 9a6d1d1508625f74eb130afa970b2da6, type: 2}
     - target: {fileID: 6079956189316156445, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
       propertyPath: uniqueIdentifier
-      value: c7b2d9a7-3f6e-433b-b8fa-6be8e4542f9b
+      value: efeacfd4-672a-440e-9f2e-dc1f2b348570
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}

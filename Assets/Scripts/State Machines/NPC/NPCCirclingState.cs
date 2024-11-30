@@ -45,7 +45,7 @@ public class NPCCirclingState : NPCBaseState
         FaceTarget();
         circlingTime -= deltaTime;
 
-        stateMachine.Animator.SetFloat(RightSpeedHash,1, AnimatorDampTime, deltaTime);
+        
     }
 
     public override void Exit()
@@ -63,10 +63,12 @@ public class NPCCirclingState : NPCBaseState
             if(direction == 1)
             {
                 stateMachine.Agent.destination = stateMachine.gameObject.transform.position + stateMachine.gameObject.transform.right;
+                stateMachine.Animator.SetFloat(RightSpeedHash,1, AnimatorDampTime, deltaTime);
             }
             else
             {
                 stateMachine.Agent.destination = stateMachine.gameObject.transform.position + stateMachine.gameObject.transform.right * -1;
+                stateMachine.Animator.SetFloat(RightSpeedHash,-1, AnimatorDampTime, deltaTime);
             }
             
 
