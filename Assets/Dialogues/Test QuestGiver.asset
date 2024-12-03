@@ -72,8 +72,8 @@ MonoBehaviour:
   - 940ad9fd-0119-496a-b361-d2fe302e073e
   rect:
     serializedVersion: 2
-    x: 308
-    y: 226
+    x: 313
+    y: 224
     width: 200
     height: 100
   OnEnterAction: []
@@ -81,7 +81,7 @@ MonoBehaviour:
   condition:
     and:
     - or:
-      - predicate: CompletedQuest
+      - predicate: 0
         parameters:
         - Kill Bastard
         negate: 0
@@ -186,12 +186,12 @@ MonoBehaviour:
   condition:
     and:
     - or:
-      - predicate: HasQuest
+      - predicate: 0
         parameters:
         - Kill Bastard
         negate: 0
     - or:
-      - predicate: CompletedQuest
+      - predicate: 0
         parameters:
         - Kill Bastard
         negate: 1
@@ -248,7 +248,7 @@ MonoBehaviour:
   condition:
     and:
     - or:
-      - predicate: HasQuest
+      - predicate: 0
         parameters:
         - Kill Bastard
         negate: 1
@@ -279,7 +279,7 @@ MonoBehaviour:
   condition:
     and:
     - or:
-      - predicate: HasItem
+      - predicate: 0
         parameters:
         - 14c7e927ef4f675469367f6e8ba70e21
         negate: 0

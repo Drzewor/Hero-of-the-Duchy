@@ -8,8 +8,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6025937999345156618, guid: 2a4f23eb282012c45861d1bbc242dc1e, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
+    - target: {fileID: 6025937999345156618, guid: 2a4f23eb282012c45861d1bbc242dc1e, type: 3}
       propertyPath: m_Name
-      value: berryBush
+      value: berryBush Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6407423817572898992, guid: 2a4f23eb282012c45861d1bbc242dc1e, type: 3}
       propertyPath: m_RootOrder

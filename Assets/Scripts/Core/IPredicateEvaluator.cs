@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface IPredicateEvaluator
 {
-    bool? Evaluate(string predicate, string[] parameters);
+    bool? Evaluate(predicateName predicate, string[] parameters);
 }

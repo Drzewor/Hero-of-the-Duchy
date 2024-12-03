@@ -6,11 +6,11 @@ namespace RPG.Quests
 {
     public class QuestDialogueCompletion : MonoBehaviour
     {
-        [SerializeField] string dialogueTriggerName;
+        [SerializeField] List<string> dialogueTriggerName;
 
-        public void CompleteDialogueQuestStep()
+        public void CompleteDialogueQuestStep(int index)
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<QuestManager>().TryToAdvanceQuests(dialogueTriggerName);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<QuestManager>().TryToAdvanceQuests(dialogueTriggerName[index]);
         }
 
     }

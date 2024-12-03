@@ -22,7 +22,6 @@ namespace RPG.Quests
                     }
                 }
             }
-            
         }
     }
 }

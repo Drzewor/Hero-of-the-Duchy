@@ -41,7 +41,7 @@ public class Condition
     [System.Serializable]
     class Predicate
     {
-        [SerializeField] string predicate;
+        [SerializeField] predicateName predicate;
         [SerializeField] string[] parameters;
         [SerializeField] bool negate = false;
         
@@ -63,5 +63,14 @@ public class Condition
             return true;
         }
     }
-    
+}
+
+public enum predicateName
+{
+    HasItem,
+    HasQuest,
+    CompletedQuest,
+    IsQuestStepActive,
+    CompletedQuestStep,
+
 }

@@ -48,18 +48,23 @@ namespace RPG.Quests
             return quest.GetQuestStep(stepInProgress);
         }
 
-        public void TryMoveToNextQuestStep()
+        public bool TryMoveToNextQuestStep()
         {
             progressOfStep = quest.GetQuestStep(stepInProgress).GetStepProgress();
+            bool MovedToNextStep = false;
             if(quest.GetQuestStep(stepInProgress).isFinished)
             {
                 stepInProgress += 1;
                 progressOfStep = 0;
+                MovedToNextStep = true;
             }
             if(stepInProgress >= quest.steps.Count)
             {
                 quest.EndQuest();
+                MovedToNextStep = false;
             }
+
+            return MovedToNextStep;
         }
     }
 }

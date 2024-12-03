@@ -37,12 +37,14 @@ namespace RPG.StateMachine.NPC
         [field: SerializeField] public float MaxSuspiciousTime {get; private set;} = 2;
         [field: SerializeField] public float MinSuspiciousTime {get; private set;} = 6;
         [field: SerializeField] public Attack[] Attacks {get; private set;}    
+        [Space(15)] 
+        [SerializeField]private bool useStartingState  = true;
         private void Start() 
         {
             Agent.updatePosition = false;
             Agent.updateRotation = false;
             if(Health.isDead) return;
-            if(!isStartingStateSet)
+            if(useStartingState)
             {
                 SetStartingState(new NPCIdleState(this));
             }

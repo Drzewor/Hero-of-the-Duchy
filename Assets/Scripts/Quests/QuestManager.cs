@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using RPG.Core;
 using RPG.Saving;
+using TMPro;
 using UnityEngine;
 
 namespace RPG.Quests
@@ -10,6 +12,7 @@ namespace RPG.Quests
     {
         private List<QuestStatus> quests = new List<QuestStatus>();
         [SerializeField] private QuestDataBase questDataBase;
+        [SerializeField] private TextInfoDisplay questInfoDisplay;
 
         public List<QuestStatus> GetQuests()
         {
@@ -19,6 +22,7 @@ namespace RPG.Quests
         public void AddQuest(Quest quest)
         {
             quests.Add(new QuestStatus(quest));
+            questInfoDisplay.DisplayQuestAddInfo(quest.GetTitle());
         }
 
         private void Clear()
@@ -33,12 +37,19 @@ namespace RPG.Quests
             for(int i = 0; i < quests.Count; i++)
             {
                 if(quests[i].GetQuest().isFinished) continue;
+
                 quests[i].GetCurrentQuestStep().TryToAdvance(argument);
-                quests[i].TryMoveToNextQuestStep();
+                
+                if(quests[i].TryMoveToNextQuestStep())
+                {
+                    questInfoDisplay.DisplayQuestStepFinish(quests[i].GetQuest().GetTitle());
+                }
 
                 if(quests[i].GetQuest().isFinished)
                 {
                     GiveRewards(quests[i].GetQuest());
+
+                    questInfoDisplay.DisplayQuestFinish(quests[i].GetQuest().GetTitle());
 
                     Quest nextQuest = quests[i].GetQuest().GetNextQuest();
                     if(nextQuest == null) continue;
@@ -51,31 +62,27 @@ namespace RPG.Quests
         {
             GetComponent<CharacterExperience>().AddExp(quest.expReward);
 
-            Debug.Log(quest.itemReward.Count);
             if(quest.itemReward.Count == 0) return;
             Inventory inventory = GetComponent<InventoryManager>().inventory;
             ItemDropper itemDropper = GetComponent<ItemDropper>();
             foreach(Item item in quest.itemReward)
             {
-                Debug.Log("Weszło do pętli");
                 if(inventory.CanAddItem(item))
                 {
-                    Debug.Log("dało item");
                     inventory.AddItem(item);
                 }
                 else
                 {
-                    Debug.Log("Wyrzuciło item");
                     itemDropper.DropItem(item);
                 }
             }
         }
 
-        public bool? Evaluate(string predicate, string[] parameters)
+        public bool? Evaluate(predicateName predicate, string[] parameters)
         {
             switch (predicate)
             {
-                case "HasQuest":
+                case predicateName.HasQuest:
                     foreach(QuestStatus questStatus in quests)
                     {
                         if(questStatus.GetQuest().name == parameters[0])
@@ -84,12 +91,36 @@ namespace RPG.Quests
                         }
                     }
                     return false;
-                case "CompletedQuest":
+                case predicateName.CompletedQuest:
                     foreach(QuestStatus questStatus in quests)
                     {
                         if(questStatus.GetQuest().name == parameters[0])
                         {
                             return questStatus.GetQuest().isFinished;
+                        }
+                    }
+                    return false;
+                case predicateName.IsQuestStepActive:
+                    foreach(QuestStatus questStatus in quests)
+                    {
+                        if(questStatus.GetCurrentQuestStep().GetStepId() == parameters[0])
+                        {
+                            if(questStatus.GetQuest().isFinished != true)
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                    return false;
+                case predicateName.CompletedQuestStep:
+                    foreach(QuestStatus questStatus in quests)
+                    {
+                        foreach(QuestStep questStep in questStatus.GetQuest().steps)
+                        {
+                            if(questStep.GetStepId() == parameters[0])
+                            {
+                                return questStep.isFinished;
+                            }
                         }
                     }
                     return false;

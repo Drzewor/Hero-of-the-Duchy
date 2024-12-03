@@ -6,7 +6,7 @@ namespace RPG.Quests
 {
     public class QuestGiver : MonoBehaviour
     {
-        [SerializeField] Quest[] quest;
+        [SerializeField] private List<Quest> quest;
 
         public void GiveQuest(int index)
         {

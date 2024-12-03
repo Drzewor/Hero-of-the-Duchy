@@ -10,7 +10,8 @@ namespace RPG.Quests
         public bool isFinished = false;
         [SerializeField] private string stepDescription;
         protected int stepProgress = 0;
-        [SerializeField] protected int progressToFinish;
+        [SerializeField] protected int progressToFinish = 1;
+        [SerializeField] private string stepID = "ID is not always required";
 
         protected void FinishQuestStep()
         {
@@ -34,6 +35,11 @@ namespace RPG.Quests
         public int GetStepProgress()
         {
             return stepProgress;
+        }
+
+        public string GetStepId()
+        {
+            return stepID;
         }
 
         public abstract void TryToAdvance(object argument);

@@ -389,17 +389,19 @@ public class InventoryManager : MonoBehaviour ,ISaveable, IPredicateEvaluator
         EquipWeapon(null);
     }
 
-    public bool? Evaluate(string predicate, string[] parameters)
+    public bool? Evaluate(predicateName predicate, string[] parameters)
     {
-        if(predicate != "HasItem") return null;
-        foreach(string parameter in parameters)
+        if(predicate != predicateName.HasItem) return null;
+        
+        if(int.TryParse(parameters[1], out int amount))
         {
-            if(!inventory.HasItem(parameter))
+            if(inventory.ItemCount(parameters[0]) >= amount)
             {
-                return false;
+                return true;
             }
         }
-        return true;
+
+        return false;
     }
 
     public object CaptureState()

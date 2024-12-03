@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1459b79a3c78dbf47b87357912de4f27, type: 3}
+  m_Name: TeacherStartQuest
+  m_EditorClassIdentifier: 
+  questTitle: Teach Basic
+  nextQuest: {fileID: 0}
+  steps:
+  - {fileID: 11400000, guid: a7bfacfbeef8e9947aa761a19a7d4e7c, type: 2}
+  - {fileID: 11400000, guid: 578ca78c42b6f5d4c8274f2f4d7681ea, type: 2}
+  expReward: 100
+  itemReward: []
+  id: TeacherStartQuest
+  isFinished: 0
