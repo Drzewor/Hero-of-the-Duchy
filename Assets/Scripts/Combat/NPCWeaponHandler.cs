@@ -39,12 +39,14 @@ namespace RPG.Combat
         public void EnableWepon()
         {
             weaponLogic.gameObject.GetComponent<Collider>().enabled = true;
+            weaponLogic.SwitchTrails(true);
         }
 
         public void DisableWepon()
         {
             weaponLogic.gameObject.GetComponent<Collider>().enabled = false;
             weaponLogic.ClearColidersList();
+            weaponLogic.SwitchTrails(false);
         }
 
         public void Shoot()

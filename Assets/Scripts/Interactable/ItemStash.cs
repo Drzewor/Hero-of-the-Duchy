@@ -19,13 +19,17 @@ public class ItemStash : ItemContainer, IInteractable
         }
     }
 
-    public void Iteraction(GameObject player)
+    protected override void Awake() 
+    {
+        base.Awake();
+        SetStartingItems();
+    }
+
+    public void Interaction(GameObject player)
     {
         if(itemsParent == null) return;
         PlayerStateMachine stateMachine = player.GetComponent<PlayerStateMachine>();
-        player.transform.position = snapingPosition.position;
-        player.transform.rotation = snapingPosition.rotation;
-        stateMachine.SwitchState(new PlayerItemStashState(stateMachine, itemsParent, this));
+        stateMachine.SwitchState(new PlayerItemStashState(stateMachine, itemsParent, this, snapingPosition));
     }
 
     public void HandleRaycast(GameObject player)

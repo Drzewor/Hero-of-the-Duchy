@@ -7,6 +7,7 @@ namespace RPG.StateMachine.NPC
     public abstract class NPCBaseState : State
     {
         protected NPCStateMachine stateMachine;
+        private const float rotationSpeed = 5;
         public NPCBaseState(NPCStateMachine stateMachine)
         {
             this.stateMachine = stateMachine;
@@ -39,6 +40,17 @@ namespace RPG.StateMachine.NPC
             lookPosition.y = 0f;
 
             stateMachine.transform.rotation = Quaternion.LookRotation(lookPosition);
+        }
+
+        protected void FaceNextCorner()
+        {
+            if(!(stateMachine.Agent.path.corners.Length > 1)) return;
+
+            Vector3 lookPosition = stateMachine.Agent.path.corners[1] - stateMachine.transform.position;
+            lookPosition.y = 0f;
+            Quaternion targetRotation = Quaternion.LookRotation(lookPosition);
+            
+            stateMachine.transform.rotation = Quaternion.Slerp(stateMachine.transform.rotation,targetRotation,Time.deltaTime * 5);
         }
 
         protected float GetSqrDistanceToPoint(Vector3 point)

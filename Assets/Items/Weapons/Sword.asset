@@ -39,25 +39,28 @@ MonoBehaviour:
   weaponDamage: 20
   npcAttackRange: 2
   statDamageBonus: 1
+  isMagical: 0
   attacks:
   - <AnimationName>k__BackingField: SwordAttack1
     <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: 1
-    <ComboAttackTime>k__BackingField: 0.9
+    <ComboAttackTime>k__BackingField: 0.95
     <ForceTime>k__BackingField: 0.35
     <Force>k__BackingField: 3
     <Knockback>k__BackingField: 5
     <DamageMultiplier>k__BackingField: 1
     <StaminaCost>k__BackingField: 10
+    <ManaCost>k__BackingField: 0
   - <AnimationName>k__BackingField: SwordAttack2
     <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: 2
-    <ComboAttackTime>k__BackingField: 0.9
+    <ComboAttackTime>k__BackingField: 0.95
     <ForceTime>k__BackingField: 0.4
     <Force>k__BackingField: 3
     <Knockback>k__BackingField: 5
     <DamageMultiplier>k__BackingField: 1
     <StaminaCost>k__BackingField: 10
+    <ManaCost>k__BackingField: 0
   - <AnimationName>k__BackingField: SwordAttack3
     <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: -1
@@ -67,3 +70,4 @@ MonoBehaviour:
     <Knockback>k__BackingField: 7
     <DamageMultiplier>k__BackingField: 1.4
     <StaminaCost>k__BackingField: 15
+    <ManaCost>k__BackingField: 0

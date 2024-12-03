@@ -71,7 +71,6 @@ namespace RPG.StateMachine.NPC
             }
 
             MoveToTarget(deltaTime, stateMachine.NPCTargeter.currentTarget.gameObject);
-            FaceTarget();
 
             stateMachine.Animator.SetFloat(SpeedHash,1, AnimatorDampTime, deltaTime);
         }
@@ -92,6 +91,14 @@ namespace RPG.StateMachine.NPC
                 stateMachine.Agent.destination = target.transform.position;
 
                 Move(stateMachine.Agent.desiredVelocity.normalized * stateMachine.MovementSpeed, deltaTime);
+                if(stateMachine.Agent.path.corners.Length > 1)
+                {
+                    FaceNextCorner();
+                }
+                else
+                {
+                    FaceTarget();
+                }
             }
             
 

@@ -10,7 +10,9 @@ namespace RPG.Combat
     public class WeaponLogic : MonoBehaviour
     {
         [SerializeField] private Collider mycollider;
+        [SerializeField] public ParticleSystem trails;
         [SerializeField] public Projectile projectilePrefab;
+        
         private float damage = 0;
         private float knockback = 0;
         private float armourPiercing = 0;
@@ -93,6 +95,19 @@ namespace RPG.Combat
         public void ClearColidersList()
         {
             alreadyCollidedWith.Clear();
+        }
+
+        public void SwitchTrails(bool play)
+        {
+            if(trails == null) return;
+            if(play)
+            {
+                trails.Play();
+            }
+            else
+            {
+                trails.Stop();
+            }
         }
     }
 }

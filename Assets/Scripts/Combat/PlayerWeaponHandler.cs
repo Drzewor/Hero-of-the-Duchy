@@ -40,17 +40,24 @@ namespace RPG.Combat
             DisableWepon();
         }
 
+        //Called in Animation
         public void EnableWepon()
         {
             weaponLogic.gameObject.GetComponent<Collider>().enabled = true;
+            weaponLogic.SwitchTrails(true);
+
         }
 
+        //Called in Animation
         public void DisableWepon()
         {
-        weaponLogic.gameObject.GetComponent<Collider>().enabled = false;
-        weaponLogic.ClearColidersList();
+            weaponLogic.gameObject.GetComponent<Collider>().enabled = false;
+            weaponLogic.ClearColidersList();
+            weaponLogic.SwitchTrails(false);
+
         }
 
+        //Called in Animation
         public void Shoot()
         {
             if(weaponLogic.projectilePrefab == null) return;

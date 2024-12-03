@@ -9,10 +9,12 @@ public class PlayerItemStashState : PlayerBaseState
     private const float CrossFadeDuration = 0.5f;
     private Transform itemsParent;
     private ItemContainer container;
-    public PlayerItemStashState(PlayerStateMachine stateMachine, Transform itemsParent, ItemContainer container) : base(stateMachine)
+    private Transform snapingPosition;
+    public PlayerItemStashState(PlayerStateMachine stateMachine, Transform itemsParent, ItemContainer container, Transform snapingPosition) : base(stateMachine)
     { 
         this.itemsParent = itemsParent;
         this.container = container;
+        this.snapingPosition = snapingPosition;
     }
 
      public override void Enter()
@@ -22,6 +24,9 @@ public class PlayerItemStashState : PlayerBaseState
         stateMachine.InventoryManager.inventory.gameObject.SetActive(true);
         stateMachine.InventoryManager.OpenItemContainer(container);
         stateMachine.Animator.CrossFadeInFixedTime(OpenItemStashAnimationtHash,CrossFadeDuration);
+        
+        stateMachine.transform.position = snapingPosition.position;
+        stateMachine.transform.rotation = snapingPosition.rotation;
 
         stateMachine.InputReader.PressESCEvent += OnExit;
         stateMachine.InputReader.InteractEvent += OnExit;

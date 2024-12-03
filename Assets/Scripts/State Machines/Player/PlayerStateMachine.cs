@@ -14,6 +14,7 @@ namespace RPG.StateMachine.Player
 {
     public class PlayerStateMachine : StateMachine, ISaveable
     {
+        private bool isStartingStateSet = false;
         [field: SerializeField] public InputReader InputReader {get; private set;}
         [field: SerializeField] public CharacterController characterController {get; private set;}
         [field: SerializeField] public CinemachineFreeLook cinemachineFreeLook {get; private set;}
@@ -53,6 +54,8 @@ namespace RPG.StateMachine.Player
         [field: SerializeField] public float InteractionDistance = 10f;
         [field: SerializeField] public Attack[] Attacks {get; private set;}
         public Transform MainCameraTransform {get; private set;}
+        [Space(15)] 
+        [SerializeField]private bool useStartingState  = true;
 
         private void Start()
         {
@@ -60,7 +63,10 @@ namespace RPG.StateMachine.Player
             Cursor.visible = false;
             MainCameraTransform = Camera.main.transform;
             StartCoroutine(SetInventory());
-            SwitchState(new PlayerFreeLookState(this));
+            if(useStartingState)
+            {
+                SetStartingState(new PlayerFreeLookState(this));
+            }
         }
 
         private void OnEnable() 
@@ -85,6 +91,15 @@ namespace RPG.StateMachine.Player
         private void HandleDeath(Health health)
         {
             SwitchState(new PlayerDeadState(this));
+        }
+
+        public void SetStartingState(PlayerBaseState state)
+        {
+            if(!isStartingStateSet)
+            {
+                SwitchState(state);
+                isStartingStateSet = true;
+            }
         }
 
         public void SwitchPauseMenu()

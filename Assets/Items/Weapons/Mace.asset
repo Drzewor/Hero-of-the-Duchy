@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mace
   m_EditorClassIdentifier: 
   id: 88138b43f3ab28840a7363028e732025
-  ItemName: Mace
+  ItemName: Club
   MaximumStacks: 1
   Icon: {fileID: 21300000, guid: d5c9797da4d74b249bac4cb13d3fbb7b, type: 3}
   EquipmentType: 4
@@ -37,8 +37,9 @@ MonoBehaviour:
   ArmourPiercingPercentBonus: 0
   weaponPrefab: {fileID: 3062718525320430686, guid: a67235285168f7040bbf8c54e30612b5, type: 3}
   weaponDamage: 30
-  npcAttackRange: 2.2
+  npcAttackRange: 1.8
   statDamageBonus: 0
+  isMagical: 0
   attacks:
   - <AnimationName>k__BackingField: MaceAttack1
     <TransitionDuration>k__BackingField: 0.1
@@ -49,6 +50,7 @@ MonoBehaviour:
     <Knockback>k__BackingField: 2
     <DamageMultiplier>k__BackingField: 1
     <StaminaCost>k__BackingField: 15
+    <ManaCost>k__BackingField: 0
   - <AnimationName>k__BackingField: MaceAttack2
     <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: 2
@@ -58,6 +60,7 @@ MonoBehaviour:
     <Knockback>k__BackingField: 5
     <DamageMultiplier>k__BackingField: 1
     <StaminaCost>k__BackingField: 15
+    <ManaCost>k__BackingField: 0
   - <AnimationName>k__BackingField: MaceAttack3
     <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: -1
@@ -67,3 +70,4 @@ MonoBehaviour:
     <Knockback>k__BackingField: 5
     <DamageMultiplier>k__BackingField: 1.5
     <StaminaCost>k__BackingField: 20
+    <ManaCost>k__BackingField: 0

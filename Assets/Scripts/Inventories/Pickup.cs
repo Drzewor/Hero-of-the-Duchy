@@ -11,7 +11,7 @@ public class Pickup : MonoBehaviour, IInteractable
     public PickupSpawner spawner;
     private Inventory inventory;
 
-    public void Iteraction(GameObject player)
+    public void Interaction(GameObject player)
     {
         inventory = player.GetComponent<PlayerStateMachine>().InventoryManager.inventory;
         Item itemCopy = item.GetCopy();

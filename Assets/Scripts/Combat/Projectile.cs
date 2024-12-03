@@ -11,11 +11,18 @@ namespace RPG.Combat
     {
         public GameObject shooter;
         public GameObject target;
+        public float damage = 10;
+        public bool isMagic = false;
         [SerializeField] private bool isHoming = false;
         [SerializeField] private float speed = 10;
         [SerializeField] private float timeToDestroy = 4;
-        public float damage = 10;
-        public bool isMagic = false;
+        
+
+        private void Start() 
+        {
+            if(target == null) return;
+            gameObject.transform.LookAt(CorrectedLookAt(target));
+        }
         
 
         private void Update() 

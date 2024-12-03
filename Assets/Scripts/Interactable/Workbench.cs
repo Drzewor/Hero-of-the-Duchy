@@ -9,12 +9,10 @@ public class Workbench : MonoBehaviour, IInteractable
     [SerializeField] Transform snapingPosition;
     [SerializeField] private string raycastText;
 
-    public void Iteraction(GameObject player)
+    public void Interaction(GameObject player)
     {
         PlayerStateMachine stateMachine = player.GetComponent<PlayerStateMachine>();
-        player.transform.position = snapingPosition.position;
-        player.transform.rotation = snapingPosition.rotation;
-        stateMachine.SwitchState(new PlayerCraftingState(stateMachine));
+        stateMachine.SwitchState(new PlayerCraftingState(stateMachine, snapingPosition));
     }
     public void HandleRaycast(GameObject player)
     {

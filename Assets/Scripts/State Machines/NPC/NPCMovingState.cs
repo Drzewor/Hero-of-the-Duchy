@@ -50,7 +50,6 @@ namespace RPG.StateMachine.NPC
             }
 
             MoveToDestination(deltaTime ,destination);
-            FaceTarget(destination);
 
             stateMachine.Animator.SetFloat(SpeedHash,1, AnimatorDampTime, deltaTime);
         }
@@ -69,8 +68,16 @@ namespace RPG.StateMachine.NPC
             if(stateMachine.Agent.isOnNavMesh)
             {
                 stateMachine.Agent.destination = destination;
-
                 Move(stateMachine.Agent.desiredVelocity.normalized * stateMachine.MovementSpeed, deltaTime);
+
+                if(stateMachine.Agent.path.corners.Length > 1)
+                {
+                    FaceNextCorner();
+                }
+                else
+                {
+                    FaceTarget(destination);
+                }
             }
 
             stateMachine.Agent.velocity = stateMachine.Controller.velocity;

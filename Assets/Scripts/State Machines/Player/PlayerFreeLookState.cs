@@ -156,7 +156,7 @@ namespace RPG.StateMachine.Player
                 {
                     if(interactable !=null)
                     {
-                        interactable.Iteraction(stateMachine.gameObject);
+                        interactable.Interaction(stateMachine.gameObject);
                     }
                 }
             }

@@ -8,7 +8,11 @@ public class PlayerCraftingState : PlayerBaseState
 {        
     private readonly int CraftingAnimationtHash = Animator.StringToHash("Crafting");
     private const float CrossFadeDuration = 0.5f;
-    public PlayerCraftingState(PlayerStateMachine stateMachine) : base(stateMachine){}
+    private Transform snapingPosition;
+    public PlayerCraftingState(PlayerStateMachine stateMachine, Transform snapingPosition) : base(stateMachine)
+    {
+        this.snapingPosition = snapingPosition;
+    }
 
     public override void Enter()
     {
@@ -16,6 +20,9 @@ public class PlayerCraftingState : PlayerBaseState
         stateMachine.InventoryManager.CraftingWindow.gameObject.SetActive(true);
         stateMachine.InventoryManager.inventory.gameObject.SetActive(true);
         stateMachine.Animator.CrossFadeInFixedTime(CraftingAnimationtHash,CrossFadeDuration);
+
+        stateMachine.transform.position = snapingPosition.position;
+        stateMachine.transform.rotation = snapingPosition.rotation;
 
         stateMachine.InputReader.InteractEvent += OnExit;
         stateMachine.InputReader.PressESCEvent += OnExit;

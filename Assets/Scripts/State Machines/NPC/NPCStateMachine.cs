@@ -10,6 +10,7 @@ namespace RPG.StateMachine.NPC
 {
     public class NPCStateMachine : StateMachine, ISaveable
     {
+        private bool isStartingStateSet = false;
         [field: SerializeField] public Animator Animator {get; private set;}
         [field: SerializeField] public NPCTargeter NPCTargeter {get; private set;}
         [field: SerializeField] public CharacterController Controller {get; private set;}
@@ -41,7 +42,10 @@ namespace RPG.StateMachine.NPC
             Agent.updatePosition = false;
             Agent.updateRotation = false;
             if(Health.isDead) return;
-            SwitchState(new NPCIdleState(this));
+            if(!isStartingStateSet)
+            {
+                SetStartingState(new NPCIdleState(this));
+            }
             SetGuardingPosition(gameObject.transform.position);
         }
 
@@ -65,6 +69,15 @@ namespace RPG.StateMachine.NPC
         private void HandleDeath(Health health)
         {
             SwitchState(new NPCDeadState(this));
+        }
+        
+        public void SetStartingState(NPCBaseState state)
+        {
+            if(!isStartingStateSet)
+            {
+                SwitchState(state);
+                isStartingStateSet = true;
+            }
         }
 
         public void SetWeapon(WeaponLogic weapon)

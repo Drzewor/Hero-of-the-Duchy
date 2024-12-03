@@ -16,7 +16,7 @@ namespace RPG.Dialogue
             return conversantName;
         }
 
-        public void Iteraction(GameObject player)
+        public void Interaction(GameObject player)
         {
             if(dialogue == null) return;
             PlayerConversant conversant = player.GetComponent<PlayerConversant>();

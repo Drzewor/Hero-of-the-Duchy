@@ -8,6 +8,7 @@ using UnityEngine;
 public abstract class ItemContainer : MonoBehaviour, IItemContainer, ISaveable
 {
     [SerializeField] protected ItemSlot[] itemSlots;
+    [SerializeField] protected Item[] startingItems;
     [SerializeField] public ItemDatabase itemDatabase;
     public event Action<BaseItemSlot> OnPointerEnterEvent;
     public event Action<BaseItemSlot> OnPointerExiEvent;
@@ -133,6 +134,15 @@ public abstract class ItemContainer : MonoBehaviour, IItemContainer, ISaveable
         for(int i = 0; i < itemSlots.Length; i++)
         {
             itemSlots[i].Item = null;
+        }
+    }
+
+    protected void SetStartingItems()
+    {
+        Clear();
+        for(int i = 0; i < startingItems.Length; i++)
+        {
+            AddItem(startingItems[i].GetCopy());
         }
     }
 

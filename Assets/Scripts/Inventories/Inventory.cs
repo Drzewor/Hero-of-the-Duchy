@@ -8,9 +8,7 @@ using UnityEngine.UIElements;
 
 public class Inventory : ItemContainer
 {
-    [SerializeField] Item[] startingItems;
     [SerializeField] Transform itemsParent;
-
 
     protected override void Awake() 
     {
@@ -25,15 +23,4 @@ public class Inventory : ItemContainer
             itemSlots = itemsParent.GetComponentsInChildren<ItemSlot>(includeInactive: true);
         }
     }
-
-    private void SetStartingItems()
-    {
-        Clear();
-        for(int i = 0; i < startingItems.Length; i++)
-        {
-            AddItem(startingItems[i].GetCopy());
-        }
-    }
-
-    
 }

@@ -14546,7 +14546,6 @@ MonoBehaviour:
   - {fileID: 3467681530307060660}
   - {fileID: 3467681530682454767}
   - {fileID: 3467681530639292498}
-  itemDatabase: {fileID: 11400000, guid: 624f9e49099673749a6ded9615badc80, type: 2}
   startingItems:
   - {fileID: 11400000, guid: 0ea6ce4c1e5af694d9dc42a9e1c6eb72, type: 2}
   - {fileID: 11400000, guid: e8b2221d0956b95459ffdcfdeda49539, type: 2}
@@ -14560,6 +14559,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1e9ab6a3bf657d14eae7aad379e3e91a, type: 2}
   - {fileID: 11400000, guid: 744c684b85ca2e8459151fa35db2304f, type: 2}
   - {fileID: 11400000, guid: 92644a5f50e379046969946058ca1108, type: 2}
+  itemDatabase: {fileID: 11400000, guid: 624f9e49099673749a6ded9615badc80, type: 2}
   itemsParent: {fileID: 3467681530843766627}
 --- !u!114 &5866004833482694869
 MonoBehaviour:
