@@ -251,14 +251,19 @@ MonoBehaviour:
   <RotationDamping>k__BackingField: 6
   <DodgeDuration>k__BackingField: 1
   <DodgeDistance>k__BackingField: 4
-  <PreviousDodgeTime>k__BackingField: -Infinity
+  <ParryCooldown>k__BackingField: 3
+  <PreviousParryTime>k__BackingField: Infinity
+  <ParryTime>k__BackingField: 0.8
+  <ParryCost>k__BackingField: 10
   <JumpForce>k__BackingField: 5
   <AttackDamage>k__BackingField: 0
   <IsWeaponMagic>k__BackingField: 0
+  <HasShield>k__BackingField: 0
   <StatDamageBonus>k__BackingField: 0
   InteractionRadius: 0.2
   InteractionDistance: 7
   <Attacks>k__BackingField: []
+  useStartingState: 0
 --- !u!114 &1534195462088263635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -434,6 +439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   questDataBase: {fileID: 11400000, guid: 3c2f2febf78cfbb42981bc755697d659, type: 2}
+  questInfoDisplay: {fileID: 0}
 --- !u!114 &2362263335625245551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -839,6 +845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cineTargetGroup: {fileID: 0}
+  factionManager: {fileID: 1231212173641928869}
 --- !u!135 &3519367188287303450
 SphereCollider:
   m_ObjectHideFlags: 0

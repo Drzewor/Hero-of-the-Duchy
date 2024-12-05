@@ -10,12 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba0c78463f7a58546990063a4c377ded, type: 3}
-  m_Name: BringBerrysStep
+  m_Name: FindGearAndSpeakBackStep
   m_EditorClassIdentifier: 
   isFinished: 0
-  stepDescription: I need to bring 5 berrys to Teacher. I should be able to gathere
-    them from bushes around.
+  stepDescription: 'I need to find a sword and a shield.
+
+    The shield should
+    be on the cart behind the teacher.
+
+    The sword is somewhere in the camp.
+    If I remember correctly, it''s next to the training dummies.'
   progressToFinish: 1
-  stepID: BringBerrys_ID
-  dialogueTriggerName:
-  - FinishBringBerrys
+  stepID: ID is not always required
+  dialogueTriggerName: []

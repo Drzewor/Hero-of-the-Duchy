@@ -19,6 +19,7 @@ namespace RPG.Combat
         public event Action<Health> OnDie;
         public bool isDead = false;
         private bool isBlocking = false;
+        private bool isParrying = false;
         private bool isDodging = false;
         [SerializeField] Character character;
         
@@ -45,12 +46,17 @@ namespace RPG.Combat
             this.isDodging = isDodging;
         }
 
+        public void SetParrying(bool isParrying)
+        {
+            this.isParrying = isParrying;
+        }
+
         public void DealDamage(float damage, GameObject dealer, float armourPiercing = 0, bool isMagic = false)
         {
             if(healthPoints == 0) return;
             if(isDodging) return;
 
-            if(isBlocking)
+            if(isBlocking || isParrying)
             {
                 Vector3 direction = dealer.transform.position - transform.position;
                 if(Vector3.Angle(transform.forward, direction)<40)

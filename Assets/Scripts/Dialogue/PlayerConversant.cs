@@ -94,8 +94,12 @@ namespace RPG.Dialogue
 
         public bool HasNext()
         {
-            
             return FilterOnCondition(currentDialogue.GetAllChildren(currentNode)).Count() > 0;
+        }
+
+        public IEnumerable<IPredicateEvaluator> GetEvaluators()
+        {
+            return GetComponents<IPredicateEvaluator>();
         }
 
         private void TriggerEnterAction()
@@ -123,11 +127,6 @@ namespace RPG.Dialogue
                     yield return node;
                 }
             }
-        }
-
-        private IEnumerable<IPredicateEvaluator> GetEvaluators()
-        {
-            return GetComponents<IPredicateEvaluator>();
         }
 
         private void TriggerAction(List<string> actions)

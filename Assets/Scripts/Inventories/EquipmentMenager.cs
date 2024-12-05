@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,6 +24,8 @@ public class EquipmentMenager : MonoBehaviour
     private GameObject lFoot;
     private GameObject rFoot;
     private GameObject shield;
+    private bool hasShield = false;
+    public event Action shieldChange;
 
     private void Awake() 
     {
@@ -82,6 +85,8 @@ public class EquipmentMenager : MonoBehaviour
                     Destroy(shield);
                 }
                 shield = Instantiate(item.EquipmentPrefab, shieldSlot);
+                hasShield = true;
+                shieldChange.Invoke();
                 break;
             default:
                 break;
@@ -106,12 +111,23 @@ public class EquipmentMenager : MonoBehaviour
                 item = defaultFoots;
                 break;
             case EquipmentType.OffHand:
+                if(shield != null)
+                {
+                    Destroy(shield);
+                }
                 item = defaultShield;
+                hasShield = false;
+                shieldChange.Invoke();
                 break;
             default:
                 item = null;
                 break;
         }
         EquipItem(item);
+    }
+
+    public bool GetHasShield()
+    {
+        return hasShield;
     }
 }

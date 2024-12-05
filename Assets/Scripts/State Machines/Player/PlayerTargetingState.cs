@@ -24,6 +24,7 @@ namespace RPG.StateMachine.Player
             stateMachine.InputReader.TargetEvent += OnTarget;
             stateMachine.InputReader.DodgeEvent += OnDodge;
             stateMachine.InputReader.JumpEvent += OnJump;
+            stateMachine.InputReader.SwapTargetEvent += OnSwapTarget;
             
             firstAttack = stateMachine.Attacks[0];
 
@@ -42,7 +43,12 @@ namespace RPG.StateMachine.Player
             }
             if(stateMachine.InputReader.IsBlocking)
             {
-                stateMachine.SwitchState(new PlayerBlockingState(stateMachine));
+                if(stateMachine.HasShield || 
+                (stateMachine.PreviousParryTime > stateMachine.ParryCooldown && 
+                stateMachine.Stamina.ReduceStamina(stateMachine.ParryCost)))
+                {
+                    stateMachine.SwitchState(new PlayerBlockingState(stateMachine));
+                }
             }
             if(stateMachine.Targeter.CurrentTarget == null)
             {
@@ -64,6 +70,7 @@ namespace RPG.StateMachine.Player
             stateMachine.InputReader.TargetEvent -= OnTarget;
             stateMachine.InputReader.DodgeEvent -= OnDodge;
             stateMachine.InputReader.JumpEvent -= OnJump;
+            stateMachine.InputReader.SwapTargetEvent -= OnSwapTarget;
         }
 
         private void OnTarget()
@@ -120,6 +127,11 @@ namespace RPG.StateMachine.Player
         private void OnJump()
         {
             stateMachine.SwitchState(new PlayerJumpingState(stateMachine));
+        }
+
+        private void OnSwapTarget()
+        {
+            stateMachine.Targeter.SwapTarget();
         }
     }
 

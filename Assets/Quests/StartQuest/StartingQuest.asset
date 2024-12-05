@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1459b79a3c78dbf47b87357912de4f27, type: 3}
-  m_Name: TeacherStartQuest
+  m_Name: StartingQuest
   m_EditorClassIdentifier: 
-  questTitle: Teach Basic
-  nextQuest: {fileID: 0}
+  questTitle: Time to wake up!
+  nextQuest: {fileID: 11400000, guid: 097caabe571fc7340a660b3ae729d3a5, type: 2}
   steps:
-  - {fileID: 11400000, guid: a7bfacfbeef8e9947aa761a19a7d4e7c, type: 2}
-  - {fileID: 11400000, guid: 578ca78c42b6f5d4c8274f2f4d7681ea, type: 2}
-  expReward: 100
+  - {fileID: 11400000, guid: c278624cf2665d84ba0c124390b2038a, type: 2}
+  expReward: 10
   itemReward: []
-  id: TeacherStartQuest
+  id: 
   isFinished: 0

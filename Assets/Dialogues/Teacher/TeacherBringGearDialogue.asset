@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6691638423291357749
+--- !u!114 &-7533511043570043785
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
-  m_Name: edf52d76-24cb-4c42-b69a-ec10a46fa97d
+  m_Name: 2c3f5774-e0a2-45bc-a40d-68c32306dedf
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Of course! You must be ready. You don't know when danger will come your way.
-    Besides, the sooner you start, the sooner you can replace Jack, and we could
-    leave him at the nearest tavern. I don't think he'll notice we left him.
+  text: Do you have everything already?
   children:
-  - 0b0a248f-c2e9-42ef-a19a-cbcf77f19c9c
+  - 52406692-1d68-4c1f-9ff6-f5c2a2168da8
+  - b8cb19a8-dd2a-416d-b19f-1d75be0c5df5
+  - aa9c48ff-ab5a-4526-89e6-f8b7247f57d1
   rect:
     serializedVersion: 2
-    x: 566
-    y: 40
+    x: 15
+    y: 100
     width: 200
     height: 100
   OnEnterAction: []
   onExitAction: []
   condition:
     and: []
---- !u!114 &-5267452208609751755
+--- !u!114 &-7308153545285536617
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38,25 +38,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
-  m_Name: 04edf629-a51a-43ea-892d-dafdb0f0e9e6
+  m_Name: 21b855e3-b838-424b-8532-1a2d91b1b335
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Leave that drunkard, you won't wake him up anyway. Better focus on yourself,
-    we could meet trouble on the road at any moment. You have to be ready, especially
-    with Jack as our bodyguard...
-  children:
-  - 0b0a248f-c2e9-42ef-a19a-cbcf77f19c9c
+  text: Hurry, we don't have all day.
+  children: []
   rect:
     serializedVersion: 2
-    x: 558
-    y: 163
+    x: 516
+    y: 50
     width: 200
     height: 100
   OnEnterAction: []
   onExitAction: []
   condition:
     and: []
---- !u!114 &-1932922700972413108
+--- !u!114 &-5274367563989297143
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -66,23 +63,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
-  m_Name: 944c81f5-a758-43ab-bded-434414eeb4d7
+  m_Name: b8cb19a8-dd2a-416d-b19f-1d75be0c5df5
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: What about Jack?
+  text: Yes, I have everything.
   children:
-  - 04edf629-a51a-43ea-892d-dafdb0f0e9e6
+  - ad66d917-4e56-4070-97d3-c47235097cdf
   rect:
     serializedVersion: 2
-    x: 308
-    y: 163
+    x: 269
+    y: 158
     width: 200
     height: 100
   OnEnterAction: []
   onExitAction: []
   condition:
     and: []
---- !u!114 &-1006151754522211645
+--- !u!114 &-4919474549071698399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,16 +89,42 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
-  m_Name: 0b0a248f-c2e9-42ef-a19a-cbcf77f19c9c
+  m_Name: df930fbe-7cea-411c-8dfe-38bc1a44882b
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 1
-  text: Alright. Where's the gear?
+  text: If you say so.
   children:
-  - c0d6627d-07cc-48d2-a5cd-d3f99f3f0cc9
+  - ad66d917-4e56-4070-97d3-c47235097cdf
   rect:
     serializedVersion: 2
-    x: 853
-    y: 237
+    x: 672
+    y: 255
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &-1889428863582639502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: aa9c48ff-ab5a-4526-89e6-f8b7247f57d1
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Yes I have everything. This sword is as dull as our rations.
+  children:
+  - 56877452-cc9f-4bd3-9d17-597609fb9472
+  rect:
+    serializedVersion: 2
+    x: 272
+    y: 255
     width: 200
     height: 100
   OnEnterAction: []
@@ -118,18 +141,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81f0543d552de974980a7a95047de48f, type: 3}
-  m_Name: TeacherStart
+  m_Name: TeacherBringGearDialogue
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: 9176944495142212763}
-  - {fileID: 5557217123232877647}
-  - {fileID: -1932922700972413108}
-  - {fileID: -5267452208609751755}
-  - {fileID: -6691638423291357749}
-  - {fileID: -1006151754522211645}
-  - {fileID: 7593079610469454461}
+  - {fileID: -7533511043570043785}
+  - {fileID: 8824615772456525119}
+  - {fileID: -5274367563989297143}
+  - {fileID: -7308153545285536617}
+  - {fileID: -1889428863582639502}
+  - {fileID: 1418246340627057892}
+  - {fileID: 3272005430556327208}
+  - {fileID: -4919474549071698399}
   newNodeOffset: {x: 250, y: 0}
---- !u!114 &5557217123232877647
+--- !u!114 &1418246340627057892
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,23 +163,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
-  m_Name: 76f7b9d7-71b6-40d8-94a7-83be21902610
+  m_Name: 56877452-cc9f-4bd3-9d17-597609fb9472
   m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  text: What? Are we going to train now?
+  isPlayerSpeaking: 0
+  text: It's enough for training. Also, don't be dramatic, it's not that dull. You
+    can still hurt yourself or someone with it.
   children:
-  - edf52d76-24cb-4c42-b69a-ec10a46fa97d
+  - df930fbe-7cea-411c-8dfe-38bc1a44882b
   rect:
     serializedVersion: 2
-    x: 305
-    y: 39
+    x: 470
+    y: 255
     width: 200
     height: 100
   OnEnterAction: []
   onExitAction: []
   condition:
     and: []
---- !u!114 &7593079610469454461
+--- !u!114 &3272005430556327208
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,23 +190,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
-  m_Name: c0d6627d-07cc-48d2-a5cd-d3f99f3f0cc9
+  m_Name: ad66d917-4e56-4070-97d3-c47235097cdf
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Look around the camp. You should find my old sword somewhere. Also look on
-    the wagon, there should be a shield there.
+  text: Okay, so let's get to training. It won't take long, today I'll just show
+    you the basics.
   children: []
   rect:
     serializedVersion: 2
-    x: 1101
-    y: 236
+    x: 958
+    y: 158
     width: 200
     height: 100
   OnEnterAction: []
   onExitAction: []
   condition:
     and: []
---- !u!114 &9176944495142212763
+--- !u!114 &8824615772456525119
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,21 +216,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
-  m_Name: 853a1367-ab31-4dc8-9b61-a2dc26c54395
+  m_Name: 52406692-1d68-4c1f-9ff6-f5c2a2168da8
   m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  text: You finally woke up. Good. We have much to do. First things first, I've already
-    sent Fearne out to scout. She should be back soon. Get your gear together and
-    get ready. I promised you I'd make a warrior out of you and I'll keep my word.
-    You're about to start training.
+  isPlayerSpeaking: 1
+  text: No, I'm working on it.
   children:
-  - 76f7b9d7-71b6-40d8-94a7-83be21902610
-  - 944c81f5-a758-43ab-bded-434414eeb4d7
-  - 0b0a248f-c2e9-42ef-a19a-cbcf77f19c9c
+  - 21b855e3-b838-424b-8532-1a2d91b1b335
   rect:
     serializedVersion: 2
-    x: 54
-    y: 238
+    x: 266
+    y: 50
     width: 200
     height: 100
   OnEnterAction: []

@@ -10,6 +10,7 @@ namespace RPG.StateMachine.Player
         protected PlayerStateMachine stateMachine;
         private float YAxisSpeed;
         private float XAxisSpeed;
+        private const float rotationSpeed = 5;
 
         public PlayerBaseState(PlayerStateMachine stateMachine)
         {
@@ -33,8 +34,12 @@ namespace RPG.StateMachine.Player
             Vector3 lookPosition = 
             stateMachine.Targeter.CurrentTarget.transform.position - stateMachine.transform.position;
             lookPosition.y = 0f;
+            Quaternion targetRotation = Quaternion.LookRotation(lookPosition);
 
-            stateMachine.transform.rotation = Quaternion.LookRotation(lookPosition);
+            stateMachine.transform.rotation = Quaternion.Slerp(
+                stateMachine.transform.rotation,
+                targetRotation,
+                Time.deltaTime * rotationSpeed);
         }
 
         protected void ReturnToLocomotion()

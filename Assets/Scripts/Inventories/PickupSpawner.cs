@@ -4,14 +4,14 @@ using RPG.Saving;
 using RPG.StateMachine.Player;
 using UnityEngine;
 
-public class PickupSpawner : MonoBehaviour
+public class PickupSpawner : MonoBehaviour, ISaveable
 {
     [SerializeField] GameObject pickup;
     [SerializeField] Item item;
     [SerializeField] int amount = 1;
     public bool isPicked = false;
 
-    private void Awake() 
+    private void Start() 
     {
         if(!isPicked)
         {
@@ -20,5 +20,16 @@ public class PickupSpawner : MonoBehaviour
             pickupInstantion.GetComponent<Pickup>().item = item;
             pickupInstantion.GetComponent<Pickup>().amount = amount;
         }
+    }
+
+    public object CaptureState()
+    {
+        return isPicked;
+    }
+
+    public void RestoreState(object state)
+    {
+         if(state == null) return;
+        isPicked = (bool)state;
     }
 }

@@ -9,6 +9,7 @@ using RPG.Saving;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.Video;
 
 namespace RPG.StateMachine.Player
 {
@@ -38,10 +39,14 @@ namespace RPG.StateMachine.Player
         [field: SerializeField] public float RotationDamping {get; private set;}
         [field: SerializeField] public float DodgeDuration {get; private set;}
         [field: SerializeField] public float DodgeDistance {get; private set;}
-        [field: SerializeField] public float PreviousDodgeTime {get; private set;}  = Mathf.NegativeInfinity;
+        [field: SerializeField] public float ParryCooldown {get; private set;} = 3;
+        [field: SerializeField] public float PreviousParryTime {get; private set;}  = Mathf.Infinity;
+        [field: SerializeField] public float ParryTime {get; private set;} = 0.66f;
+        [field: SerializeField] public float ParryCost {get; private set;} = 10;
         [field: SerializeField] public float JumpForce {get; private set;}
         [field: SerializeField] public float AttackDamage {get; private set;}
         [field: SerializeField] public bool IsWeaponMagic {get; private set;}
+        [field: SerializeField] public bool HasShield {get; private set;}
         [field: SerializeField] public statDamageBonus StatDamageBonus {get; private set;}
         public float DamageBonus 
         {
@@ -69,11 +74,18 @@ namespace RPG.StateMachine.Player
             }
         }
 
+        protected override void Update()
+        {
+            base.Update();
+            PreviousParryTime += Time.deltaTime;
+        }
+
         private void OnEnable() 
         {
             Health.OnTakeDamage += HandleTakeDamage;
             Health.OnDie += HandleDeath;
             InputReader.PressESCEvent += SwitchPauseMenu;
+            InventoryManager.GetEquipmentMenager().shieldChange += SetHasShield;
         }
 
         private void OnDisable() 
@@ -120,9 +132,9 @@ namespace RPG.StateMachine.Player
             PauseWindow.SetActive(!PauseWindow.activeInHierarchy);
         }
 
-        public void SetDodgeTime(float time)
+        public void SetPreviousParryTime(float time)
         {
-            PreviousDodgeTime = time;
+            PreviousParryTime = time;
         }
 
         public void SetWeaponLogic(WeaponLogic weapon)
@@ -171,13 +183,16 @@ namespace RPG.StateMachine.Player
             }
         }
 
-
-
         private IEnumerator SetInventory()
         {
             yield return new WaitForEndOfFrame();
             InventoryManager.inventory.gameObject.SetActive(false);
             InventoryManager.EquipmentStats.gameObject.SetActive(false);
+        }
+        
+        private void SetHasShield()
+        {
+            HasShield = InventoryManager.GetEquipmentMenager().GetHasShield();
         }
 
         public object CaptureState()

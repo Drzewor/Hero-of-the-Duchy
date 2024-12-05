@@ -9,7 +9,7 @@ namespace RPG.Dialogue
     public class AIConversant : MonoBehaviour, IInteractable
     {
         [SerializeField] private string conversantName = "NPC Name";
-        [SerializeField] private Dialogue dialogue = null;
+        [SerializeField] private List<Dialogue> dialogues;
 
         public string GetConversantName()
         {
@@ -18,9 +18,20 @@ namespace RPG.Dialogue
 
         public void Interaction(GameObject player)
         {
-            if(dialogue == null) return;
+            if(dialogues.Count == 0) return;
             PlayerConversant conversant = player.GetComponent<PlayerConversant>();
-            conversant.StartDialogue(this, dialogue);
+            Dialogue dialogueToDisplay = null;
+            foreach(Dialogue dialogue in dialogues)
+            {
+                if(!dialogue.GetRootNode().CheckCondition(conversant.GetEvaluators())) continue;
+
+                dialogueToDisplay = dialogue;
+                break;
+            }
+
+            if(dialogueToDisplay == null) return;
+
+            conversant.StartDialogue(this, dialogueToDisplay);
             PlayerStateMachine stateMachine = player.GetComponent<PlayerStateMachine>();
             stateMachine.SwitchState(new PlayerDialogueState(stateMachine));    
         }

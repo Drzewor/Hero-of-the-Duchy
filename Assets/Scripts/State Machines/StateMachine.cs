@@ -20,7 +20,7 @@ namespace RPG.StateMachine
             return currentState;
         }
 
-        private void Update()
+        protected virtual void Update()
         {
             currentState?.Tick(Time.deltaTime);
         }

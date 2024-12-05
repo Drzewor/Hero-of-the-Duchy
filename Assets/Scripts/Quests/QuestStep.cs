@@ -8,7 +8,7 @@ namespace RPG.Quests
     public abstract class QuestStep : ScriptableObject
     {
         public bool isFinished = false;
-        [SerializeField] private string stepDescription;
+        [SerializeField, TextArea(10,20)] private string stepDescription;
         protected int stepProgress = 0;
         [SerializeField] protected int progressToFinish = 1;
         [SerializeField] private string stepID = "ID is not always required";

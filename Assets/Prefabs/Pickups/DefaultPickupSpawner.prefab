@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2248295725732873087}
   - component: {fileID: 444623047752985309}
+  - component: {fileID: 4178246432859951742}
   m_Layer: 0
   m_Name: DefaultPickupSpawner
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -45,4 +46,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickup: {fileID: 2414689392509904233, guid: f2c887e32641f4b4783936709924b63b, type: 3}
   item: {fileID: 11400000, guid: 0ea6ce4c1e5af694d9dc42a9e1c6eb72, type: 2}
+  amount: 1
   isPicked: 0
+--- !u!114 &4178246432859951742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8762424343712942537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3745726bc57d25e4488b9153e8bc93e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueIdentifier: 

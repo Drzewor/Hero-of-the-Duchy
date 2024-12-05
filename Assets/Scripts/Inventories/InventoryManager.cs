@@ -389,6 +389,11 @@ public class InventoryManager : MonoBehaviour ,ISaveable, IPredicateEvaluator
         EquipWeapon(null);
     }
 
+    public EquipmentMenager GetEquipmentMenager()
+    {
+        return equipmentMenager;
+    }
+
     public bool? Evaluate(predicateName predicate, string[] parameters)
     {
         if(predicate != predicateName.HasItem) return null;

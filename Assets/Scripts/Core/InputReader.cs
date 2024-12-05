@@ -20,6 +20,7 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
     public event Action PressIEvent;
     public event Action PressESCEvent;
     public event Action PressJEvent;
+    public event Action SwapTargetEvent;
     public bool isGamePaused = false;
 
     private Controls controls;
@@ -141,6 +142,13 @@ public class InputReader : MonoBehaviour, Controls.IPlayerActions
         if(isGamePaused) return;
         if(!context.performed) return;
         PressJEvent?.Invoke();
+    }
+    
+    public void OnOnSwapTarget(InputAction.CallbackContext context)
+    {
+        if(isGamePaused) return;
+        if(!context.performed) return;
+        SwapTargetEvent?.Invoke();
     }
 
     public void OnSprint(InputAction.CallbackContext context)

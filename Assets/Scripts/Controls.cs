@@ -161,6 +161,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OnSwapTarget"",
+                    ""type"": ""Button"",
+                    ""id"": ""d254325d-fea6-45e3-bd00-d39bf6cbf6d7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -504,6 +513,17 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""action"": ""Sprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0577571d-1fdb-4ad7-b77d-c4183e99d7b5"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse & Keyboard"",
+                    ""action"": ""OnSwapTarget"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -555,6 +575,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Player_PressESC = m_Player.FindAction("PressESC", throwIfNotFound: true);
         m_Player_PressJ = m_Player.FindAction("PressJ", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
+        m_Player_OnSwapTarget = m_Player.FindAction("OnSwapTarget", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -629,6 +650,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_PressESC;
     private readonly InputAction m_Player_PressJ;
     private readonly InputAction m_Player_Sprint;
+    private readonly InputAction m_Player_OnSwapTarget;
     public struct PlayerActions
     {
         private @Controls m_Wrapper;
@@ -648,6 +670,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         public InputAction @PressESC => m_Wrapper.m_Player_PressESC;
         public InputAction @PressJ => m_Wrapper.m_Player_PressJ;
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
+        public InputAction @OnSwapTarget => m_Wrapper.m_Player_OnSwapTarget;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -702,6 +725,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Sprint.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
                 @Sprint.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
                 @Sprint.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
+                @OnSwapTarget.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOnSwapTarget;
+                @OnSwapTarget.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOnSwapTarget;
+                @OnSwapTarget.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOnSwapTarget;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -751,6 +777,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                 @Sprint.started += instance.OnSprint;
                 @Sprint.performed += instance.OnSprint;
                 @Sprint.canceled += instance.OnSprint;
+                @OnSwapTarget.started += instance.OnOnSwapTarget;
+                @OnSwapTarget.performed += instance.OnOnSwapTarget;
+                @OnSwapTarget.canceled += instance.OnOnSwapTarget;
             }
         }
     }
@@ -790,5 +819,6 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         void OnPressESC(InputAction.CallbackContext context);
         void OnPressJ(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
+        void OnOnSwapTarget(InputAction.CallbackContext context);
     }
 }
