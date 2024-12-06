@@ -76,13 +76,26 @@ namespace RPG.Combat
             if(isChangingTarget) return;
 
             Target newTarget = null;
-            for(int i = 0; i < targets.Count; i++)
+            int currentTargetIndex = targets.IndexOf(CurrentTarget);
+            int i;
+
+            if(currentTargetIndex == targets.Count - 1)
+            {
+                i = 0;
+            }
+            else
+            {
+                i = currentTargetIndex;
+            }
+
+            for(; i < targets.Count; i++)
             {
                 if(targets[i] == CurrentTarget) continue;
 
                 if(!targets[i].GetComponentInChildren<Renderer>().isVisible) continue;
 
                 newTarget = targets[i];
+                break;
             }
 
             if(newTarget == null) return;
@@ -93,7 +106,12 @@ namespace RPG.Combat
         public void Cancel()
         {
             if(CurrentTarget == null) return;
-            StopCoroutine(activeCorutine);
+            if(activeCorutine != null)
+            {
+                StopCoroutine(activeCorutine);
+                isChangingTarget = false;
+            }
+            
             for(int i = cineTargetGroup.m_Targets.Count() - 1; i > 0; i--)
             {
                 cineTargetGroup.RemoveMember(cineTargetGroup.m_Targets[i].target);
@@ -116,6 +134,7 @@ namespace RPG.Combat
 
         private IEnumerator SwitchTargets(Target oldTarget, Target newTarget)
         {
+            Debug.Log("Start");
             isChangingTarget = true;
             cineTargetGroup.AddMember(newTarget.transform, 0, targetRadius);
             int oldTargetIndex = cineTargetGroup.FindMember(oldTarget.transform);
