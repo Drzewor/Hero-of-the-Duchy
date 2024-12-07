@@ -13,6 +13,7 @@ namespace RPG.Quests
         private List<QuestStatus> quests = new List<QuestStatus>();
         [SerializeField] private QuestDataBase questDataBase;
         [SerializeField] private TextInfoDisplay questInfoDisplay;
+        [SerializeField] private QuestEventActivator eventActivator;
 
         public List<QuestStatus> GetQuests()
         {
@@ -22,6 +23,9 @@ namespace RPG.Quests
         public void AddQuest(Quest quest)
         {
             quests.Add(new QuestStatus(quest));
+            
+            eventActivator.CheckForTrigger(quest.id, QuestEventActivator.TriggerType.QuestStart);
+
             questInfoDisplay.DisplayQuestAddInfo(quest.GetTitle());
         }
 
@@ -42,12 +46,24 @@ namespace RPG.Quests
                 
                 if(quests[i].TryMoveToNextQuestStep())
                 {
+                    eventActivator.CheckForTrigger(quests[i].GetQuest().GetQuestStep(quests[i].stepInProgress-1).GetStepId(), 
+                    QuestEventActivator.TriggerType.StepComplete);
+                    
                     questInfoDisplay.DisplayQuestStepFinish(quests[i].GetQuest().GetTitle());
+
+                    eventActivator.CheckForTrigger(quests[i].GetQuest().GetQuestStep(quests[i].stepInProgress).GetStepId(), 
+                    QuestEventActivator.TriggerType.StepStart);
                 }
 
                 if(quests[i].GetQuest().isFinished)
                 {
                     GiveRewards(quests[i].GetQuest());
+
+                    eventActivator.CheckForTrigger(quests[i].GetQuest().GetQuestStep(quests[i].stepInProgress-1).GetStepId(), 
+                    QuestEventActivator.TriggerType.StepComplete);
+
+                    eventActivator.CheckForTrigger(quests[i].GetQuest().id, 
+                    QuestEventActivator.TriggerType.QuestComplete);
 
                     questInfoDisplay.DisplayQuestFinish(quests[i].GetQuest().GetTitle());
 
@@ -103,12 +119,10 @@ namespace RPG.Quests
                 case predicateName.IsQuestStepActive:
                     foreach(QuestStatus questStatus in quests)
                     {
+                        if(questStatus.GetQuest().isFinished == true) continue;
                         if(questStatus.GetCurrentQuestStep().GetStepId() == parameters[0])
                         {
-                            if(questStatus.GetQuest().isFinished != true)
-                            {
-                                return true;
-                            }
+                            return true;
                         }
                     }
                     return false;

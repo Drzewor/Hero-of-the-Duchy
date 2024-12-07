@@ -18,4 +18,4 @@ MonoBehaviour:
   progressToFinish: 1
   stepID: ID is not always required
   dialogueTriggerName:
-  - 
+  - SpeakWithTeacher

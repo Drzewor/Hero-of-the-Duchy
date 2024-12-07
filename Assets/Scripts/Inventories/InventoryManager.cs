@@ -404,6 +404,10 @@ public class InventoryManager : MonoBehaviour ,ISaveable, IPredicateEvaluator
             {
                 return true;
             }
+            if(amount == 1 && equipmentPanel.HasItem(parameters[0]))
+            {
+                return true;
+            }
         }
 
         return false;

@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: StartingQuest
   m_EditorClassIdentifier: 
   questTitle: Time to wake up!
-  nextQuest: {fileID: 11400000, guid: 097caabe571fc7340a660b3ae729d3a5, type: 2}
+  nextQuest: {fileID: 0}
   steps:
   - {fileID: 11400000, guid: c278624cf2665d84ba0c124390b2038a, type: 2}
   expReward: 10
   itemReward: []
-  id: 
-  isFinished: 0
+  id: StartingQuest_Id
+  isFinished: 1

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-6691638423291357749
+--- !u!114 &-8358744725814479128
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,45 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
-  m_Name: edf52d76-24cb-4c42-b69a-ec10a46fa97d
+  m_Name: b53f912f-28da-4dad-85fb-cf47b6365e77
   m_EditorClassIdentifier: 
   isPlayerSpeaking: 0
-  text: Of course! You must be ready. You don't know when danger will come your way.
-    Besides, the sooner you start, the sooner you can replace Jack, and we could
-    leave him at the nearest tavern. I don't think he'll notice we left him.
+  text: 'Congratulations my hero. Now seriously, these are just dummies. The real
+    enemy will avoid your blows. When you train, focus on how to manage your stamina.
+    Without it, you won''t even be able to avoid your opponent''s attacks.
+
+    When
+    Fearne gets back from scouting, or Jack wakes up, you''ll train with them. I''d
+    bet on the former.'
   children:
-  - 0b0a248f-c2e9-42ef-a19a-cbcf77f19c9c
+  - b7af31e8-b590-4b17-b08a-0b76b146433a
   rect:
     serializedVersion: 2
-    x: 566
-    y: 40
-    width: 200
-    height: 100
-  OnEnterAction: []
-  onExitAction: []
-  condition:
-    and: []
---- !u!114 &-5267452208609751755
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
-  m_Name: 04edf629-a51a-43ea-892d-dafdb0f0e9e6
-  m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  text: Leave that drunkard, you won't wake him up anyway. Better focus on yourself,
-    we could meet trouble on the road at any moment. You have to be ready, especially
-    with Jack as our bodyguard...
-  children:
-  - 0b0a248f-c2e9-42ef-a19a-cbcf77f19c9c
-  rect:
-    serializedVersion: 2
-    x: 558
+    x: 552
     y: 163
     width: 200
     height: 100
@@ -56,7 +32,7 @@ MonoBehaviour:
   onExitAction: []
   condition:
     and: []
---- !u!114 &-1932922700972413108
+--- !u!114 &-2905302384188110747
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -66,15 +42,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
-  m_Name: 944c81f5-a758-43ab-bded-434414eeb4d7
+  m_Name: aa1af64d-7ce7-40bc-b04a-ceb34b3a7b4b
   m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  text: What about Jack?
-  children:
-  - 04edf629-a51a-43ea-892d-dafdb0f0e9e6
+  isPlayerSpeaking: 0
+  text: Good question. You know what? Go find her. She's probably fine, but better
+    safe than sorry.
+  children: []
   rect:
     serializedVersion: 2
-    x: 319
+    x: 1047
     y: 161
     width: 200
     height: 100
@@ -82,7 +58,7 @@ MonoBehaviour:
   onExitAction: []
   condition:
     and: []
---- !u!114 &-1006151754522211645
+--- !u!114 &-539666244185066392
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,22 +68,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
-  m_Name: 0b0a248f-c2e9-42ef-a19a-cbcf77f19c9c
+  m_Name: 3a70676e-a61c-414a-ad81-57510ab5e1d8
   m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  text: Alright. Where's the gear?
+  isPlayerSpeaking: 0
+  text: Done?
   children:
-  - c0d6627d-07cc-48d2-a5cd-d3f99f3f0cc9
+  - 790a4c80-5bc7-4711-9667-708024959cfa
+  - b45612ef-b4de-4b3f-a02c-9fa12e45dba7
   rect:
     serializedVersion: 2
-    x: 843
-    y: 234
+    x: 34
+    y: 100
     width: 200
     height: 100
   OnEnterAction: []
   onExitAction: []
   condition:
-    and: []
+    and:
+    - or:
+      - predicate: 3
+        parameters:
+        - DestroyDummysStep_ID
+        negate: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,18 +100,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81f0543d552de974980a7a95047de48f, type: 3}
-  m_Name: TeacherStart
+  m_Name: TeacherTrainingDialogue
   m_EditorClassIdentifier: 
   nodes:
-  - {fileID: 9176944495142212763}
-  - {fileID: 5557217123232877647}
-  - {fileID: -1932922700972413108}
-  - {fileID: -5267452208609751755}
-  - {fileID: -6691638423291357749}
-  - {fileID: -1006151754522211645}
-  - {fileID: 7593079610469454461}
+  - {fileID: -539666244185066392}
+  - {fileID: 6688403080822607182}
+  - {fileID: 1605940663170404857}
+  - {fileID: 4216156077961848585}
+  - {fileID: -8358744725814479128}
+  - {fileID: 3526297268874828947}
+  - {fileID: -2905302384188110747}
   newNodeOffset: {x: 250, y: 0}
---- !u!114 &5557217123232877647
+--- !u!114 &1605940663170404857
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -139,23 +121,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
-  m_Name: 76f7b9d7-71b6-40d8-94a7-83be21902610
+  m_Name: 6d7bb666-ddaf-4a60-a9f9-0b7bf5791d16
   m_EditorClassIdentifier: 
-  isPlayerSpeaking: 1
-  text: What? Are we going to train now?
-  children:
-  - edf52d76-24cb-4c42-b69a-ec10a46fa97d
+  isPlayerSpeaking: 0
+  text: What? Is it that hard to destroy 2 training dummies?
+  children: []
   rect:
     serializedVersion: 2
-    x: 305
-    y: 39
+    x: 543
+    y: 24
     width: 200
     height: 100
   OnEnterAction: []
   onExitAction: []
   condition:
     and: []
---- !u!114 &7593079610469454461
+--- !u!114 &3526297268874828947
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -165,24 +146,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
-  m_Name: c0d6627d-07cc-48d2-a5cd-d3f99f3f0cc9
+  m_Name: b7af31e8-b590-4b17-b08a-0b76b146433a
   m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  text: Look around the camp. You should find my old sword somewhere. Also look on
-    the wagon, there should be a shield there.
-  children: []
+  isPlayerSpeaking: 1
+  text: When will Fearne be back?
+  children:
+  - aa1af64d-7ce7-40bc-b04a-ceb34b3a7b4b
   rect:
     serializedVersion: 2
-    x: 1100
-    y: 234
+    x: 797
+    y: 161
     width: 200
     height: 100
-  OnEnterAction:
-  - GiveGetReadyQuest
+  OnEnterAction: []
   onExitAction: []
   condition:
     and: []
---- !u!114 &9176944495142212763
+--- !u!114 &4216156077961848585
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -192,30 +172,45 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
-  m_Name: 853a1367-ab31-4dc8-9b61-a2dc26c54395
+  m_Name: b45612ef-b4de-4b3f-a02c-9fa12e45dba7
   m_EditorClassIdentifier: 
-  isPlayerSpeaking: 0
-  text: You finally woke up. Good. We have much to do. First things first, I've already
-    sent Fearne out to scout. She should be back soon. Get your gear together and
-    get ready. I promised you I'd make a warrior out of you and I'll keep my word.
-    You're about to start training.
+  isPlayerSpeaking: 1
+  text: Yes, I did it!
   children:
-  - 76f7b9d7-71b6-40d8-94a7-83be21902610
-  - 944c81f5-a758-43ab-bded-434414eeb4d7
-  - 0b0a248f-c2e9-42ef-a19a-cbcf77f19c9c
+  - b53f912f-28da-4dad-85fb-cf47b6365e77
   rect:
     serializedVersion: 2
-    x: 54
-    y: 238
+    x: 291
+    y: 167
     width: 200
     height: 100
-  OnEnterAction:
-  - SpeakWithTeacher
+  OnEnterAction: []
   onExitAction: []
   condition:
-    and:
-    - or:
-      - predicate: 2
-        parameters:
-        - StartingQuest
-        negate: 1
+    and: []
+--- !u!114 &6688403080822607182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 790a4c80-5bc7-4711-9667-708024959cfa
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Working on it.
+  children:
+  - 6d7bb666-ddaf-4a60-a9f9-0b7bf5791d16
+  rect:
+    serializedVersion: 2
+    x: 292
+    y: 24
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []

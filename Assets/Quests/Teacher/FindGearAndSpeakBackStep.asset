@@ -15,11 +15,12 @@ MonoBehaviour:
   isFinished: 0
   stepDescription: 'I need to find a sword and a shield.
 
-    The shield should
-    be on the cart behind the teacher.
+    The shield should be
+    on the cart behind the teacher.
 
-    The sword is somewhere in the camp.
-    If I remember correctly, it''s next to the training dummies.'
+    The sword is somewhere in the camp. If I
+    remember correctly, it''s next to the training dummies.'
   progressToFinish: 1
-  stepID: ID is not always required
-  dialogueTriggerName: []
+  stepID: FindGearStep_ID
+  dialogueTriggerName:
+  - HasGear

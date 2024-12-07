@@ -75,4 +75,18 @@ public class EquipmentPanel : MonoBehaviour
             RemoveItem((EquippableItem)equipmentSlots[i].Item);
         }
     }
+
+    public virtual bool HasItem(string ItemID)
+    {
+        for(int i = 0; i < equipmentSlots.Length; i++)
+        {
+            if(equipmentSlots[i].Item == null) continue;
+
+            if(equipmentSlots[i].Item.ID == ItemID)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

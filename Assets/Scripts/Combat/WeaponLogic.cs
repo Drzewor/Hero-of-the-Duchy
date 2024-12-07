@@ -33,7 +33,7 @@ namespace RPG.Combat
             {
                 if(mycollider.GetComponent<FactionManager>().isAlly(fManager.GetFaction())) return;
             }
-
+            
             if(other.TryGetComponent<Health>(out Health health))
             {
                 health.DealDamage(damage, mycollider.gameObject, armourPiercing, isMagic);

@@ -16,6 +16,7 @@ MonoBehaviour:
   nextQuest: {fileID: 0}
   steps:
   - {fileID: 11400000, guid: b7b8910d0db82004f863620618a2184b, type: 2}
+  - {fileID: 11400000, guid: 14909650e8f07434c9fc10b01b649980, type: 2}
   expReward: 0
   itemReward: []
   id: 
