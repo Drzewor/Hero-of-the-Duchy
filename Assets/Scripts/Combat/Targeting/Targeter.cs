@@ -91,15 +91,13 @@ namespace RPG.Combat
             for(; i < targets.Count; i++)
             {
                 if(targets[i] == CurrentTarget) continue;
-
+                Debug.Log(targets[i].GetComponentInChildren<Renderer>().isVisible);
                 if(!targets[i].GetComponentInChildren<Renderer>().isVisible) continue;
-
                 newTarget = targets[i];
                 break;
             }
 
             if(newTarget == null) return;
-
             activeCorutine = StartCoroutine(SwitchTargets(CurrentTarget,newTarget));
         }
 
@@ -134,7 +132,6 @@ namespace RPG.Combat
 
         private IEnumerator SwitchTargets(Target oldTarget, Target newTarget)
         {
-            Debug.Log("Start");
             isChangingTarget = true;
             cineTargetGroup.AddMember(newTarget.transform, 0, targetRadius);
             int oldTargetIndex = cineTargetGroup.FindMember(oldTarget.transform);

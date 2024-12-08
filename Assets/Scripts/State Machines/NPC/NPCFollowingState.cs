@@ -1,54 +1,43 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using RPG.StateMachine.NPC;
 using UnityEngine;
 
 namespace RPG.StateMachine.NPC
 {
-    public class NPCMovingState : NPCBaseState
+    public class NPCFollowingState : NPCBaseState
     {
         private readonly int SpeedHash = Animator.StringToHash("FreeLookSpeed");
         private readonly int LocomotionBlendTreeHash = Animator.StringToHash("FreeLookBlendTree");
+        private Transform targetToFollow;
         private const float CrossFadeDuration = 0.1f;
         private const float AnimatorDampTime = 0.1f;
-        private Vector3 destination;
-        private bool IsChasing;
-        public NPCMovingState(NPCStateMachine stateMachine, Vector3 destination, bool IsChasing = false) : base(stateMachine)
+        private const float MinDistanceToTarget = 5.5f;
+
+        public NPCFollowingState(NPCStateMachine stateMachine, Transform targetToFollow) : base(stateMachine)
         {
-            this.destination = destination;
-            this.IsChasing = IsChasing;
+            this.targetToFollow = targetToFollow;
         }
 
         public override void Enter()
         {
-            stateMachine.Animator.CrossFadeInFixedTime(LocomotionBlendTreeHash,CrossFadeDuration);        
+            stateMachine.Animator.CrossFadeInFixedTime(LocomotionBlendTreeHash,CrossFadeDuration);  
         }
 
         public override void Tick(float deltaTime)
         {
-            Move(deltaTime);
-
             if(stateMachine.NPCTargeter.currentTarget != null && !stateMachine.NPCTargeter.currentTarget.isDead)
             {
                 stateMachine.SwitchState(new NPCChasingState(stateMachine));
                 return;
             }
-            if(GetSqrDistanceToPoint(destination) <= 2)
-            {
-                if(IsChasing)
-                {
-                    stateMachine.SwitchState(new NPCsuspiciousState(stateMachine));
-                    return;
-                }
-                else
-                {
-                    stateMachine.SwitchState(new NPCIdleState(stateMachine));
-                    return;
-                }
-            }
-            MoveToDestination(deltaTime ,destination);
 
+            if(GetSqrDistanceToPoint(targetToFollow.position) <= MinDistanceToTarget)
+            {
+                stateMachine.Animator.SetFloat(SpeedHash,0, AnimatorDampTime, deltaTime);
+                return;
+            }
+
+            MoveToDestination(deltaTime ,targetToFollow.position);
             stateMachine.Animator.SetFloat(SpeedHash,1, AnimatorDampTime, deltaTime);
         }
 
@@ -59,5 +48,8 @@ namespace RPG.StateMachine.NPC
                 stateMachine.Agent.ResetPath();
             }
         }
+
+
     }
 }
+

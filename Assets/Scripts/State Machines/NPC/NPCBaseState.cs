@@ -24,6 +24,27 @@ namespace RPG.StateMachine.NPC
             Move(Vector3.zero, deltaTime);
         }
 
+        protected void MoveToDestination(float deltaTime, Vector3 destination)
+        {
+            if(stateMachine.Agent.isOnNavMesh)
+            {
+                stateMachine.Agent.destination = destination;
+                Move(stateMachine.Agent.desiredVelocity.normalized * stateMachine.MovementSpeed, deltaTime);
+
+                if(stateMachine.Agent.path.corners.Length > 1)
+                {
+                    FaceNextCorner();
+                }
+                else
+                {
+                    FaceTarget(destination);
+                }
+            }
+
+            stateMachine.Agent.velocity = stateMachine.Controller.velocity;
+            stateMachine.Agent.nextPosition = stateMachine.transform.position;
+        }
+
         protected void FaceTarget()
         {
             if(stateMachine.NPCTargeter.currentTarget == null) return;

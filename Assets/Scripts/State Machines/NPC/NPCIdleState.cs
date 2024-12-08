@@ -26,9 +26,9 @@ namespace RPG.StateMachine.NPC
                 stateMachine.SwitchState(new NPCChasingState(stateMachine));
                 return;
             }
-            if(GetSqrDistanceToPoint(stateMachine.GuardingPosition) > 2)
+            if(GetSqrDistanceToPoint(stateMachine.HomePosition) > 2)
             {
-                stateMachine.SwitchState(new NPCMovingState(stateMachine,stateMachine.GuardingPosition));
+                stateMachine.SwitchState(new NPCMovingState(stateMachine,stateMachine.HomePosition));
                 return;
             }
 

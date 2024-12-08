@@ -33,7 +33,7 @@ namespace RPG.StateMachine.NPC
         [field: SerializeField] public float ChargeRange {get; private set;} = 5f;
         [field: SerializeField] public float DodgeDuration {get; private set;} = 1;
         [field: SerializeField] public float DodgeDistance {get; private set;} = 4;
-        [field: SerializeField] public Vector3 GuardingPosition {get; private set;}
+        [field: SerializeField] public Vector3 HomePosition {get; private set;}
         [field: SerializeField] public float MaxSuspiciousTime {get; private set;} = 2;
         [field: SerializeField] public float MinSuspiciousTime {get; private set;} = 6;
         [field: SerializeField] public Attack[] Attacks {get; private set;}    
@@ -48,7 +48,7 @@ namespace RPG.StateMachine.NPC
             {
                 SetStartingState(new NPCIdleState(this));
             }
-            SetGuardingPosition(gameObject.transform.position);
+            SetHomePosition(gameObject.transform.position);
         }
 
         private void OnEnable() 
@@ -107,9 +107,9 @@ namespace RPG.StateMachine.NPC
             AttackRange = attackRange;
         }
 
-        public void SetGuardingPosition(Vector3 GuardingPoint)
+        public void SetHomePosition(Vector3 HomePoint)
         {
-            GuardingPosition = GuardingPoint;
+            HomePosition = HomePoint;
         }
 
         public void SetStatDamageBonus(statDamageBonus statDamageBonus)
