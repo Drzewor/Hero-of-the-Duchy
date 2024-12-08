@@ -262,10 +262,11 @@ MonoBehaviour:
   <Health>k__BackingField: {fileID: 2041321274726584334}
   <Target>k__BackingField: {fileID: 535129523262198457}
   <Character>k__BackingField: {fileID: 768196888239681938}
-  <MovementSpeed>k__BackingField: 3
+  <MovementSpeed>k__BackingField: 5.5
   <AttackRange>k__BackingField: 2
   <AttackDamage>k__BackingField: 25
   <StatDamageBonus>k__BackingField: 0
+  <IsWeaponMagic>k__BackingField: 0
   <AttackKnockback>k__BackingField: 25
   <MaxCircleRange>k__BackingField: 10
   <MinCircleRange>k__BackingField: 5.5
@@ -274,10 +275,12 @@ MonoBehaviour:
   <ChargeRange>k__BackingField: 5
   <DodgeDuration>k__BackingField: 1
   <DodgeDistance>k__BackingField: 4
-  <GuardingPosition>k__BackingField: {x: 0, y: 0, z: 0}
+  <HomePosition>k__BackingField: {x: 0, y: 0, z: 0}
   <MaxSuspiciousTime>k__BackingField: 2
   <MinSuspiciousTime>k__BackingField: 6
+  <TargetToFollow>k__BackingField: {fileID: 0}
   <Attacks>k__BackingField: []
+  useStartingState: 1
 --- !u!143 &9049456146632275658
 CharacterController:
   m_ObjectHideFlags: 0
@@ -308,7 +311,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338f2bb72a6150a439db4e31af22c5b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
   isDead: 0
   character: {fileID: 768196888239681938}
 --- !u!95 &62897069713328634
@@ -660,7 +662,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myFManager: {fileID: 1218795210497160605}
-  target: {fileID: 0}
+  targetsList: []
+  currentTarget: {fileID: 0}
   lastTargetPosition: {x: 0, y: 0, z: 0}
 --- !u!54 &8707441999843624698
 Rigidbody:

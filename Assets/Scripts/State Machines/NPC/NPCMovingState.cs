@@ -31,7 +31,7 @@ namespace RPG.StateMachine.NPC
 
             if(stateMachine.NPCTargeter.currentTarget != null && !stateMachine.NPCTargeter.currentTarget.isDead)
             {
-                stateMachine.SwitchState(new NPCChasingState(stateMachine));
+                stateMachine.SwitchState(new NPCChasingState(stateMachine, this));
                 return;
             }
             if(GetSqrDistanceToPoint(destination) <= 2)

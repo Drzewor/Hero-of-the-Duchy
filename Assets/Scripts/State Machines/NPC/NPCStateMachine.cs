@@ -21,6 +21,7 @@ namespace RPG.StateMachine.NPC
         [field: SerializeField] public Target Target {get; private set;}
         [field: SerializeField] public Character Character {get; private set;}
         [field: SerializeField] public float MovementSpeed {get; private set;}
+        [field: SerializeField] public float RunningSpeed {get; private set;} = 5f;
         [field: SerializeField] public float AttackRange {get; private set;}
         [field: SerializeField] public float AttackDamage {get; private set;} = 10;
         [field: SerializeField] public float StatDamageBonus {get; private set;} = 0;
@@ -30,12 +31,14 @@ namespace RPG.StateMachine.NPC
         [field: SerializeField] public float MinCircleRange {get; private set;} = 5.5f;  
         [field: SerializeField] public float MaxCirclingTime {get; private set;} = 4;  
         [field: SerializeField] public float MinCirclingTime {get; private set;} = 0.5f;
+        [field: SerializeField] public float CirclingSpeed {get; private set;} = 3.5f;
         [field: SerializeField] public float ChargeRange {get; private set;} = 5f;
         [field: SerializeField] public float DodgeDuration {get; private set;} = 1;
         [field: SerializeField] public float DodgeDistance {get; private set;} = 4;
         [field: SerializeField] public Vector3 HomePosition {get; private set;}
         [field: SerializeField] public float MaxSuspiciousTime {get; private set;} = 2;
         [field: SerializeField] public float MinSuspiciousTime {get; private set;} = 6;
+        [field: SerializeField] public Transform TargetToFollow {get; private set;}
         [field: SerializeField] public Attack[] Attacks {get; private set;}    
         [Space(15)] 
         [SerializeField]private bool useStartingState  = true;
@@ -110,6 +113,16 @@ namespace RPG.StateMachine.NPC
         public void SetHomePosition(Vector3 HomePoint)
         {
             HomePosition = HomePoint;
+        }
+
+        public void SetTargetToFollow(Transform target)
+        {
+            TargetToFollow = target;
+        }
+
+        public void SetMovementSpeed(float speed)
+        {
+            MovementSpeed = speed;
         }
 
         public void SetStatDamageBonus(statDamageBonus statDamageBonus)

@@ -13,9 +13,18 @@ namespace RPG.StateMachine.NPC
         private const float AnimatorDampTime = 0.1f;
         private const float MinDistanceToTarget = 5.5f;
 
-        public NPCFollowingState(NPCStateMachine stateMachine, Transform targetToFollow) : base(stateMachine)
+        public NPCFollowingState(NPCStateMachine stateMachine, Transform targetToFollow = null) : base(stateMachine)
         {
-            this.targetToFollow = targetToFollow;
+            if(targetToFollow != null)
+            {
+                stateMachine.SetTargetToFollow(targetToFollow);
+                this.targetToFollow = targetToFollow;
+            }
+            else
+            {
+                this.targetToFollow = stateMachine.TargetToFollow;
+            }
+            
         }
 
         public override void Enter()
@@ -27,7 +36,7 @@ namespace RPG.StateMachine.NPC
         {
             if(stateMachine.NPCTargeter.currentTarget != null && !stateMachine.NPCTargeter.currentTarget.isDead)
             {
-                stateMachine.SwitchState(new NPCChasingState(stateMachine));
+                stateMachine.SwitchState(new NPCChasingState(stateMachine,this));
                 return;
             }
 

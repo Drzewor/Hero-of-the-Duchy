@@ -36,7 +36,7 @@ namespace RPG.StateMachine.NPC
             
             if(GetNormalizedTime(stateMachine.Animator, "Attack") >= 1f)
             {
-                stateMachine.SwitchState(new NPCChasingState(stateMachine));
+                stateMachine.SwitchState(new NPCChasingState(stateMachine,this));
                 return;
             }
             if(GetNormalizedTime(stateMachine.Animator, "Attack") >= attack.ComboAttackTime)

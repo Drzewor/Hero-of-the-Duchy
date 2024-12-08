@@ -16,10 +16,10 @@ namespace RPG.StateMachine.NPC
         StateMachine targetStateMachine;
         private float circlingRange;
         private float dodgeRoll = 0;
-        bool isCharging;
-        public NPCChasingState(NPCStateMachine stateMachine, bool isCharging = false) : base(stateMachine)
+        NPCBaseState previousState;
+        public NPCChasingState(NPCStateMachine stateMachine, NPCBaseState previousState) : base(stateMachine)
         {
-            this.isCharging = isCharging;
+            this.previousState = previousState;
         }
 
         public override void Enter()
@@ -39,11 +39,12 @@ namespace RPG.StateMachine.NPC
         {
             Move(deltaTime);
 
-            if(stateMachine.NPCTargeter.currentTarget != null && stateMachine.NPCTargeter.currentTarget.isDead)
+            if(stateMachine.NPCTargeter.currentTarget == null && stateMachine.TargetToFollow != null)
             {
-                stateMachine.SwitchState(new NPCsuspiciousState(stateMachine));
+                stateMachine.SwitchState(new NPCFollowingState(stateMachine));
+                return;
             }
-            else if(stateMachine.NPCTargeter.currentTarget == null)
+            if(stateMachine.NPCTargeter.currentTarget == null)
             {
                 stateMachine.SwitchState(new NPCMovingState(stateMachine, stateMachine.NPCTargeter.lastTargetPosition, true));
                 return;
@@ -53,7 +54,7 @@ namespace RPG.StateMachine.NPC
                 stateMachine.SwitchState(new NPCAttackingState(stateMachine,0));
                 return;
             }
-            else if(!isCharging && stateMachine.NPCTargeter.GetDistanceToTargetSqr() <= circlingRange * circlingRange)
+            else if(!(previousState is NPCCirclingState) && stateMachine.NPCTargeter.GetDistanceToTargetSqr() <= circlingRange * circlingRange)
             {
                 stateMachine.SwitchState(new NPCCirclingState(stateMachine));
                 return;
@@ -74,7 +75,6 @@ namespace RPG.StateMachine.NPC
 
             stateMachine.Animator.SetFloat(SpeedHash,1, AnimatorDampTime, deltaTime);
         }
-
 
         public override void Exit()
         {
@@ -101,7 +101,6 @@ namespace RPG.StateMachine.NPC
                 }
             }
             
-
             stateMachine.Agent.velocity = stateMachine.Controller.velocity;
             stateMachine.Agent.nextPosition = stateMachine.transform.position;
         }

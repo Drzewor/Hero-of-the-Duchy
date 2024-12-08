@@ -62,7 +62,7 @@ namespace RPG.StateMachine.NPC
 
             if(remainingDodgeTime <= 0)
             {
-                stateMachine.SwitchState(new NPCChasingState(stateMachine));
+                stateMachine.SwitchState(new NPCChasingState(stateMachine, this));
             }
         }
 

@@ -6,8 +6,13 @@ namespace RPG.StateMachine.NPC
 {
     public class NPCMover : MonoBehaviour
     {
-        [SerializeField] Transform pointToGo;
-        [SerializeField] NPCStateMachine stateMachine;
+        [SerializeField] private Transform pointToGo;
+        private NPCStateMachine stateMachine;
+
+        private void Start() 
+        {
+            stateMachine = GetComponent<NPCStateMachine>();
+        }
         //All functions are called from QuestEventActivator
         public void SendToPointAndBack()
         {
@@ -21,7 +26,8 @@ namespace RPG.StateMachine.NPC
 
         public void FollowTarget(Transform target)
         {
-            stateMachine.SwitchState(new NPCFollowingState(stateMachine, target));
+            stateMachine.SetTargetToFollow(target);
+            stateMachine.SwitchState(new NPCFollowingState(stateMachine));
         }
     }
 }

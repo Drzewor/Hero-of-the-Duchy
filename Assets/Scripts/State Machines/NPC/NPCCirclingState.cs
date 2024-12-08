@@ -16,6 +16,7 @@ public class NPCCirclingState : NPCBaseState
 
     public override void Enter()
     {
+        stateMachine.SetMovementSpeed(stateMachine.CirclingSpeed);
         direction = Random.Range(0,2);
         circlingTime = Random.Range(stateMachine.MinCirclingTime,stateMachine.MaxCirclingTime);
         stateMachine.Animator.CrossFadeInFixedTime(LocomotionBlendTreeHash,CrossFadeDuration);
@@ -27,7 +28,7 @@ public class NPCCirclingState : NPCBaseState
 
         if(circlingTime <= 0 || distanceToTarget <= stateMachine.ChargeRange * stateMachine.ChargeRange)
         {
-            stateMachine.SwitchState(new NPCChasingState(stateMachine, true));
+            stateMachine.SwitchState(new NPCChasingState(stateMachine, this));
             return;
         }
         else if(stateMachine.NPCTargeter.currentTarget == null || stateMachine.NPCTargeter.currentTarget.isDead)
@@ -50,6 +51,7 @@ public class NPCCirclingState : NPCBaseState
 
     public override void Exit()
     {
+        stateMachine.SetMovementSpeed(stateMachine.RunningSpeed);
         if(stateMachine.Agent.isOnNavMesh)
         {
             stateMachine.Agent.ResetPath();

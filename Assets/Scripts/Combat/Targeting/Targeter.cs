@@ -91,7 +91,6 @@ namespace RPG.Combat
             for(; i < targets.Count; i++)
             {
                 if(targets[i] == CurrentTarget) continue;
-                Debug.Log(targets[i].GetComponentInChildren<Renderer>().isVisible);
                 if(!targets[i].GetComponentInChildren<Renderer>().isVisible) continue;
                 newTarget = targets[i];
                 break;

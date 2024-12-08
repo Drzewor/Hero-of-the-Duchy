@@ -25,7 +25,7 @@ namespace RPG.StateMachine.NPC
 
             if(duration <= 0f)
             {
-                    stateMachine.SwitchState(new NPCChasingState(stateMachine));
+                    stateMachine.SwitchState(new NPCChasingState(stateMachine, this));
             }
         }
 
