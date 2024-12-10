@@ -16,11 +16,6 @@ public class CraftingWindow : MonoBehaviour
 	public event Action<BaseItemSlot> OnPointerEnterEvent;
 	public event Action<BaseItemSlot> OnPointerExitEvent;
 
-	private void OnValidate()
-	{
-		Init();
-	}
-
 	private void Start()
 	{
 		Init();

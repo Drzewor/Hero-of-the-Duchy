@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 1e9ab6a3bf657d14eae7aad379e3e91a
   ItemName: Light Armor Gloves
   MaximumStacks: 1
-  Icon: {fileID: 21300000, guid: 02800fb9cff14da47a04572790384d8b, type: 3}
+  Icon: {fileID: 21300000, guid: 15e472cfddc87174aa3110ba2b8598eb, type: 3}
   EquipmentType: 2
   MaxHealthBonus: 0
   MaxManaBonus: 0

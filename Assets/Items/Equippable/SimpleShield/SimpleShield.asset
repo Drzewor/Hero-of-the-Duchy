@@ -15,14 +15,14 @@ MonoBehaviour:
   id: 4524ce1e30c366f44b3d94cc14f5fba1
   ItemName: Simple Shield
   MaximumStacks: 1
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 79f0d826a40d3ec4b92fff4fa3312a37, type: 3}
   EquipmentType: 5
   MaxHealthBonus: 0
   MaxManaBonus: 0
   StrengthBonus: 0
   DexterityBonus: 0
   CharismaBonus: 0
-  WeaponArmourBonus: 3
+  WeaponArmourBonus: 0
   MagicArmourBonus: 0
   ProjectileArmourBonus: 0
   ArmourPiercingBonus: 0

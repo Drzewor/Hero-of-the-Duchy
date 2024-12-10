@@ -15,7 +15,7 @@ MonoBehaviour:
   id: a99d8254572c97742a5624ca5a029d23
   ItemName: Heavy Armour
   MaximumStacks: 1
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 15e472cfddc87174aa3110ba2b8598eb, type: 3}
   EquipmentType: 1
   MaxHealthBonus: 10
   MaxManaBonus: 0

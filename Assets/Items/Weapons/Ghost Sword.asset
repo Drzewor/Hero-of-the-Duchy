@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 9d6aee09deecbda4a865b4a3bcae93c4
   ItemName: 
   MaximumStacks: 1
-  Icon: {fileID: 21300000, guid: 92b204cca46037444ab18ba6701f86f7, type: 3}
+  Icon: {fileID: 21300000, guid: 15e472cfddc87174aa3110ba2b8598eb, type: 3}
   EquipmentType: 4
   MaxHealthBonus: 0
   MaxManaBonus: 0
@@ -50,6 +50,7 @@ MonoBehaviour:
     <Knockback>k__BackingField: 5
     <DamageMultiplier>k__BackingField: 1
     <StaminaCost>k__BackingField: 10
+    <ManaCost>k__BackingField: 0
   - <AnimationName>k__BackingField: SwordAttack2
     <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: 2
@@ -59,6 +60,7 @@ MonoBehaviour:
     <Knockback>k__BackingField: 5
     <DamageMultiplier>k__BackingField: 1
     <StaminaCost>k__BackingField: 10
+    <ManaCost>k__BackingField: 0
   - <AnimationName>k__BackingField: SwordAttack3
     <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: -1
@@ -68,3 +70,4 @@ MonoBehaviour:
     <Knockback>k__BackingField: 7
     <DamageMultiplier>k__BackingField: 1.4
     <StaminaCost>k__BackingField: 15
+    <ManaCost>k__BackingField: 0

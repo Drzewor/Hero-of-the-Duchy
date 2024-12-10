@@ -1,0 +1,306 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8600686609269089049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 7a3d0560-1284-4f7f-9a7f-ca2884699d68
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: It's a long story and not for now. Lead into battle, we'll be right behind
+    you.
+  children:
+  - e18e5a7e-2495-4732-8212-01d1a61bc928
+  rect:
+    serializedVersion: 2
+    x: 828
+    y: 169
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &-5501424829837753105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 352ed7c0-8d3c-432f-915e-2c4e1652b991
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Where did you get that ring?
+  children:
+  - 7a3d0560-1284-4f7f-9a7f-ca2884699d68
+  rect:
+    serializedVersion: 2
+    x: 618
+    y: 170
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &-4213868618024951475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 6284f64d-94f1-4da6-81ca-be3abfdd10c0
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: What terrible monsters!
+  children:
+  - e324405c-ff93-4fb5-878d-7b1cf515e594
+  rect:
+    serializedVersion: 2
+    x: 617
+    y: 25
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &-3287358507762636476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: e18e5a7e-2495-4732-8212-01d1a61bc928
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: To battle!
+  children:
+  - c595ab73-c43c-4eac-806c-4150cc6b4eed
+  rect:
+    serializedVersion: 2
+    x: 1057
+    y: 84
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &-2544585317471527629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 8b642c33-4afa-4afe-948b-8b3e023e5190
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I am.
+  children:
+  - 31d3ad67-de6a-4924-a7a7-1ccd996d76a5
+  - d2add4e0-a383-4edd-875b-83d678fbdb94
+  rect:
+    serializedVersion: 2
+    x: 210
+    y: 95
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f0543d552de974980a7a95047de48f, type: 3}
+  m_Name: JackBeforeAttack
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 920752049281867178}
+  - {fileID: -2544585317471527629}
+  - {fileID: 8349748371621910171}
+  - {fileID: 6901880872318452344}
+  - {fileID: -5501424829837753105}
+  - {fileID: -8600686609269089049}
+  - {fileID: -4213868618024951475}
+  - {fileID: 1764803526504605160}
+  - {fileID: -3287358507762636476}
+  - {fileID: 4447361038075293369}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &920752049281867178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 54b90cc1-9bd3-4cf6-910e-e09a20189ec9
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Okay, are you ready?
+  children:
+  - 8b642c33-4afa-4afe-948b-8b3e023e5190
+  rect:
+    serializedVersion: 2
+    x: 10
+    y: 95
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and:
+    - or:
+      - predicate: 3
+        parameters:
+        - SpeakeWithJackBeforeAttack_ID
+        negate: 0
+--- !u!114 &1764803526504605160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: e324405c-ff93-4fb5-878d-7b1cf515e594
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: We will avenge them. Lead the way, we will be right behind you.
+  children:
+  - e18e5a7e-2495-4732-8212-01d1a61bc928
+  rect:
+    serializedVersion: 2
+    x: 824
+    y: 25
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &4447361038075293369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: c595ab73-c43c-4eac-806c-4150cc6b4eed
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: To battle!
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1273
+    y: 83
+    width: 200
+    height: 100
+  OnEnterAction:
+  - SpeakeWithJackBeforeAttack
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &6901880872318452344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: d2add4e0-a383-4edd-875b-83d678fbdb94
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Good thing no one desecrated the corpse. I guess Fearne was trying to convince
+    you to rob them? Don't worry, you did the right thing. You know what? Here, you'll
+    need it more in a fight than I did.
+  children:
+  - 352ed7c0-8d3c-432f-915e-2c4e1652b991
+  rect:
+    serializedVersion: 2
+    x: 417
+    y: 170
+    width: 200
+    height: 100
+  OnEnterAction:
+  - GivePlayerProtectionRing
+  onExitAction: []
+  condition:
+    and:
+    - or:
+      - predicate: 1
+        parameters:
+        - EverythingCanBeUseful_ID
+        negate: 1
+--- !u!114 &8349748371621910171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 31d3ad67-de6a-4924-a7a7-1ccd996d76a5
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Damn, those monsters have already robbed those poor people.
+  children:
+  - 6284f64d-94f1-4da6-81ca-be3abfdd10c0
+  rect:
+    serializedVersion: 2
+    x: 411
+    y: 26
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and:
+    - or:
+      - predicate: 1
+        parameters:
+        - EverythingCanBeUseful_ID
+        negate: 0

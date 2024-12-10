@@ -15,16 +15,16 @@ MonoBehaviour:
   id: 9f8444dea0e2158409bdbf4239263158
   ItemName: Light Armor Boots
   MaximumStacks: 1
-  Icon: {fileID: 21300000, guid: 02800fb9cff14da47a04572790384d8b, type: 3}
+  Icon: {fileID: 21300000, guid: 8eea55b041c81c04bad0e9cd5828e249, type: 3}
   EquipmentType: 3
   MaxHealthBonus: 0
   MaxManaBonus: 0
   StrengthBonus: 0
   DexterityBonus: 5
   CharismaBonus: 0
-  WeaponArmourBonus: 5
+  WeaponArmourBonus: 1
   MagicArmourBonus: 0
-  ProjectileArmourBonus: 10
+  ProjectileArmourBonus: 0
   ArmourPiercingBonus: 0
   MaxHealthPercentBonus: 0
   MaxManaPercentBonus: 0

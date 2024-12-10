@@ -10,6 +10,13 @@ namespace RPG.UI
     {
         [SerializeField] TMP_InputField newGameNameField;
         private SavingWraper savingWraper = null;
+
+        private void Start() 
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
         public void ContinueGame()
         {
             if(savingWraper == null)

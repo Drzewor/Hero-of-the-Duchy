@@ -15,4 +15,4 @@ MonoBehaviour:
   id: 1f7a87ae93af0654da7598ca280a75ec
   ItemName: Berry
   MaximumStacks: 10
-  Icon: {fileID: 21300000, guid: 626b9cddb29049e4cac50cd87b419945, type: 3}
+  Icon: {fileID: 21300000, guid: 2c949d1c05640074988ed9021232b539, type: 3}

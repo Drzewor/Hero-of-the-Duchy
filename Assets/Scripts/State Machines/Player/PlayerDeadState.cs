@@ -12,8 +12,10 @@ namespace RPG.StateMachine.Player
 
         public override void Enter()
         {
-            stateMachine.WeaponLogic.gameObject.SetActive(false);
             stateMachine.Animator.CrossFadeInFixedTime(DeathAnimationHash, CrossFadeDuration);
+            stateMachine.WeaponLogic.gameObject.GetComponent<Collider>().enabled = false;
+            stateMachine.WeaponLogic.ClearColidersList();
+            stateMachine.WeaponLogic.SwitchTrails(false);
         }
 
         public override void Tick(float deltaTime)

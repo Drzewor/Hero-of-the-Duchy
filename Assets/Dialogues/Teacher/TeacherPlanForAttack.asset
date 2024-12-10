@@ -1,0 +1,326 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8997520070971849331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: fe5d1dc4-fad5-4410-9102-acb741a5ff05
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: I think so. Fearne says there's only a few of them there. True, she said
+    there was one armored beast, but nothing Jack and you can't handle.
+  children:
+  - 80d64328-af34-40ff-9697-a6fee9187d33
+  - f4b1759f-f0de-402b-a651-196fd59e0f17
+  rect:
+    serializedVersion: 2
+    x: 929
+    y: 74
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &-7755323104505846539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 3012bc20-67c7-4046-8765-fee3b8fe964a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: What is the plan?
+  children:
+  - 33830565-6e90-4bbc-bf57-026993472e3e
+  rect:
+    serializedVersion: 2
+    x: 240
+    y: 174
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &-7731678501126262319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 80d64328-af34-40ff-9697-a6fee9187d33
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Sounds good, let's go.
+  children:
+  - 6ec3056b-b004-4318-b61d-7087d6e6dc92
+  rect:
+    serializedVersion: 2
+    x: 1183
+    y: 147
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &-4641215143485981288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: d1706ea1-1296-4899-909d-8bd2ad273228
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: You've managed to sort out Jack. Good, we'll need him.
+  children:
+  - 3012bc20-67c7-4046-8765-fee3b8fe964a
+  rect:
+    serializedVersion: 2
+    x: -3
+    y: 174
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and:
+    - or:
+      - predicate: 3
+        parameters:
+        - SpeakAboutPlan_ID
+        negate: 0
+    - or:
+      - predicate: 1
+        parameters:
+        - TheOldStash_ID
+        negate: 1
+--- !u!114 &-4200534040273360044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 33830565-6e90-4bbc-bf57-026993472e3e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: I wouldn't call it a plan. From what Fearne said, the greens have set up
+    camp on the road. We can't get past it, so you'll just go there with Jack and
+    Fearne and chase them away.
+  children:
+  - 80d64328-af34-40ff-9697-a6fee9187d33
+  - 811983e8-472c-4687-98a8-7dc925d3b779
+  - f4b1759f-f0de-402b-a651-196fd59e0f17
+  rect:
+    serializedVersion: 2
+    x: 495
+    y: 175
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &-109320872469244672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 811983e8-472c-4687-98a8-7dc925d3b779
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Can we handle it?
+  children:
+  - fe5d1dc4-fad5-4410-9102-acb741a5ff05
+  rect:
+    serializedVersion: 2
+    x: 713
+    y: 75
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f0543d552de974980a7a95047de48f, type: 3}
+  m_Name: TeacherPlanForAttack
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -4641215143485981288}
+  - {fileID: -7755323104505846539}
+  - {fileID: -4200534040273360044}
+  - {fileID: -7731678501126262319}
+  - {fileID: -109320872469244672}
+  - {fileID: 2264187840598557240}
+  - {fileID: 4067526381706030092}
+  - {fileID: 2223020301488338175}
+  - {fileID: -8997520070971849331}
+  - {fileID: 8414958396866477969}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &2223020301488338175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 9ceb9017-5d32-4e57-a9a9-b3272feb0475
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: You're right, actually. I hid some stuff here a few years ago for a rainy
+    day. I just can't remember where for the life of me. It was probably somewhere
+    in the ruins behind the cart. Look around and try to find it. We'll wait for
+    you.
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1207
+    y: 357
+    width: 200
+    height: 100
+  OnEnterAction:
+  - GiveQuestOldStash
+  onExitAction: []
+  condition:
+    and:
+    - or:
+      - predicate: 0
+        parameters:
+        - f24a08bb95a3f1f49aef59ff6304abd4
+        - 1
+        negate: 1
+--- !u!114 &2264187840598557240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: f4b1759f-f0de-402b-a651-196fd59e0f17
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I need better equipment.
+  children:
+  - 0fe84469-2823-45fa-b1e9-fa42fb30dc7d
+  - 9ceb9017-5d32-4e57-a9a9-b3272feb0475
+  rect:
+    serializedVersion: 2
+    x: 944
+    y: 288
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &4067526381706030092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 0fe84469-2823-45fa-b1e9-fa42fb30dc7d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: 'You''ve got some pretty good armor already. Let me guess, Fearne talked
+    you into taking those poor souls'' stuff?
+
+
+
+    Well, none of my business. But
+    if you want something even better, I hid some stuff here a few years ago for
+    a rainy day. I just can''t remember where for the life of me. Look around and
+    see if you can find it. We''ll wait for you.'
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1206
+    y: 250
+    width: 200
+    height: 100
+  OnEnterAction:
+  - GiveQuestOldStash
+  onExitAction: []
+  condition:
+    and:
+    - or:
+      - predicate: 0
+        parameters:
+        - f24a08bb95a3f1f49aef59ff6304abd4
+        - 1
+        negate: 0
+--- !u!114 &8414958396866477969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 6ec3056b-b004-4318-b61d-7087d6e6dc92
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Good luck, Jack and Fearne will be waiting for you at the goblin ambush site.
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1402
+    y: 143
+    width: 200
+    height: 100
+  OnEnterAction:
+  - SpeakAboutPlan
+  onExitAction: []
+  condition:
+    and: []

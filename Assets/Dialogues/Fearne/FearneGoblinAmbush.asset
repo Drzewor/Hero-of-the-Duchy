@@ -1,0 +1,214 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5236366971019968736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 52d7b4be-c5b0-4674-bec2-036e782fa1ae
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: No, those beautiful flowers. Of course, those goblins! We have to take care
+    of them before more of them come.
+  children:
+  - e553bdd7-6e81-4f08-b620-4a7e022ee8d8
+  - 8bdf18ea-1900-4b10-8c8d-b1bad2713e6f
+  rect:
+    serializedVersion: 2
+    x: 445
+    y: 109
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &-5087606596061100533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 8bdf18ea-1900-4b10-8c8d-b1bad2713e6f
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: How do we plan to do this?
+  children:
+  - ca84a1bb-1bef-4bd7-82c7-fea234c07b56
+  rect:
+    serializedVersion: 2
+    x: 673
+    y: 158
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &-2990516661310753688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: ca84a1bb-1bef-4bd7-82c7-fea234c07b56
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: You charge at them, and I'll support you from a distance. If you can't handle
+    it, just avoid their attacks. Position yourself so you don't block my line of
+    fire. Remember to save your game!
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 883
+    y: 158
+    width: 200
+    height: 100
+  OnEnterAction:
+  - AttackAmbush
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &-1950915882728447771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: e553bdd7-6e81-4f08-b620-4a7e022ee8d8
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Charge!
+  children:
+  - 65e892f2-6050-46b1-9abc-c76d359e2e2a
+  rect:
+    serializedVersion: 2
+    x: 672
+    y: 43
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &-1047215505553337780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 9f45c0bc-99b6-40b4-84bf-f672069371b3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Do you see them?
+  children:
+  - dfe5ae68-c1c7-4dd0-a51f-c02b68511384
+  rect:
+    serializedVersion: 2
+    x: 18
+    y: 109
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and:
+    - or:
+      - predicate: 3
+        parameters:
+        - SpeakBeforeAmbush_ID
+        negate: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f0543d552de974980a7a95047de48f, type: 3}
+  m_Name: FearneGoblinAmbush
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -1047215505553337780}
+  - {fileID: 7519226081710704423}
+  - {fileID: -5236366971019968736}
+  - {fileID: -1950915882728447771}
+  - {fileID: -5087606596061100533}
+  - {fileID: -2990516661310753688}
+  - {fileID: 2947578493744083392}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &2947578493744083392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 65e892f2-6050-46b1-9abc-c76d359e2e2a
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Remember to save your game!
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 883
+    y: 43
+    width: 200
+    height: 100
+  OnEnterAction:
+  - AttackAmbush
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &7519226081710704423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: dfe5ae68-c1c7-4dd0-a51f-c02b68511384
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Goblins?
+  children:
+  - 52d7b4be-c5b0-4674-bec2-036e782fa1ae
+  rect:
+    serializedVersion: 2
+    x: 230
+    y: 109
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []

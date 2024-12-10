@@ -25,10 +25,11 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 552
-    y: 163
+    y: 166
     width: 200
     height: 100
-  OnEnterAction: []
+  OnEnterAction:
+  - TrainingTalk
   onExitAction: []
   condition:
     and: []
@@ -50,11 +51,12 @@ MonoBehaviour:
   children: []
   rect:
     serializedVersion: 2
-    x: 1047
-    y: 161
+    x: 1050
+    y: 163
     width: 200
     height: 100
-  OnEnterAction: []
+  OnEnterAction:
+  - GiveQuestLookingForTrouble
   onExitAction: []
   condition:
     and: []
@@ -90,6 +92,15 @@ MonoBehaviour:
         parameters:
         - DestroyDummysStep_ID
         negate: 0
+      - predicate: 4
+        parameters:
+        - DestroyDummysStep_ID
+        negate: 0
+    - or:
+      - predicate: 1
+        parameters:
+        - LookingForTrouble_ID
+        negate: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,8 +165,8 @@ MonoBehaviour:
   - aa1af64d-7ce7-40bc-b04a-ceb34b3a7b4b
   rect:
     serializedVersion: 2
-    x: 797
-    y: 161
+    x: 800
+    y: 165
     width: 200
     height: 100
   OnEnterAction: []
@@ -181,13 +192,18 @@ MonoBehaviour:
   rect:
     serializedVersion: 2
     x: 291
-    y: 167
+    y: 170
     width: 200
     height: 100
   OnEnterAction: []
   onExitAction: []
   condition:
-    and: []
+    and:
+    - or:
+      - predicate: 4
+        parameters:
+        - DestroyDummysStep_ID
+        negate: 0
 --- !u!114 &6688403080822607182
 MonoBehaviour:
   m_ObjectHideFlags: 0

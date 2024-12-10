@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 37c6e8db7cbc55344933de29ec927024
   ItemName: 
   MaximumStacks: 1
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 15e472cfddc87174aa3110ba2b8598eb, type: 3}
   EquipmentType: 2
   MaxHealthBonus: 0
   MaxManaBonus: 0

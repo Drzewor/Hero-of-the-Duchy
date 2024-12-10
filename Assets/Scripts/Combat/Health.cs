@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using RPG.CharacterStats;
+using RPG.Quests;
 using RPG.Saving;
 using RPG.StateMachine.NPC;
 using RPG.StateMachine.Player;
@@ -28,6 +25,8 @@ namespace RPG.Combat
             character.OnMaxHealthUpdate += UpdateMaxHealth;
             maxHealth = character.MaxHealth.Value;
             healthPoints = maxHealth;
+            
+            OnDie += FindObjectOfType<QuestManager>().TryToAdvanceQuests;
         }
 
         private void UpdateMaxHealth()

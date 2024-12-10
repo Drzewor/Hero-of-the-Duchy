@@ -1,0 +1,284 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-6658972993802753144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 839100b7-f3c8-491a-bf44-08ba4f3607d9
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I'll check again.
+  children:
+  - 2ad5da46-cccf-4643-9520-f81e6003b152
+  rect:
+    serializedVersion: 2
+    x: 691
+    y: 13
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &-5172287631066278684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 1515ef1e-0a45-4399-b08b-37fd6a8275a4
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: And what did you find?
+  children:
+  - 44c0c084-ef85-40b4-9126-251415fb707e
+  - e5154d5e-a089-4ef3-80c2-8ad8c0230917
+  rect:
+    serializedVersion: 2
+    x: 25
+    y: 104
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and:
+    - or:
+      - predicate: 3
+        parameters:
+        - SpeakAfterAmbush_ID
+        negate: 0
+    - or:
+      - predicate: 1
+        parameters:
+        - EverythingCanBeUseful_ID
+        negate: 0
+--- !u!114 &-3156073613342689030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 2ad5da46-cccf-4643-9520-f81e6003b152
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: I'll wait here, you hurry up.
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 899
+    y: 13
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f0543d552de974980a7a95047de48f, type: 3}
+  m_Name: FearneAfterLootingAmbush
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -5172287631066278684}
+  - {fileID: 6321399696554426108}
+  - {fileID: 4732526933562985728}
+  - {fileID: 9141711481491947722}
+  - {fileID: -6658972993802753144}
+  - {fileID: 830467602668627374}
+  - {fileID: 319556698561894061}
+  - {fileID: 2604845619184942716}
+  - {fileID: -3156073613342689030}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &319556698561894061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 01064e0a-93af-4a0c-a777-b1dfbd687d7f
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Not bad, I found some gold and some papers. I'll read it later.
+  children:
+  - e8167701-c00d-438e-895e-4614ff8b0661
+  rect:
+    serializedVersion: 2
+    x: 464
+    y: 177
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &830467602668627374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: e8167701-c00d-438e-895e-4614ff8b0661
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Let's go back.
+  children:
+  - 60b7834c-34be-4c7c-8ec5-69d1a2061a1c
+  rect:
+    serializedVersion: 2
+    x: 692
+    y: 107
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &2604845619184942716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 60b7834c-34be-4c7c-8ec5-69d1a2061a1c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Okay, lead the way.
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 898
+    y: 107
+    width: 200
+    height: 100
+  OnEnterAction:
+  - SpeakAfterAmbush
+  - AmbushLooted
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &4732526933562985728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: e5154d5e-a089-4ef3-80c2-8ad8c0230917
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Nice armor and a decent sword.
+  children:
+  - 01064e0a-93af-4a0c-a777-b1dfbd687d7f
+  rect:
+    serializedVersion: 2
+    x: 262
+    y: 177
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and:
+    - or:
+      - predicate: 0
+        parameters:
+        - 2ec392eda0786f649a77c41913f25ea0
+        - 1
+        negate: 0
+    - or:
+      - predicate: 0
+        parameters:
+        - f24a08bb95a3f1f49aef59ff6304abd4
+        - 1
+        negate: 0
+--- !u!114 &6321399696554426108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 44c0c084-ef85-40b4-9126-251415fb707e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Nothing.
+  children:
+  - 6387fee9-b6ea-4fa3-b890-4da80055ddeb
+  rect:
+    serializedVersion: 2
+    x: 249
+    y: 26
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &9141711481491947722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 6387fee9-b6ea-4fa3-b890-4da80055ddeb
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Are you sure there's nothing there? Do you want to look around again, or
+    should we go back?
+  children:
+  - 839100b7-f3c8-491a-bf44-08ba4f3607d9
+  - e8167701-c00d-438e-895e-4614ff8b0661
+  rect:
+    serializedVersion: 2
+    x: 461
+    y: 27
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []

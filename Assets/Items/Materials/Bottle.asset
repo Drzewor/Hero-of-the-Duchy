@@ -15,4 +15,4 @@ MonoBehaviour:
   id: 0648d036fcdf0c643800357ae90487c3
   ItemName: Empty Bottle
   MaximumStacks: 10
-  Icon: {fileID: 21300000, guid: 3e471b9fad7264146aa03aca58b27957, type: 3}
+  Icon: {fileID: 21300000, guid: 3996efab06f1f4c4a826985721382267, type: 3}

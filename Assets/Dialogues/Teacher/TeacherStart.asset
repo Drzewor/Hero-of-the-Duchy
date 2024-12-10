@@ -217,5 +217,5 @@ MonoBehaviour:
     - or:
       - predicate: 2
         parameters:
-        - StartingQuest
+        - StartingQuest_Id
         negate: 1

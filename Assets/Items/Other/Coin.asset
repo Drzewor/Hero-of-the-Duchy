@@ -15,4 +15,4 @@ MonoBehaviour:
   id: 14c7e927ef4f675469367f6e8ba70e21
   ItemName: Coin
   MaximumStacks: 999
-  Icon: {fileID: 21300000, guid: bc23667f31b8fb7478550156a7ae9add, type: 3}
+  Icon: {fileID: 21300000, guid: 15e472cfddc87174aa3110ba2b8598eb, type: 3}

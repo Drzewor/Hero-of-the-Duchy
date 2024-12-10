@@ -15,3 +15,8 @@ MonoBehaviour:
   quests:
   - {fileID: 11400000, guid: f3d9405cac11eee44bd79519a23e879c, type: 2}
   - {fileID: 11400000, guid: 097caabe571fc7340a660b3ae729d3a5, type: 2}
+  - {fileID: 11400000, guid: ab1a22b85d2fed049bae802fd5a09c23, type: 2}
+  - {fileID: 11400000, guid: 6c3a21529e7bbca4abd8461b3a083866, type: 2}
+  - {fileID: 11400000, guid: ffc564e61300c6f41b1a507c1cdfc71c, type: 2}
+  - {fileID: 11400000, guid: a171112f5fe7f124aa25a8882b5b7494, type: 2}
+  - {fileID: 11400000, guid: f4220f6f21519f644b9aba94b157c507, type: 2}

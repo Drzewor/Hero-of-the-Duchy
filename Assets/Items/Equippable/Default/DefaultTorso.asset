@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 7dcf95d3e2ae1f847855eecc5d3a76d6
   ItemName: DefaultTorso
   MaximumStacks: 1
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 15e472cfddc87174aa3110ba2b8598eb, type: 3}
   EquipmentType: 1
   MaxHealthBonus: 0
   MaxManaBonus: 0

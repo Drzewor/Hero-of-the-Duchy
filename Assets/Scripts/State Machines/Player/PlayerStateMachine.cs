@@ -16,6 +16,8 @@ namespace RPG.StateMachine.Player
     public class PlayerStateMachine : StateMachine, ISaveable
     {
         private bool isStartingStateSet = false;
+        private const float YAxisSpeed = 2;
+        private const float XAxisSpeed = 150;
         [field: SerializeField] public InputReader InputReader {get; private set;}
         [field: SerializeField] public CharacterController characterController {get; private set;}
         [field: SerializeField] public CinemachineFreeLook cinemachineFreeLook {get; private set;}
@@ -68,6 +70,8 @@ namespace RPG.StateMachine.Player
             Cursor.visible = false;
             MainCameraTransform = Camera.main.transform;
             StartCoroutine(SetInventory());
+            cinemachineFreeLook.m_YAxis.m_MaxSpeed = YAxisSpeed;
+            cinemachineFreeLook.m_XAxis.m_MaxSpeed = XAxisSpeed;
             if(useStartingState)
             {
                 SetStartingState(new PlayerFreeLookState(this));

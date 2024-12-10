@@ -101,7 +101,7 @@ namespace RPG.Quests
                 case predicateName.HasQuest:
                     foreach(QuestStatus questStatus in quests)
                     {
-                        if(questStatus.GetQuest().name == parameters[0])
+                        if(questStatus.GetQuest().id == parameters[0])
                         {
                             return true;
                         }
@@ -110,7 +110,7 @@ namespace RPG.Quests
                 case predicateName.CompletedQuest:
                     foreach(QuestStatus questStatus in quests)
                     {
-                        if(questStatus.GetQuest().name == parameters[0])
+                        if(questStatus.GetQuest().id == parameters[0])
                         {
                             return questStatus.GetQuest().isFinished;
                         }
@@ -151,7 +151,6 @@ namespace RPG.Quests
 
             foreach(QuestStatus status in quests)
             {
-                Debug.Log(status.progressOfStep);
                 QuestSaveData questSave = new QuestSaveData(status.GetQuest().id, status.stepInProgress, status.progressOfStep, status.GetQuest().isFinished);
                 questSaveDatas.Add(questSave);
             }

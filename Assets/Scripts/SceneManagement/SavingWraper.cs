@@ -13,6 +13,7 @@ namespace RPG.SceneManagement
         // private InputReader inputReader = null;
         private const int FirstLevelBuildIndex = 1;
         private const int MenuBuildIndex = 0;
+        private const int EndSceneBuildIndex = 2;
         private const string currentSaveKey = "currentSaveName";
 
         // private void Start()
@@ -43,6 +44,11 @@ namespace RPG.SceneManagement
         public void LoadMenu()
         {
             StartCoroutine(LoadChosenScene(MenuBuildIndex));
+        }
+
+        public void LoadEndScene()
+        {
+            StartCoroutine(LoadChosenScene(EndSceneBuildIndex));
         }
 
         private void SetCurrentSave(string saveFile)

@@ -1,0 +1,163 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8900215708226528727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 98521b72-3c3f-4e27-92b2-b961c02e9e28
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Just hurry. If the goblins don't kill me, my hangover will.
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 435
+    y: 23
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &-1949967870652773934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 6823b1e6-cb4d-4ad9-8a47-85e01d4b129b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: No, I'm working on it.
+  children:
+  - 98521b72-3c3f-4e27-92b2-b961c02e9e28
+  rect:
+    serializedVersion: 2
+    x: 236
+    y: 23
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &-1014202411454798495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 240742ac-ad63-4201-908b-f83272bf3f52
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Thanks, you're saving my life. Talk to the old man, he'll explain our plan.
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 434
+    y: 141
+    width: 200
+    height: 100
+  OnEnterAction:
+  - BringPotionToJack
+  - TakPotionFromPlayer
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f0543d552de974980a7a95047de48f, type: 3}
+  m_Name: JackPotion
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 7399808690429651711}
+  - {fileID: -1949967870652773934}
+  - {fileID: 377726491803157355}
+  - {fileID: -8900215708226528727}
+  - {fileID: -1014202411454798495}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &377726491803157355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 5f4c4ec3-babe-4cca-8626-03ce533dddf5
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Yes, I have the potion.
+  children:
+  - 240742ac-ad63-4201-908b-f83272bf3f52
+  rect:
+    serializedVersion: 2
+    x: 233
+    y: 141
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and:
+    - or:
+      - predicate: 0
+        parameters:
+        - 35bd7819b52650343809fb1855ec5187
+        - 1
+        negate: 0
+--- !u!114 &7399808690429651711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 031195b5-541c-47db-a8ea-3da8f0e0cb87
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Do you have this potion yet?
+  children:
+  - 6823b1e6-cb4d-4ad9-8a47-85e01d4b129b
+  - 5f4c4ec3-babe-4cca-8626-03ce533dddf5
+  rect:
+    serializedVersion: 2
+    x: 13
+    y: 76
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and:
+    - or:
+      - predicate: 3
+        parameters:
+        - BringPotionToJackStep_ID
+        negate: 0

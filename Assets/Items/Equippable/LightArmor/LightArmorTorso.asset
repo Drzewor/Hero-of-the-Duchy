@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 92644a5f50e379046969946058ca1108
   ItemName: Light Armor Jacket
   MaximumStacks: 1
-  Icon: {fileID: 21300000, guid: 02800fb9cff14da47a04572790384d8b, type: 3}
+  Icon: {fileID: 21300000, guid: 15e472cfddc87174aa3110ba2b8598eb, type: 3}
   EquipmentType: 1
   MaxHealthBonus: 0
   MaxManaBonus: 0

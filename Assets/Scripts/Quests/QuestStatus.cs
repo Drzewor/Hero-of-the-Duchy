@@ -32,6 +32,7 @@ namespace RPG.Quests
                 }
                 else if(i > stepInProgress)
                 {
+                    quest.steps[i].SetStepProgress(0);
                     quest.steps[i].isFinished = false;
                 }
                 

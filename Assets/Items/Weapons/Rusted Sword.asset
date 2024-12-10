@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 8250efbb0d9c1a54f8f9db9ac5fd0e11
   ItemName: Rusted Sword
   MaximumStacks: 1
-  Icon: {fileID: 21300000, guid: 168f5cce11feeeb4fb0fcbd4e256dae1, type: 3}
+  Icon: {fileID: 21300000, guid: 1c85d7cd2c7d22d4388fd8e3229656ad, type: 3}
   EquipmentType: 4
   MaxHealthBonus: 0
   MaxManaBonus: 0

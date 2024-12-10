@@ -1,0 +1,283 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7620061791462868918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 468b646c-d3d2-4a70-bf92-4584e6932da9
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Sure.
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 857
+    y: 11
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &-4329834161849125475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 711226dd-587d-4191-b9eb-c914cfc7168e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I'm ready to go.
+  children:
+  - 224375f1-1904-41fd-a0fc-ed35a13ba12e
+  rect:
+    serializedVersion: 2
+    x: 649
+    y: 128
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &-3874020218496505821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: bb470868-df81-404b-8e49-c2b49192270e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Give me a moment.
+  children:
+  - 468b646c-d3d2-4a70-bf92-4584e6932da9
+  rect:
+    serializedVersion: 2
+    x: 650
+    y: 10
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &-2978418458504754949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 854588c8-3ee0-408f-90a4-a784f09f6bd0
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Well, I hope this helps you.
+  children:
+  - 711226dd-587d-4191-b9eb-c914cfc7168e
+  rect:
+    serializedVersion: 2
+    x: 441
+    y: 215
+    width: 200
+    height: 100
+  OnEnterAction:
+  - FindOldStash
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f0543d552de974980a7a95047de48f, type: 3}
+  m_Name: TeacherWaitingBefereAttack
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 7062252619295659421}
+  - {fileID: 7534109551055851763}
+  - {fileID: 2540799621450141699}
+  - {fileID: 5765448910005208285}
+  - {fileID: -2978418458504754949}
+  - {fileID: -4329834161849125475}
+  - {fileID: -3874020218496505821}
+  - {fileID: -7620061791462868918}
+  - {fileID: 621853250211963484}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &621853250211963484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 224375f1-1904-41fd-a0fc-ed35a13ba12e
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Good luck. Fearne and Jack will be waiting at the ambush site.
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 872
+    y: 127
+    width: 200
+    height: 100
+  OnEnterAction:
+  - SpeakAboutPlan
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &2540799621450141699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 7b1c2820-1d6b-4a1d-9a50-a74bf814e9e1
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Yes.
+  children:
+  - 854588c8-3ee0-408f-90a4-a784f09f6bd0
+  rect:
+    serializedVersion: 2
+    x: 230
+    y: 215
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and:
+    - or:
+      - predicate: 0
+        parameters:
+        - 773feebee4fcab8408dcd166ddb43ec7
+        - 1
+        negate: 0
+    - or:
+      - predicate: 0
+        parameters:
+        - 9f8444dea0e2158409bdbf4239263158
+        - 1
+        negate: 0
+--- !u!114 &5765448910005208285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 9563e032-b02e-471b-b27a-9ead67204918
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Want to look around some more, or are you ready to go?
+  children:
+  - 711226dd-587d-4191-b9eb-c914cfc7168e
+  - bb470868-df81-404b-8e49-c2b49192270e
+  rect:
+    serializedVersion: 2
+    x: 441
+    y: 81
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &7062252619295659421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 3e8ba25e-bf57-4b62-a761-44207737d38b
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: So, did you find it?
+  children:
+  - 5f8c608e-5d46-43aa-8b91-d34cb8582270
+  - 7b1c2820-1d6b-4a1d-9a50-a74bf814e9e1
+  rect:
+    serializedVersion: 2
+    x: 5
+    y: 155
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and:
+    - or:
+      - predicate: 3
+        parameters:
+        - SpeakAboutPlan_ID
+        negate: 0
+    - or:
+      - predicate: 1
+        parameters:
+        - TheOldStash_ID
+        negate: 0
+--- !u!114 &7534109551055851763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 5f8c608e-5d46-43aa-8b91-d34cb8582270
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: No.
+  children:
+  - 9563e032-b02e-471b-b27a-9ead67204918
+  rect:
+    serializedVersion: 2
+    x: 233
+    y: 81
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []

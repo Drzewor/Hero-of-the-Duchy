@@ -15,4 +15,4 @@ MonoBehaviour:
   id: e8b2221d0956b95459ffdcfdeda49539
   ItemName: Wood
   MaximumStacks: 10
-  Icon: {fileID: 21300000, guid: dac46280c8d95ba4e84e5ea4c009e949, type: 3}
+  Icon: {fileID: 21300000, guid: 15e472cfddc87174aa3110ba2b8598eb, type: 3}

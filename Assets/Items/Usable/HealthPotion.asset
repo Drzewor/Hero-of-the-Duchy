@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 35bd7819b52650343809fb1855ec5187
   ItemName: Health Potion
   MaximumStacks: 10
-  Icon: {fileID: 21300000, guid: ec2bdc4b703d3ac45aec6b6bf9dfe019, type: 3}
+  Icon: {fileID: 21300000, guid: 2d5b92fc2d14cc64ea0a3eace3e4c815, type: 3}
   IsConsumable: 1
   Effects:
   - {fileID: 11400000, guid: d2b4dc7fbc1f2a04fa573405753a39a8, type: 2}

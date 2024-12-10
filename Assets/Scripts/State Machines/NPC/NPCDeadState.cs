@@ -17,6 +17,10 @@ namespace RPG.StateMachine.NPC
             stateMachine.Target.enabled = false;
             stateMachine.Animator.CrossFadeInFixedTime(DeathAnimationHash, CrossFadeDuration);
             stateMachine.Controller.enabled = false;
+            
+            stateMachine.WeaponLogic.gameObject.GetComponent<Collider>().enabled = false;
+            stateMachine.WeaponLogic.ClearColidersList();
+            stateMachine.WeaponLogic.SwitchTrails(false);
         }
 
         public override void Tick(float deltaTime)

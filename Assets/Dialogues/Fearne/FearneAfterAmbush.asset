@@ -1,0 +1,465 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9069269301060771842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: d5a5c7ce-8f46-4789-b835-46877bfeff27
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: I could defeat them myself easily.
+  children:
+  - e4b8dd81-7868-4814-962e-704e43049d20
+  rect:
+    serializedVersion: 2
+    x: 673
+    y: 272
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &-9038985179389938915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 4d41c64e-f71d-45ae-a48b-97abbe2b4fff
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: You're such a weakling you can barely swing that sword. You moved so sluggishly
+    it's a wonder that archer didn't shoot you. And before the scout the teacher
+    mentioned to me that he'd be teaching you the complete basics on dummies.
+  children:
+  - 8dd9bcd9-504d-4568-918b-3e89196b6ba3
+  - d5a5c7ce-8f46-4789-b835-46877bfeff27
+  - f70ada89-8a21-43f8-abe1-48e8fd584db7
+  rect:
+    serializedVersion: 2
+    x: 452
+    y: 188
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &-8356015086690087692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: f70ada89-8a21-43f8-abe1-48e8fd584db7
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Are you always like this?
+  children:
+  - 58a62c1c-acfd-4ed1-b15f-6c4872579fe1
+  rect:
+    serializedVersion: 2
+    x: 676
+    y: 179
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &-7856624409908738417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 78204906-a31e-4b40-946b-2512c3050a1d
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Nice fight, especially for you.
+  children:
+  - 3628a617-7814-4cf2-800d-faf6527b0012
+  - df85f0c3-ecf8-435f-8df3-2a86f9a3c0e8
+  rect:
+    serializedVersion: 2
+    x: 2
+    y: 121
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and:
+    - or:
+      - predicate: 3
+        parameters:
+        - SpeakAfterAmbush_ID
+        negate: 0
+    - or:
+      - predicate: 1
+        parameters:
+        - EverythingCanBeUseful_ID
+        negate: 1
+--- !u!114 &-5890375424763879173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 8c6f7da4-bd52-46d9-be08-e34367b288b3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: I'm always right. Except when I'm not.
+  children:
+  - 5476a38d-876a-41c8-8c28-60129f123c64
+  rect:
+    serializedVersion: 2
+    x: 867
+    y: 371
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &-5477823233279151592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: eaaec207-11ce-4327-8804-f36f2d11901f
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Exactly. I'll search the bodies, and you check the cart.
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1809
+    y: 38
+    width: 200
+    height: 100
+  OnEnterAction:
+  - GiveQuestEverythingCanBeUseful
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &-4034320931761084195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: bcd5dea4-a47f-428f-92a4-8fa51e37a8c0
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Of course we can't.
+  children:
+  - eaaec207-11ce-4327-8804-f36f2d11901f
+  rect:
+    serializedVersion: 2
+    x: 1559
+    y: 38
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f0543d552de974980a7a95047de48f, type: 3}
+  m_Name: FearneAfterAmbush
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -7856624409908738417}
+  - {fileID: 5350453959042767120}
+  - {fileID: 6686561559634898145}
+  - {fileID: 2991559956364069280}
+  - {fileID: -9038985179389938915}
+  - {fileID: 7820855639701526503}
+  - {fileID: -9069269301060771842}
+  - {fileID: -8356015086690087692}
+  - {fileID: 4147259251602691638}
+  - {fileID: 4358941144431691662}
+  - {fileID: -5890375424763879173}
+  - {fileID: 7410086430025637528}
+  - {fileID: -4034320931761084195}
+  - {fileID: 807026665013947070}
+  - {fileID: -5477823233279151592}
+  - {fileID: 5861193117449827328}
+  newNodeOffset: {x: 250, y: 0}
+--- !u!114 &807026665013947070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 1eec11a9-07c0-4aa4-a380-8a13f25d8ca4
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: This is robbing a corpse!
+  children:
+  - daf5ecc6-6161-4156-874e-20794c7282fa
+  rect:
+    serializedVersion: 2
+    x: 1558
+    y: 182
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &2991559956364069280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: df85f0c3-ecf8-435f-8df3-2a86f9a3c0e8
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: '"Especially for me"?'
+  children:
+  - 4d41c64e-f71d-45ae-a48b-97abbe2b4fff
+  rect:
+    serializedVersion: 2
+    x: 238
+    y: 188
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &4147259251602691638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 58a62c1c-acfd-4ed1-b15f-6c4872579fe1
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Yes, definitely.
+  children:
+  - 5476a38d-876a-41c8-8c28-60129f123c64
+  rect:
+    serializedVersion: 2
+    x: 871
+    y: 175
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &4358941144431691662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: e4b8dd81-7868-4814-962e-704e43049d20
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Of course, hero.
+  children:
+  - 5476a38d-876a-41c8-8c28-60129f123c64
+  rect:
+    serializedVersion: 2
+    x: 875
+    y: 273
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &5350453959042767120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 3628a617-7814-4cf2-800d-faf6527b0012
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Thanks, we should go back and tell the teacher about this.
+  children:
+  - 332fe0a2-6647-44bf-aeda-78507d5ce90c
+  rect:
+    serializedVersion: 2
+    x: 246
+    y: 56
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &5861193117449827328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: daf5ecc6-6161-4156-874e-20794c7282fa
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Okay, okay. Calm down. We're coming back.
+  children: []
+  rect:
+    serializedVersion: 2
+    x: 1808
+    y: 182
+    width: 200
+    height: 100
+  OnEnterAction:
+  - SpeakAfterAmbush
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &6686561559634898145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 332fe0a2-6647-44bf-aeda-78507d5ce90c
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 0
+  text: Wait a minute. We can't just leave all this loot like this, can we? We can't
+    let goblins steal all this!
+  children:
+  - bcd5dea4-a47f-428f-92a4-8fa51e37a8c0
+  - 1eec11a9-07c0-4aa4-a380-8a13f25d8ca4
+  rect:
+    serializedVersion: 2
+    x: 1321
+    y: 106
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &7410086430025637528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 5476a38d-876a-41c8-8c28-60129f123c64
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Okay, never mind. Are we going back? The teacher needs to know about this.
+  children:
+  - 332fe0a2-6647-44bf-aeda-78507d5ce90c
+  rect:
+    serializedVersion: 2
+    x: 1098
+    y: 175
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []
+--- !u!114 &7820855639701526503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5caf4676a4a6b6d4196f9d6a1de1d55c, type: 3}
+  m_Name: 8dd9bcd9-504d-4568-918b-3e89196b6ba3
+  m_EditorClassIdentifier: 
+  isPlayerSpeaking: 1
+  text: Okay, maybe you're right.
+  children:
+  - 8c6f7da4-bd52-46d9-be08-e34367b288b3
+  rect:
+    serializedVersion: 2
+    x: 669
+    y: 370
+    width: 200
+    height: 100
+  OnEnterAction: []
+  onExitAction: []
+  condition:
+    and: []

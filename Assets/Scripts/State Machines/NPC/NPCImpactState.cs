@@ -15,6 +15,9 @@ namespace RPG.StateMachine.NPC
         public override void Enter()
         {
             stateMachine.Animator.CrossFadeInFixedTime(ImpactAnimationHash, CrossFadeDuration);
+            stateMachine.WeaponLogic.gameObject.GetComponent<Collider>().enabled = false;
+            stateMachine.WeaponLogic.ClearColidersList();
+            stateMachine.WeaponLogic.SwitchTrails(false);
         }
 
         public override void Tick(float deltaTime)
