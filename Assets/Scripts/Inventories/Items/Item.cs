@@ -15,12 +15,13 @@ public class Item : ScriptableObject
     public Sprite Icon;
     protected static readonly StringBuilder sb = new StringBuilder();
 
+#if UNITY_EDITOR
     private void OnValidate()
     {
         string path = AssetDatabase.GetAssetPath(this);
         id = AssetDatabase.AssetPathToGUID(path);
     }
-
+#endif
     public virtual Item GetCopy()
     {
         return this;

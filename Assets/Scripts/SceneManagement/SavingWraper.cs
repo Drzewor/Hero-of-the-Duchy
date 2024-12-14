@@ -10,16 +10,10 @@ namespace RPG.SceneManagement
     public class SavingWraper : MonoBehaviour
     {
         [SerializeField] private float fadeIntime = 1.5f;
-        // private InputReader inputReader = null;
         private const int FirstLevelBuildIndex = 1;
         private const int MenuBuildIndex = 0;
         private const int EndSceneBuildIndex = 2;
         private const string currentSaveKey = "currentSaveName";
-
-        // private void Start()
-        // {
-        //     SubscribeEvents();
-        // }
         
         public void ContinueGame()
         {
@@ -61,15 +55,6 @@ namespace RPG.SceneManagement
             return PlayerPrefs.GetString(currentSaveKey);
         }
 
-        // private void SubscribeEvents()
-        // {
-        //     inputReader = FindObjectOfType<InputReader>();
-
-        //     inputReader.LoadEvent += Load;
-        //     inputReader.SaveEvent += Save;
-        //     inputReader.DeleteEvent += Delete;    
-        // }
-
         private IEnumerator LoadLastScene()
         {
             Fader fader = FindObjectOfType<Fader>();
@@ -89,7 +74,6 @@ namespace RPG.SceneManagement
         public void Load()
         {
             GetComponent<SavingSystem>().Load(GetCurrentSave());
-            // ReSubscribeEvents();
         }
         
         public void Save()
@@ -106,28 +90,5 @@ namespace RPG.SceneManagement
         {
             GetComponent<SavingSystem>().Delete(GetCurrentSave());
         }
-
-        // private void OnDestroy() 
-        // {
-        //     if(inputReader == null) return;
-
-        //     inputReader.LoadEvent -= Load;
-        //     inputReader.SaveEvent -= Save;
-        //     inputReader.DeleteEvent -= Delete;
-        // }
-
-        // private void ReSubscribeEvents()
-        // {
-        //     inputReader = FindObjectOfType<InputReader>();
-        //     if(inputReader == null) return;
-
-        //     inputReader.LoadEvent -= Load;
-        //     inputReader.SaveEvent -= Save;
-        //     inputReader.DeleteEvent -= Delete;
-        //     inputReader.LoadEvent += Load;
-        //     inputReader.SaveEvent += Save;
-        //     inputReader.DeleteEvent += Delete;
-        // }
-
     }
 }

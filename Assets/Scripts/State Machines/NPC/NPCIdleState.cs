@@ -26,6 +26,11 @@ namespace RPG.StateMachine.NPC
                 stateMachine.SwitchState(new NPCChasingState(stateMachine, this));
                 return;
             }
+            if(stateMachine.TargetToFollow != null)
+            {
+                stateMachine.SwitchState(new NPCFollowingState(stateMachine));
+                return;
+            }
             if(GetSqrDistanceToPoint(stateMachine.HomePosition) > 2)
             {
                 stateMachine.SwitchState(new NPCMovingState(stateMachine,stateMachine.HomePosition));

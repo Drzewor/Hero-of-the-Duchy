@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using RPG.Combat;
 using UnityEngine;
-using UnityEngine.InputSystem.iOS;
 
 namespace RPG.Quests
 {

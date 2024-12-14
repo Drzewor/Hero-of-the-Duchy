@@ -153,6 +153,17 @@ namespace RPG.StateMachine.NPC
             Dictionary<string, object> data = new Dictionary<string, object>();
             data["position"] = new SerializableVector3(transform.position);
             data["rotation"] = new SerializableVector3(transform.eulerAngles);
+            data["homePosition"] = new SerializableVector3(HomePosition);
+
+            if(TargetToFollow != null && TargetToFollow.TryGetComponent<SaveableEntity>(out SaveableEntity saveableEntity))
+            {
+                data["targetToFollow"] = saveableEntity.GetUniqueIdentifier();
+            }
+            else
+            {
+                data["targetToFollow"] = null;
+            }
+
             return data;
         }
 
@@ -162,6 +173,23 @@ namespace RPG.StateMachine.NPC
             Controller.enabled = false;
             transform.position = ((SerializableVector3)data["position"]).ToVector();
             transform.eulerAngles = ((SerializableVector3)data["rotation"]).ToVector();
+            SetHomePosition(((SerializableVector3)data["homePosition"]).ToVector());
+
+            if(data.ContainsKey("targetToFollow") && data["targetToFollow"] != null)
+            {
+                string targetID = (string)data["targetToFollow"];
+                SaveableEntity[] allEntities = FindObjectsOfType<SaveableEntity>();
+
+                foreach(SaveableEntity entity in allEntities)
+                {
+                    if(entity.GetUniqueIdentifier() == targetID)
+                    {
+                        SetTargetToFollow(entity.transform);
+                        break;
+                    }
+                }
+            }
+
             Controller.enabled = true;
             NPCTargeter.currentTarget = null;
         }
