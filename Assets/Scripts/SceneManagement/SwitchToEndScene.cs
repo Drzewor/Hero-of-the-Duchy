@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using RPG.SceneManagement;
 using UnityEngine;
 
-public class SwitchToEndScene : MonoBehaviour
+namespace RPG.SceneManagement
 {
-    private void OnTriggerEnter(Collider other) 
+    public class SwitchToEndScene : MonoBehaviour
     {
-        if(other.tag != "Player") return;
-        SavingWraper savingWraper = FindObjectOfType<SavingWraper>();
-        savingWraper.LoadEndScene();
+        private void OnTriggerEnter(Collider other) 
+        {
+            if(other.tag != "Player") return;
+            SavingWraper savingWraper = FindObjectOfType<SavingWraper>();
+            savingWraper.LoadEndScene();
+        }
     }
 }

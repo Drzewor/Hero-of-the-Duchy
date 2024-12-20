@@ -2,34 +2,38 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Serialization;
+using RPG.CharacterStats;
 using UnityEngine;
 
-public class NPCLoot : MonoBehaviour
+namespace RPG.Inventories
 {
-    [SerializeField] public int expBounty; 
-    [SerializeField] List<ItemLoot> items;
-    [SerializeField] ItemDropper itemDropper;
-
-    public void SpawnLoot()
+        public class NPCLoot : MonoBehaviour
     {
-        if(items.Count == 0) return;
+        [SerializeField] public int expBounty; 
+        [SerializeField] List<ItemLoot> items;
+        [SerializeField] ItemDropper itemDropper;
 
-        foreach(ItemLoot loot in items)
+        public void SpawnLoot()
         {
-            itemDropper.DropItem(loot.item, loot.amount);
+            if(items.Count == 0) return;
+
+            foreach(ItemLoot loot in items)
+            {
+                itemDropper.DropItem(loot.item, loot.amount);
+            }
         }
-    }
 
-    public void GrantExpBounty(CharacterExperience experience)
-    {
-        experience.AddExp(expBounty);
-    }
+        public void GrantExpBounty(CharacterExperience experience)
+        {
+            experience.AddExp(expBounty);
+        }
 
 
-    [Serializable]
-    private class ItemLoot
-    {
-        public Item item;
-        public int amount;
+        [Serializable]
+        private class ItemLoot
+        {
+            public Item item;
+            public int amount;
+        }
     }
 }

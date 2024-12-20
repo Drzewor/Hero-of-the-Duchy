@@ -1,22 +1,25 @@
 using System.Collections;
-using System.Collections.Generic;
 using RPG.Combat;
 using TMPro;
 using UnityEngine;
 
-public class ManaDisplay : MonoBehaviour
+namespace RPG.CharacterStats
 {
-    [SerializeField] TMP_Text manaDisplay;
-    [SerializeField] Mana mana;
-    [SerializeField] Character character;
-
-    private void Start() 
+    public class ManaDisplay : MonoBehaviour
     {
-        character.OnMaxManaUpdate += OnEnable;
-    }
+        [SerializeField] TMP_Text manaDisplay;
+        [SerializeField] Mana mana;
+        [SerializeField] Character character;
 
-    private void OnEnable() 
-    {
-        manaDisplay.text = $"{mana.GetMana()}/{character.MaxMana.Value}";
+        private void Start() 
+        {
+            character.OnMaxManaUpdate += OnEnable;
+        }
+
+        private void OnEnable() 
+        {
+            manaDisplay.text = $"{mana.GetMana()}/{character.MaxMana.Value}";
+        }
     }
 }
+

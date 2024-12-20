@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using RPG.Combat;
 using UnityEngine;
 
-namespace RPG.UI
+namespace RPG.CharacterStats
 {
     public class HealthBar : MonoBehaviour
     {

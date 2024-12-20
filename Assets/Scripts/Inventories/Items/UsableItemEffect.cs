@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class UsableItemEffect : ScriptableObject
+namespace RPG.Inventories
 {
-    public abstract void ExecuteEffect(UsableItem parentItem, InventoryManager character);
+    public abstract class UsableItemEffect : ScriptableObject
+    {
+        public abstract void ExecuteEffect(UsableItem parentItem, InventoryManager character);
 
-    public abstract string GetDescription();
+        public abstract string GetDescription();
+    }
 }
+

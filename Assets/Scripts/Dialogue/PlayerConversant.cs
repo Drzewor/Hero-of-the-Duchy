@@ -2,8 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using RPG.Core;
 using RPG.StateMachine.Player;
-using TMPro;
 using UnityEngine;
 
 namespace RPG.Dialogue

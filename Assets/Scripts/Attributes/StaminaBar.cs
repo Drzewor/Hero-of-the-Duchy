@@ -5,7 +5,7 @@ using RPG.Combat;
 using UnityEngine;
 
 
-namespace RPG.UI
+namespace RPG.CharacterStats
 {
     public class StaminaBar : MonoBehaviour
     {

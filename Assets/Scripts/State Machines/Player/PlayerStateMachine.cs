@@ -1,15 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
 using Cinemachine;
+using RPG.CharacterStats;
 using RPG.Combat;
+using RPG.Core;
+using RPG.Inventories;
 using RPG.Quests;
 using RPG.Saving;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
-using UnityEngine.Video;
 
 namespace RPG.StateMachine.Player
 {

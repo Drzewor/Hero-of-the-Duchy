@@ -2,21 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EquipmentSlot : ItemSlot
+namespace RPG.Inventories
 {
-    public EquipmentType EquipmentType;
-
-    protected override void OnValidate()
+    public class EquipmentSlot : ItemSlot
     {
-       base.OnValidate();
-       gameObject.name = EquipmentType.ToString() + " Slot";
-    }
+        public EquipmentType EquipmentType;
 
-    public override bool CanReceiveItem(Item item)
-    {
-        if(item == null) return true;
+        protected override void OnValidate()
+        {
+        base.OnValidate();
+        gameObject.name = EquipmentType.ToString() + " Slot";
+        }
 
-        EquippableItem equippableItem = item as EquippableItem;
-        return equippableItem != null && equippableItem.EquipmentType == EquipmentType;
+        public override bool CanReceiveItem(Item item)
+        {
+            if(item == null) return true;
+
+            EquippableItem equippableItem = item as EquippableItem;
+            return equippableItem != null && equippableItem.EquipmentType == EquipmentType;
+        }
     }
 }
+

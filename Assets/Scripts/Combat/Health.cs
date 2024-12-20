@@ -1,4 +1,5 @@
 using System;
+using RPG.CharacterStats;
 using RPG.Quests;
 using RPG.Saving;
 using RPG.StateMachine.NPC;

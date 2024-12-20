@@ -4,14 +4,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DropItemArea : MonoBehaviour, IDropHandler
+namespace RPG.Inventories
 {
-    public event Action OnDropEvent;
-    public void OnDrop(PointerEventData eventData)
+    public class DropItemArea : MonoBehaviour, IDropHandler
     {
-        if(OnDropEvent != null)
+        public event Action OnDropEvent;
+        public void OnDrop(PointerEventData eventData)
         {
-            OnDropEvent();
+            if(OnDropEvent != null)
+            {
+                OnDropEvent();
+            }
         }
     }
 }
+

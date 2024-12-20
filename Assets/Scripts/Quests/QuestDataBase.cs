@@ -3,21 +3,24 @@ using System.Collections.Generic;
 using RPG.Quests;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New QuestDataBase", menuName = "RPG/Quests/QuestDataBase", order = 2)]
-public class QuestDataBase : ScriptableObject
+namespace RPG.Quests
 {
-    [SerializeField] public List<Quest> quests;
-    
-    public Quest GetQuestById(string id)
+    [CreateAssetMenu(fileName = "New QuestDataBase", menuName = "RPG/Quests/QuestDataBase", order = 2)]
+    public class QuestDataBase : ScriptableObject
     {
-        foreach(Quest quest in quests)
+        [SerializeField] public List<Quest> quests;
+        
+        public Quest GetQuestById(string id)
         {
-            if(quest.id == id)
+            foreach(Quest quest in quests)
             {
-                return quest;
+                if(quest.id == id)
+                {
+                    return quest;
+                }
             }
+            return null;
         }
-        return null;
     }
-    
 }
+

@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-//using RPG.Inventory;
+using RPG.Inventories;
 using RPG.Saving;
 using RPG.StateMachine.Player;
 using UnityEngine;

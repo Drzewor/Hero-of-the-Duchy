@@ -3,30 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ItemDropper : MonoBehaviour
+namespace RPG.Inventories
 {
-    [SerializeField] private GameObject pickup;
-    [SerializeField] private float scatterDistance = 1;
-    private const int Attempts = 20;
-
-    public void DropItem(Item item, int amount = 1) 
+    public class ItemDropper : MonoBehaviour
     {
-        GameObject pickupInstantion= Instantiate(pickup, GetDropLocation(), transform.rotation);
-        pickupInstantion.GetComponent<Pickup>().item = item;
-        pickupInstantion.GetComponent<Pickup>().amount = amount;
-    }
+        [SerializeField] private GameObject pickup;
+        [SerializeField] private float scatterDistance = 1;
+        private const int Attempts = 20;
 
-    protected virtual Vector3 GetDropLocation()
-    {
-        for(int i = 0; i < Attempts; i++)
+        public void DropItem(Item item, int amount = 1) 
         {
-            Vector3 randomPoint = transform.position + (Random.insideUnitSphere * scatterDistance);
-            NavMeshHit hit;
-            if(NavMesh.SamplePosition(randomPoint, out hit, 0.1f, NavMesh.AllAreas))
-            {
-                return hit.position;
-            }
+            GameObject pickupInstantion= Instantiate(pickup, GetDropLocation(), transform.rotation);
+            pickupInstantion.GetComponent<Pickup>().item = item;
+            pickupInstantion.GetComponent<Pickup>().amount = amount;
         }
-        return transform.position;
+
+        protected virtual Vector3 GetDropLocation()
+        {
+            for(int i = 0; i < Attempts; i++)
+            {
+                Vector3 randomPoint = transform.position + (Random.insideUnitSphere * scatterDistance);
+                NavMeshHit hit;
+                if(NavMesh.SamplePosition(randomPoint, out hit, 0.1f, NavMesh.AllAreas))
+                {
+                    return hit.position;
+                }
+            }
+            return transform.position;
+        }
     }
 }
+

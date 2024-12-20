@@ -3,42 +3,46 @@ using System.Collections.Generic;
 using RPG.StateMachine.NPC;
 using UnityEngine;
 
-public class NPCsuspiciousState : NPCBaseState
+namespace RPG.StateMachine.NPC
 {
-    private readonly int SpeedHash = Animator.StringToHash("FreeLookSpeed");
-    private readonly int LocomotionBlendTreeHash = Animator.StringToHash("FreeLookBlendTree");
-    private const float CrossFadeDuration = 0.1f;
-    private const float AnimatorDampTime = 0.1f;
-    private float suspiciousTime = 0;
-    public NPCsuspiciousState(NPCStateMachine stateMachine) : base(stateMachine){}
-
-    public override void Enter()
+    public class NPCsuspiciousState : NPCBaseState
     {
-        suspiciousTime = Random.Range(stateMachine.MinSuspiciousTime, stateMachine.MaxSuspiciousTime);
+        private readonly int SpeedHash = Animator.StringToHash("FreeLookSpeed");
+        private readonly int LocomotionBlendTreeHash = Animator.StringToHash("FreeLookBlendTree");
+        private const float CrossFadeDuration = 0.1f;
+        private const float AnimatorDampTime = 0.1f;
+        private float suspiciousTime = 0;
+        public NPCsuspiciousState(NPCStateMachine stateMachine) : base(stateMachine){}
 
-        stateMachine.Animator.CrossFadeInFixedTime(LocomotionBlendTreeHash,CrossFadeDuration);
-    }
-
-    public override void Tick(float deltaTime)
-    {
-        suspiciousTime -= deltaTime;
-        if(stateMachine.NPCTargeter.currentTarget != null && !stateMachine.NPCTargeter.currentTarget.isDead)
+        public override void Enter()
         {
-            stateMachine.SwitchState(new NPCChasingState(stateMachine, this));
-            return;
+            suspiciousTime = Random.Range(stateMachine.MinSuspiciousTime, stateMachine.MaxSuspiciousTime);
+
+            stateMachine.Animator.CrossFadeInFixedTime(LocomotionBlendTreeHash,CrossFadeDuration);
         }
-        if(suspiciousTime <= 0)
+
+        public override void Tick(float deltaTime)
         {
-            stateMachine.SwitchState(new NPCIdleState(stateMachine));
-            return;
+            suspiciousTime -= deltaTime;
+            if(stateMachine.NPCTargeter.currentTarget != null && !stateMachine.NPCTargeter.currentTarget.isDead)
+            {
+                stateMachine.SwitchState(new NPCChasingState(stateMachine, this));
+                return;
+            }
+            if(suspiciousTime <= 0)
+            {
+                stateMachine.SwitchState(new NPCIdleState(stateMachine));
+                return;
+            }
+            stateMachine.Animator.SetFloat(SpeedHash,0, AnimatorDampTime, deltaTime);
         }
-        stateMachine.Animator.SetFloat(SpeedHash,0, AnimatorDampTime, deltaTime);
+
+        public override void Exit()
+        {
+            
+        }
+
+
     }
-
-    public override void Exit()
-    {
-        
-    }
-
-
 }
+

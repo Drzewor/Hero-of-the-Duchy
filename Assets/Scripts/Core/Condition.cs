@@ -2,75 +2,79 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class Condition
+namespace RPG.Core
 {
-    [SerializeField] Disjunction[] and;
-
-    public bool Check(IEnumerable<IPredicateEvaluator> evaluators)
-    {
-        foreach(Disjunction disjunction in and)
-        {
-            if(!disjunction.Check(evaluators))
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-
-
     [System.Serializable]
-    class Disjunction
+    public class Condition
     {
-        [SerializeField] Predicate[] or;
+        [SerializeField] Disjunction[] and;
 
         public bool Check(IEnumerable<IPredicateEvaluator> evaluators)
         {
-            foreach(Predicate predicate in or)
+            foreach(Disjunction disjunction in and)
             {
-                if(predicate.Check(evaluators))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-    }
-
-    [System.Serializable]
-    class Predicate
-    {
-        [SerializeField] predicateName predicate;
-        [SerializeField] string[] parameters;
-        [SerializeField] bool negate = false;
-        
-        public bool Check(IEnumerable<IPredicateEvaluator> evaluators)
-        {
-            foreach(var evaluator in evaluators)
-            {
-                bool? result = evaluator.Evaluate(predicate,parameters);
-                if(result == null)
-                {
-                    continue;
-                }
-                
-                if(result == negate)
+                if(!disjunction.Check(evaluators))
                 {
                     return false;
                 }
             }
             return true;
         }
-    }
-}
 
-public enum predicateName
-{
-    HasItem,
-    HasQuest,
-    CompletedQuest,
-    IsQuestStepActive,
-    CompletedQuestStep,
+
+        [System.Serializable]
+        class Disjunction
+        {
+            [SerializeField] Predicate[] or;
+
+            public bool Check(IEnumerable<IPredicateEvaluator> evaluators)
+            {
+                foreach(Predicate predicate in or)
+                {
+                    if(predicate.Check(evaluators))
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+
+        [System.Serializable]
+        class Predicate
+        {
+            [SerializeField] predicateName predicate;
+            [SerializeField] string[] parameters;
+            [SerializeField] bool negate = false;
+            
+            public bool Check(IEnumerable<IPredicateEvaluator> evaluators)
+            {
+                foreach(var evaluator in evaluators)
+                {
+                    bool? result = evaluator.Evaluate(predicate,parameters);
+                    if(result == null)
+                    {
+                        continue;
+                    }
+                    
+                    if(result == negate)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+    }
+
+    public enum predicateName
+    {
+        HasItem,
+        HasQuest,
+        CompletedQuest,
+        IsQuestStepActive,
+        CompletedQuestStep,
+
+    }
 
 }

@@ -5,190 +5,194 @@ using System.Linq;
 using RPG.Saving;
 using UnityEngine;
 
-public abstract class ItemContainer : MonoBehaviour, IItemContainer, ISaveable
+namespace RPG.Inventories
 {
-    [SerializeField] protected ItemSlot[] itemSlots;
-    [SerializeField] protected Item[] startingItems;
-    [SerializeField] public ItemDatabase itemDatabase;
-    public event Action<BaseItemSlot> OnPointerEnterEvent;
-    public event Action<BaseItemSlot> OnPointerExiEvent;
-    public event Action<BaseItemSlot> OnRightClickEvent;
-    public event Action<BaseItemSlot> OnBeginDragEvent;
-    public event Action<BaseItemSlot> OnEndDragEvent;
-    public event Action<BaseItemSlot> OnDragEvent;
-    public event Action<BaseItemSlot> OnDropEvent;
-
-    protected virtual void OnValidate()
+    public abstract class ItemContainer : MonoBehaviour, IItemContainer, ISaveable
     {
-        itemSlots = GetComponentsInChildren<ItemSlot>(includeInactive: true);
-    }
+        [SerializeField] protected ItemSlot[] itemSlots;
+        [SerializeField] protected Item[] startingItems;
+        [SerializeField] public ItemDatabase itemDatabase;
+        public event Action<BaseItemSlot> OnPointerEnterEvent;
+        public event Action<BaseItemSlot> OnPointerExiEvent;
+        public event Action<BaseItemSlot> OnRightClickEvent;
+        public event Action<BaseItemSlot> OnBeginDragEvent;
+        public event Action<BaseItemSlot> OnEndDragEvent;
+        public event Action<BaseItemSlot> OnDragEvent;
+        public event Action<BaseItemSlot> OnDropEvent;
 
-    protected virtual void Awake() 
-    {
-        for (int i = 0; i < itemSlots.Length; i++)
+        protected virtual void OnValidate()
         {
-            itemSlots[i].OnPointerEnterEvent += slot => OnPointerEnterEvent(slot);
-            itemSlots[i].OnPointerExitEvent += slot => OnPointerExiEvent(slot);
-            itemSlots[i].OnRightClickEvent += slot => OnRightClickEvent(slot);
-            itemSlots[i].OnBeginDragEvent += slot => OnBeginDragEvent(slot);
-            itemSlots[i].OnEndDragEvent += slot => OnEndDragEvent(slot);
-            itemSlots[i].OnDragEvent += slot => OnDragEvent(slot);
-            itemSlots[i].OnDropEvent += slot => OnDropEvent(slot);
+            itemSlots = GetComponentsInChildren<ItemSlot>(includeInactive: true);
         }
-    }
-    
-    public virtual bool CanAddItem(Item item, int amount = 1)
-    {
-        int freeSpaces = 0;
 
-        foreach(ItemSlot itemSlot in itemSlots)
+        protected virtual void Awake() 
         {
-            if(itemSlot.Item == null || itemSlot.Item.ID == item.ID)
+            for (int i = 0; i < itemSlots.Length; i++)
             {
-                freeSpaces += item.MaximumStacks - itemSlot.Amount;
+                itemSlots[i].OnPointerEnterEvent += slot => OnPointerEnterEvent(slot);
+                itemSlots[i].OnPointerExitEvent += slot => OnPointerExiEvent(slot);
+                itemSlots[i].OnRightClickEvent += slot => OnRightClickEvent(slot);
+                itemSlots[i].OnBeginDragEvent += slot => OnBeginDragEvent(slot);
+                itemSlots[i].OnEndDragEvent += slot => OnEndDragEvent(slot);
+                itemSlots[i].OnDragEvent += slot => OnDragEvent(slot);
+                itemSlots[i].OnDropEvent += slot => OnDropEvent(slot);
             }
         }
-        return freeSpaces >= amount;
-    }
-
-    public virtual bool AddItem(Item item)
-    {
-        for (int i = 0; i < itemSlots.Length; i++)
+        
+        public virtual bool CanAddItem(Item item, int amount = 1)
         {
-            if(itemSlots[i].Item == null || itemSlots[i].CanAddStack(item))
+            int freeSpaces = 0;
+
+            foreach(ItemSlot itemSlot in itemSlots)
             {
-                itemSlots[i].Item = item;
-                itemSlots[i].Amount++;
-                return true;
+                if(itemSlot.Item == null || itemSlot.Item.ID == item.ID)
+                {
+                    freeSpaces += item.MaximumStacks - itemSlot.Amount;
+                }
             }
+            return freeSpaces >= amount;
         }
 
-        for (int i = 0; i < itemSlots.Length; i++)
+        public virtual bool AddItem(Item item)
         {
-            if(itemSlots[i].Item == null)
+            for (int i = 0; i < itemSlots.Length; i++)
             {
-                itemSlots[i].Item = item;
-                itemSlots[i].Amount++;
-                return true;
+                if(itemSlots[i].Item == null || itemSlots[i].CanAddStack(item))
+                {
+                    itemSlots[i].Item = item;
+                    itemSlots[i].Amount++;
+                    return true;
+                }
             }
-        }
-        return false;
-    }
-    public virtual bool RemoveItem(Item item)
-    {
-        for (int i = 0; i < itemSlots.Length; i++)
-        {
-            if(itemSlots[i].Item == item)
+
+            for (int i = 0; i < itemSlots.Length; i++)
             {
-                itemSlots[i].Amount--;
-                return true;
+                if(itemSlots[i].Item == null)
+                {
+                    itemSlots[i].Item = item;
+                    itemSlots[i].Amount++;
+                    return true;
+                }
             }
+            return false;
         }
-        return false;
-    }
-
-    
-    public virtual bool HasItem(string itemID)
-    {
-        for (int i = 0; i < itemSlots.Length; i++)
+        public virtual bool RemoveItem(Item item)
         {
-            Item item = itemSlots[i].Item;
-            if(item != null && item.ID == itemID)
+            for (int i = 0; i < itemSlots.Length; i++)
             {
-                return true;
+                if(itemSlots[i].Item == item)
+                {
+                    itemSlots[i].Amount--;
+                    return true;
+                }
             }
+            return false;
         }
-        return false;
-    }
 
-    public virtual Item RemoveItem(string itemID)
-    {
-        for (int i = 0; i < itemSlots.Length; i++)
+        
+        public virtual bool HasItem(string itemID)
         {
-            Item item = itemSlots[i].Item;
-            if(item != null && item.ID == itemID)
+            for (int i = 0; i < itemSlots.Length; i++)
             {
-                itemSlots[i].Amount--;
-                return item;
+                Item item = itemSlots[i].Item;
+                if(item != null && item.ID == itemID)
+                {
+                    return true;
+                }
             }
+            return false;
         }
-        return null;
-    }
 
-    public virtual int ItemCount(string itemID)
-    {
-        int number = 0;
-        for (int i = 0; i < itemSlots.Length; i++)
+        public virtual Item RemoveItem(string itemID)
         {
-            Item item = itemSlots[i].Item;
-            if(item != null && item.ID == itemID)
+            for (int i = 0; i < itemSlots.Length; i++)
             {
-                number += itemSlots[i].Amount;
+                Item item = itemSlots[i].Item;
+                if(item != null && item.ID == itemID)
+                {
+                    itemSlots[i].Amount--;
+                    return item;
+                }
             }
+            return null;
         }
-        return number;
-    }
 
-    public virtual void Clear()
-    {
-        for(int i = 0; i < itemSlots.Length; i++)
+        public virtual int ItemCount(string itemID)
         {
-            itemSlots[i].Item = null;
-        }
-    }
-
-    protected void SetStartingItems()
-    {
-        Clear();
-        for(int i = 0; i < startingItems.Length; i++)
-        {
-            AddItem(startingItems[i].GetCopy());
-        }
-    }
-
-    public object CaptureState()
-    {
-        var saveData = new ItemContainerSaveData(itemSlots.Length);
-        for (int i = 0; i < saveData.SavedSlots.Length; i++)
-        {
-            ItemSlot itemSlot = itemSlots[i];
-            if(itemSlot.Item == null) 
+            int number = 0;
+            for (int i = 0; i < itemSlots.Length; i++)
             {
-                saveData.SavedSlots[i] = null;
+                Item item = itemSlots[i].Item;
+                if(item != null && item.ID == itemID)
+                {
+                    number += itemSlots[i].Amount;
+                }
             }
-            else
+            return number;
+        }
+
+        public virtual void Clear()
+        {
+            for(int i = 0; i < itemSlots.Length; i++)
             {
-                saveData.SavedSlots[i] = new ItemSlotSaveData(itemSlot.Item.ID, itemSlot.Amount);
+                itemSlots[i].Item = null;
             }
         }
 
-        return saveData;
-    }
-
-    public void RestoreState(object state)
-    {
-        var saveData = (ItemContainerSaveData)state;
-
-        if(saveData == null) return;
-
-        Clear();
-
-        for (int i = 0; i < saveData.SavedSlots.Length; i++)
+        protected void SetStartingItems()
         {
-            ItemSlot itemSlot = itemSlots[i];
-            ItemSlotSaveData savedSlot = saveData.SavedSlots[i];
-
-            if(savedSlot == null)
+            Clear();
+            for(int i = 0; i < startingItems.Length; i++)
             {
-                itemSlot.Item = null;
-                itemSlot.Amount = 0;
-            }
-            else
-            {
-                itemSlot.Item = itemDatabase.GetItemCopy(savedSlot.ItemID);
-                itemSlot.Amount = savedSlot.Amount;
+                AddItem(startingItems[i].GetCopy());
             }
         }
+
+        public object CaptureState()
+        {
+            var saveData = new ItemContainerSaveData(itemSlots.Length);
+            for (int i = 0; i < saveData.SavedSlots.Length; i++)
+            {
+                ItemSlot itemSlot = itemSlots[i];
+                if(itemSlot.Item == null) 
+                {
+                    saveData.SavedSlots[i] = null;
+                }
+                else
+                {
+                    saveData.SavedSlots[i] = new ItemSlotSaveData(itemSlot.Item.ID, itemSlot.Amount);
+                }
+            }
+
+            return saveData;
+        }
+
+        public void RestoreState(object state)
+        {
+            var saveData = (ItemContainerSaveData)state;
+
+            if(saveData == null) return;
+
+            Clear();
+
+            for (int i = 0; i < saveData.SavedSlots.Length; i++)
+            {
+                ItemSlot itemSlot = itemSlots[i];
+                ItemSlotSaveData savedSlot = saveData.SavedSlots[i];
+
+                if(savedSlot == null)
+                {
+                    itemSlot.Item = null;
+                    itemSlot.Amount = 0;
+                }
+                else
+                {
+                    itemSlot.Item = itemDatabase.GetItemCopy(savedSlot.ItemID);
+                    itemSlot.Amount = savedSlot.Amount;
+                }
+            }
+        }
+
     }
 
 }

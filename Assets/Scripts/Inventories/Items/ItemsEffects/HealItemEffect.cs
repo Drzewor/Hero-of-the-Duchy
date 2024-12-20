@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using RPG.Combat;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New HealItemEffect", menuName = "RPG/Item Effects/Heal", order = 0)]
-public class HealItemEffect : UsableItemEffect
+namespace RPG.Inventories
 {
-    public float HealthAmount = 10;
-    public override void ExecuteEffect(UsableItem parentItem, InventoryManager character)
+    [CreateAssetMenu(fileName = "New HealItemEffect", menuName = "RPG/Item Effects/Heal", order = 0)]
+    public class HealItemEffect : UsableItemEffect
     {
-        character.GetComponent<Health>().Heal(HealthAmount);
-    }
+        public float HealthAmount = 10;
+        public override void ExecuteEffect(UsableItem parentItem, InventoryManager character)
+        {
+            character.GetComponent<Health>().Heal(HealthAmount);
+        }
 
-    public override string GetDescription()
-    {
-        return $"Heals for {HealthAmount} health";
+        public override string GetDescription()
+        {
+            return $"Heals for {HealthAmount} health";
+        }
     }
 }
+

@@ -4,35 +4,39 @@ using RPG.Saving;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class AreaTrigger : MonoBehaviour, ISaveable
+namespace RPG.Core
 {
-    [SerializeField] List<UnityEvent> onTriggers;
-    private bool wasActivated = false;
-
-    private void OnTriggerEnter(Collider other) 
+    public class AreaTrigger : MonoBehaviour, ISaveable
     {
-        if(!wasActivated)
-        {
-            if(other.tag != "Player") return;
-        
-            if(onTriggers.Count == 0) return;
+        [SerializeField] List<UnityEvent> onTriggers;
+        private bool wasActivated = false;
 
-            foreach(UnityEvent unityEvent in onTriggers)
+        private void OnTriggerEnter(Collider other) 
+        {
+            if(!wasActivated)
             {
-                unityEvent.Invoke();
+                if(other.tag != "Player") return;
+            
+                if(onTriggers.Count == 0) return;
+
+                foreach(UnityEvent unityEvent in onTriggers)
+                {
+                    unityEvent.Invoke();
+                }
+                wasActivated = true;
             }
-            wasActivated = true;
+        }
+
+        public object CaptureState()
+        {
+            return wasActivated;
+        }
+
+        public void RestoreState(object state)
+        {
+            if(state == null) return;
+            wasActivated = (bool)state;
         }
     }
 
-    public object CaptureState()
-    {
-        return wasActivated;
-    }
-
-    public void RestoreState(object state)
-    {
-        if(state == null) return;
-        wasActivated = (bool)state;
-    }
 }

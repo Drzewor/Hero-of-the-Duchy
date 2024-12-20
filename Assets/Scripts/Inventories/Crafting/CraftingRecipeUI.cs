@@ -2,79 +2,81 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CraftingRecipeUI : MonoBehaviour
+namespace RPG.Inventories
 {
-	[Header("References")]
-	[SerializeField] RectTransform arrowParent;
-	[SerializeField] BaseItemSlot[] itemSlots;
-
-	[Header("Public Variables")]
-	public ItemContainer ItemContainer;
-
-	private CraftingRecipe craftingRecipe;
-	public CraftingRecipe CraftingRecipe {
-		get { return craftingRecipe; }
-		set { SetCraftingRecipe(value); }
-	}
-
-	public event Action<BaseItemSlot> OnPointerEnterEvent;
-	public event Action<BaseItemSlot> OnPointerExitEvent;
-
-	private void OnValidate()
+	public class CraftingRecipeUI : MonoBehaviour
 	{
-		itemSlots = GetComponentsInChildren<BaseItemSlot>(includeInactive: true);
-	}
+		[Header("References")]
+		[SerializeField] RectTransform arrowParent;
+		[SerializeField] BaseItemSlot[] itemSlots;
 
-	private void Start()
-	{
-		foreach (BaseItemSlot itemSlot in itemSlots)
-		{
-			itemSlot.OnPointerEnterEvent += slot => OnPointerEnterEvent(slot);
-			itemSlot.OnPointerExitEvent += slot => OnPointerExitEvent(slot);
+		[Header("Public Variables")]
+		public ItemContainer ItemContainer;
+
+		private CraftingRecipe craftingRecipe;
+		public CraftingRecipe CraftingRecipe {
+			get { return craftingRecipe; }
+			set { SetCraftingRecipe(value); }
 		}
-	}
 
-	public void OnCraftButtonClick()
-	{
-		craftingRecipe.Craft(ItemContainer);
-	}
+		public event Action<BaseItemSlot> OnPointerEnterEvent;
+		public event Action<BaseItemSlot> OnPointerExitEvent;
 
-	private void SetCraftingRecipe(CraftingRecipe newCraftingRecipe)
-	{
-		craftingRecipe = newCraftingRecipe;
-
-		if (craftingRecipe != null)
+		private void OnValidate()
 		{
-			int slotIndex = 0;
-			slotIndex = SetSlots(craftingRecipe.Materials, slotIndex);
-			arrowParent.SetSiblingIndex(slotIndex);
-			slotIndex = SetSlots(craftingRecipe.Results, slotIndex);
+			itemSlots = GetComponentsInChildren<BaseItemSlot>(includeInactive: true);
+		}
 
-			for (int i = slotIndex; i < itemSlots.Length; i++)
+		private void Start()
+		{
+			foreach (BaseItemSlot itemSlot in itemSlots)
 			{
-				itemSlots[i].transform.parent.gameObject.SetActive(false);
+				itemSlot.OnPointerEnterEvent += slot => OnPointerEnterEvent(slot);
+				itemSlot.OnPointerExitEvent += slot => OnPointerExitEvent(slot);
 			}
-
-			gameObject.SetActive(true);
 		}
-		else
+
+		public void OnCraftButtonClick()
 		{
-			gameObject.SetActive(false);
+			craftingRecipe.Craft(ItemContainer);
 		}
-	}
 
-	private int SetSlots(IList<ItemAmount> itemAmountList, int slotIndex)
-	{
-		for (int i = 0; i < itemAmountList.Count; i++, slotIndex++)
+		private void SetCraftingRecipe(CraftingRecipe newCraftingRecipe)
 		{
-			ItemAmount itemAmount = itemAmountList[i];
-			BaseItemSlot itemSlot = itemSlots[slotIndex];
+			craftingRecipe = newCraftingRecipe;
 
-			itemSlot.Item = itemAmount.Item;
-			itemSlot.Amount = itemAmount.Amount;
-			itemSlot.transform.parent.gameObject.SetActive(true);
+			if (craftingRecipe != null)
+			{
+				int slotIndex = 0;
+				slotIndex = SetSlots(craftingRecipe.Materials, slotIndex);
+				arrowParent.SetSiblingIndex(slotIndex);
+				slotIndex = SetSlots(craftingRecipe.Results, slotIndex);
+
+				for (int i = slotIndex; i < itemSlots.Length; i++)
+				{
+					itemSlots[i].transform.parent.gameObject.SetActive(false);
+				}
+
+				gameObject.SetActive(true);
+			}
+			else
+			{
+				gameObject.SetActive(false);
+			}
 		}
-		return slotIndex;
+
+		private int SetSlots(IList<ItemAmount> itemAmountList, int slotIndex)
+		{
+			for (int i = 0; i < itemAmountList.Count; i++, slotIndex++)
+			{
+				ItemAmount itemAmount = itemAmountList[i];
+				BaseItemSlot itemSlot = itemSlots[slotIndex];
+
+				itemSlot.Item = itemAmount.Item;
+				itemSlot.Amount = itemAmount.Amount;
+				itemSlot.transform.parent.gameObject.SetActive(true);
+			}
+			return slotIndex;
+		}
 	}
 }
-

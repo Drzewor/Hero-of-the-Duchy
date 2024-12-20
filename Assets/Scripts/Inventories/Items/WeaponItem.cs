@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using RPG.Combat;
 using UnityEngine;
 
-namespace RPG.Combat
+namespace RPG.Inventories
 {
     [System.Serializable] 
     public enum statDamageBonus

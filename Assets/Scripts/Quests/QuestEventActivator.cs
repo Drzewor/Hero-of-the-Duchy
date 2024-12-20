@@ -4,36 +4,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class QuestEventActivator : MonoBehaviour
+namespace RPG.Quests
 {
-    [SerializeField] private List<QuestTrigger> questTriggers;
-
-    public void CheckForTrigger(string ID, TriggerType triggerType)
+    public class QuestEventActivator : MonoBehaviour
     {
-        foreach(QuestTrigger trigger in questTriggers)
-        {
-            if(trigger.triggerType != triggerType) continue;
+        [SerializeField] private List<QuestTrigger> questTriggers;
 
-            if(trigger.ID != ID) continue;
-            
-            trigger.events.Invoke();
-            return;
+        public void CheckForTrigger(string ID, TriggerType triggerType)
+        {
+            foreach(QuestTrigger trigger in questTriggers)
+            {
+                if(trigger.triggerType != triggerType) continue;
+
+                if(trigger.ID != ID) continue;
+                
+                trigger.events.Invoke();
+                return;
+            }
+        }
+
+        [Serializable]
+        private class QuestTrigger
+        {
+            public TriggerType triggerType;
+            public string ID;
+            public UnityEvent events;
+        }
+
+        public enum TriggerType
+        {
+            QuestStart,
+            QuestComplete,
+            StepStart,
+            StepComplete
         }
     }
 
-    [Serializable]
-    private class QuestTrigger
-    {
-        public TriggerType triggerType;
-        public string ID;
-        public UnityEvent events;
-    }
-
-    public enum TriggerType
-    {
-        QuestStart,
-        QuestComplete,
-        StepStart,
-        StepComplete
-    }
 }

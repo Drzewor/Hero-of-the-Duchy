@@ -4,32 +4,36 @@ using RPG.Saving;
 using RPG.StateMachine.Player;
 using UnityEngine;
 
-public class PickupSpawner : MonoBehaviour, ISaveable
+namespace RPG.Inventories
 {
-    [SerializeField] GameObject pickup;
-    [SerializeField] Item item;
-    [SerializeField] int amount = 1;
-    public bool isPicked = false;
-
-    private void Start() 
+    public class PickupSpawner : MonoBehaviour, ISaveable
     {
-        if(!isPicked)
+        [SerializeField] GameObject pickup;
+        [SerializeField] Item item;
+        [SerializeField] int amount = 1;
+        public bool isPicked = false;
+
+        private void Start() 
         {
-            GameObject pickupInstantion= Instantiate(pickup,gameObject.transform);
-            pickupInstantion.GetComponent<Pickup>().spawner = this;
-            pickupInstantion.GetComponent<Pickup>().item = item;
-            pickupInstantion.GetComponent<Pickup>().amount = amount;
+            if(!isPicked)
+            {
+                GameObject pickupInstantion= Instantiate(pickup,gameObject.transform);
+                pickupInstantion.GetComponent<Pickup>().spawner = this;
+                pickupInstantion.GetComponent<Pickup>().item = item;
+                pickupInstantion.GetComponent<Pickup>().amount = amount;
+            }
+        }
+
+        public object CaptureState()
+        {
+            return isPicked;
+        }
+
+        public void RestoreState(object state)
+        {
+            if(state == null) return;
+            isPicked = (bool)state;
         }
     }
 
-    public object CaptureState()
-    {
-        return isPicked;
-    }
-
-    public void RestoreState(object state)
-    {
-         if(state == null) return;
-        isPicked = (bool)state;
-    }
 }

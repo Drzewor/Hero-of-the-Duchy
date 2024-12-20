@@ -3,34 +3,35 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StatIncreaseButton : MonoBehaviour
+namespace RPG.CharacterStats
 {
-    [SerializeField] private CharacterExperience characterExperience;
-    private Button button;
-    private void OnEnable() 
+    public class StatIncreaseButton : MonoBehaviour
     {
-        button = GetComponent<Button>();
+        [SerializeField] private CharacterExperience characterExperience;
+        private Button button;
+        private void OnEnable() 
+        {
+            button = GetComponent<Button>();
 
-        if(characterExperience.HasLerningPoints())
-        {
-            button.image.enabled = true;
-            button.enabled = true;
+            if(characterExperience.HasLerningPoints())
+            {
+                button.image.enabled = true;
+                button.enabled = true;
+            }
+            else
+            {
+                button.image.enabled = false;
+                button.enabled = false;
+            }
         }
-        else
+
+        public void TryHideButton()
         {
-            button.image.enabled = false;
-            button.enabled = false;
+            if(!characterExperience.HasLerningPoints())
+            {
+                button.image.enabled = false;
+                button.enabled = false;
+            }
         }
     }
-
-    public void TryHideButton()
-    {
-        if(!characterExperience.HasLerningPoints())
-        {
-            button.image.enabled = false;
-            button.enabled = false;
-        }
-    }
-
-    
 }

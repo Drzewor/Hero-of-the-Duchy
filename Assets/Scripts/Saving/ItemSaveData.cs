@@ -1,25 +1,28 @@
 using System;
 
-[Serializable]
-public class ItemSlotSaveData
+namespace RPG.Saving
 {
-    public string ItemID;
-    public int Amount;
-
-    public ItemSlotSaveData(string id, int amount)
+    [Serializable]
+    public class ItemSlotSaveData
     {
-        ItemID = id;
-        Amount = amount;
+        public string ItemID;
+        public int Amount;
+
+        public ItemSlotSaveData(string id, int amount)
+        {
+            ItemID = id;
+            Amount = amount;
+        }
     }
-}
 
-[Serializable]
-public class ItemContainerSaveData
-{
-    public ItemSlotSaveData[] SavedSlots;
-
-    public ItemContainerSaveData(int numItems)
+    [Serializable]
+    public class ItemContainerSaveData
     {
-        SavedSlots = new ItemSlotSaveData[numItems];
+        public ItemSlotSaveData[] SavedSlots;
+
+        public ItemContainerSaveData(int numItems)
+        {
+            SavedSlots = new ItemSlotSaveData[numItems];
+        }
     }
 }

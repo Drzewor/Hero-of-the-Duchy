@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.AI;
 using RPG.Saving;
 using RPG.Combat;
+using RPG.CharacterStats;
+using RPG.Inventories;
 
 namespace RPG.StateMachine.NPC
 {

@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using RPG.CharacterStats;
 using RPG.Core;
+using RPG.Inventories;
 using RPG.Saving;
 using TMPro;
 using UnityEngine;

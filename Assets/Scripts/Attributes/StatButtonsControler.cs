@@ -3,41 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StatButtonsControler : MonoBehaviour
+namespace RPG.CharacterStats
 {
-    [SerializeField] private List<Button> buttons;
-    [SerializeField] private CharacterExperience characterExperience;
-
-    private void OnEnable() 
+    public class StatButtonsControler : MonoBehaviour
     {
-        if(characterExperience.HasLerningPoints())
+        [SerializeField] private List<Button> buttons;
+        [SerializeField] private CharacterExperience characterExperience;
+
+        private void OnEnable() 
         {
-            foreach(Button button in buttons)
-            {   
-                button.image.enabled = true;
-                button.enabled = true;
+            if(characterExperience.HasLerningPoints())
+            {
+                foreach(Button button in buttons)
+                {   
+                    button.image.enabled = true;
+                    button.enabled = true;
+                }
+            }
+            else
+            {
+                foreach(Button button in buttons)
+                {   
+                    button.image.enabled = false;
+                    button.enabled = false;
+                }
             }
         }
-        else
+
+
+        public void TryHideButton()
         {
-            foreach(Button button in buttons)
-            {   
-                button.image.enabled = false;
-                button.enabled = false;
+            if(!characterExperience.HasLerningPoints())
+            {
+                foreach(Button button in buttons)
+                {   
+                    button.image.enabled = false;
+                    button.enabled = false;
+                }
             }
         }
     }
 
-
-    public void TryHideButton()
-    {
-        if(!characterExperience.HasLerningPoints())
-        {
-            foreach(Button button in buttons)
-            {   
-                button.image.enabled = false;
-                button.enabled = false;
-            }
-        }
-    }
 }

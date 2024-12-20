@@ -6,35 +6,39 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
 
-public class SaveLoadUI : MonoBehaviour
+namespace RPG.UI
 {
-    [SerializeField] private Transform contentRoot;
-    [SerializeField] private GameObject buttonPrefab;
-
-    private void OnEnable() 
+    public class SaveLoadUI : MonoBehaviour
     {
-        SavingWraper savingWraper = FindObjectOfType<SavingWraper>();
-        if(savingWraper == null) return;
-        
-        if(contentRoot.childCount != 0)
+        [SerializeField] private Transform contentRoot;
+        [SerializeField] private GameObject buttonPrefab;
+
+        private void OnEnable() 
         {
-            foreach(Transform child in contentRoot)
+            SavingWraper savingWraper = FindObjectOfType<SavingWraper>();
+            if(savingWraper == null) return;
+            
+            if(contentRoot.childCount != 0)
             {
-                Destroy(child.gameObject);
+                foreach(Transform child in contentRoot)
+                {
+                    Destroy(child.gameObject);
+                }
             }
-        }
 
-        foreach(string save in savingWraper.ListSaves())
-        {
-            GameObject buttonInstance = Instantiate(buttonPrefab,contentRoot);
-            TMP_Text textComp = buttonInstance.GetComponentInChildren<TMP_Text>();
-            textComp.text = save;
-            Button button = buttonInstance.GetComponentInChildren<Button>();
-            button.onClick.AddListener(() =>
+            foreach(string save in savingWraper.ListSaves())
             {
-                savingWraper.LoadGame(save);
-            });
-        }
+                GameObject buttonInstance = Instantiate(buttonPrefab,contentRoot);
+                TMP_Text textComp = buttonInstance.GetComponentInChildren<TMP_Text>();
+                textComp.text = save;
+                Button button = buttonInstance.GetComponentInChildren<Button>();
+                button.onClick.AddListener(() =>
+                {
+                    savingWraper.LoadGame(save);
+                });
+            }
 
+        }
     }
+
 }

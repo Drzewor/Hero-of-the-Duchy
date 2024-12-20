@@ -6,21 +6,25 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UIElements;
 
-public class Inventory : ItemContainer
+namespace RPG.Inventories
 {
-    [SerializeField] Transform itemsParent;
-
-    protected override void Awake() 
+    public class Inventory : ItemContainer
     {
-        base.Awake();
-        SetStartingItems();
-    }
+        [SerializeField] Transform itemsParent;
 
-    protected override void OnValidate() 
-    {
-        if(itemsParent != null)
+        protected override void Awake() 
         {
-            itemSlots = itemsParent.GetComponentsInChildren<ItemSlot>(includeInactive: true);
+            base.Awake();
+            SetStartingItems();
+        }
+
+        protected override void OnValidate() 
+        {
+            if(itemsParent != null)
+            {
+                itemSlots = itemsParent.GetComponentsInChildren<ItemSlot>(includeInactive: true);
+            }
         }
     }
 }
+

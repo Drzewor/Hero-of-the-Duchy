@@ -4,53 +4,57 @@ using RPG.StateMachine.Player;
 using TMPro;
 using UnityEngine;
 
-public class Pickup : MonoBehaviour, IInteractable
+namespace RPG.Inventories
 {
-    public Item item;
-    public int amount;
-    public PickupSpawner spawner;
-    private Inventory inventory;
-
-    public void Interaction(GameObject player)
+    public class Pickup : MonoBehaviour, IInteractable
     {
-        inventory = player.GetComponent<PlayerStateMachine>().InventoryManager.inventory;
-        Item itemCopy = item.GetCopy();
-        for(int i = 0; i < amount;)
+        public Item item;
+        public int amount;
+        public PickupSpawner spawner;
+        private Inventory inventory;
+
+        public void Interaction(GameObject player)
         {
-            if(inventory.CanAddItem(item, amount))
+            inventory = player.GetComponent<PlayerStateMachine>().InventoryManager.inventory;
+            Item itemCopy = item.GetCopy();
+            for(int i = 0; i < amount;)
             {
-                if(inventory.AddItem(itemCopy))
+                if(inventory.CanAddItem(item, amount))
                 {
-                    amount--;
-                    if(amount == 0)
+                    if(inventory.AddItem(itemCopy))
                     {
-                        if(spawner != null) spawner.isPicked = true;
-                        
-                        Destroy(gameObject);
+                        amount--;
+                        if(amount == 0)
+                        {
+                            if(spawner != null) spawner.isPicked = true;
+                            
+                            Destroy(gameObject);
+                        }
+                    }
+                    else
+                    {
+                        itemCopy.Destroy();
                     }
                 }
-                else
-                {
-                    itemCopy.Destroy();
-                }
+            } 
+        }
+
+        public void HandleRaycast(GameObject player)
+        {
+            TMP_Text interactionText = player.GetComponent<PlayerStateMachine>().InteractionText;
+            interactionText.enabled = true;
+            if(amount == 1)
+            {
+                interactionText.text = $"Press F to pickup {item.ItemName}";
+                return;
             }
-        } 
+            else
+            {
+                interactionText.text = $"Press F to pickup {item.ItemName} x{amount}";
+                return;            
+            }
+
+        }
     }
 
-    public void HandleRaycast(GameObject player)
-    {
-        TMP_Text interactionText = player.GetComponent<PlayerStateMachine>().InteractionText;
-        interactionText.enabled = true;
-        if(amount == 1)
-        {
-            interactionText.text = $"Press F to pickup {item.ItemName}";
-            return;
-        }
-        else
-        {
-            interactionText.text = $"Press F to pickup {item.ItemName} x{amount}";
-            return;            
-        }
-
-    }
 }

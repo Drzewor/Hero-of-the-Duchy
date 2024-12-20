@@ -5,88 +5,92 @@ using RPG.Combat;
 using RPG.Saving;
 using UnityEngine;
 
-public class EquipmentPanel : MonoBehaviour
+namespace RPG.Inventories
 {
-    [SerializeField] Transform equipmentSlotsParent;
-    [SerializeField] public EquipmentSlot[] equipmentSlots;
-    public event Action<BaseItemSlot> OnPointerEnterEvent;
-    public event Action<BaseItemSlot> OnPointerExiEvent;
-    public event Action<BaseItemSlot> OnRightClickEvent;
-    public event Action<BaseItemSlot> OnBeginDragEvent;
-    public event Action<BaseItemSlot> OnEndDragEvent;
-    public event Action<BaseItemSlot> OnDragEvent;
-    public event Action<BaseItemSlot> OnDropEvent;
+    public class EquipmentPanel : MonoBehaviour
+    {
+        [SerializeField] Transform equipmentSlotsParent;
+        [SerializeField] public EquipmentSlot[] equipmentSlots;
+        public event Action<BaseItemSlot> OnPointerEnterEvent;
+        public event Action<BaseItemSlot> OnPointerExiEvent;
+        public event Action<BaseItemSlot> OnRightClickEvent;
+        public event Action<BaseItemSlot> OnBeginDragEvent;
+        public event Action<BaseItemSlot> OnEndDragEvent;
+        public event Action<BaseItemSlot> OnDragEvent;
+        public event Action<BaseItemSlot> OnDropEvent;
 
-    private void Start() 
-    {
-        for (int i = 0; i < equipmentSlots.Length; i++)
+        private void Start() 
         {
-            equipmentSlots[i].OnPointerEnterEvent += slot => OnPointerEnterEvent(slot);
-            equipmentSlots[i].OnPointerExitEvent += slot => OnPointerExiEvent(slot);
-            equipmentSlots[i].OnRightClickEvent += slot => OnRightClickEvent(slot);
-            equipmentSlots[i].OnBeginDragEvent += slot => OnBeginDragEvent(slot);
-            equipmentSlots[i].OnEndDragEvent += slot => OnEndDragEvent(slot);
-            equipmentSlots[i].OnDragEvent += slot => OnDragEvent(slot);
-            equipmentSlots[i].OnDropEvent += slot => OnDropEvent(slot);
-        }
-    }    
-    
-    private void OnValidate() 
-    {
-        equipmentSlots = equipmentSlotsParent.GetComponentsInChildren<EquipmentSlot>();
-    }
-
-    public bool AddItem(EquippableItem item, out EquippableItem previousItem)
-    {
-        for (int i = 0; i < equipmentSlots.Length; i++)
-        {
-            if(equipmentSlots[i].EquipmentType == item.EquipmentType)
+            for (int i = 0; i < equipmentSlots.Length; i++)
             {
-                previousItem = (EquippableItem)equipmentSlots[i].Item;
-                equipmentSlots[i].Item = item;
-                equipmentSlots[i].Amount = 1;
-                return true;
+                equipmentSlots[i].OnPointerEnterEvent += slot => OnPointerEnterEvent(slot);
+                equipmentSlots[i].OnPointerExitEvent += slot => OnPointerExiEvent(slot);
+                equipmentSlots[i].OnRightClickEvent += slot => OnRightClickEvent(slot);
+                equipmentSlots[i].OnBeginDragEvent += slot => OnBeginDragEvent(slot);
+                equipmentSlots[i].OnEndDragEvent += slot => OnEndDragEvent(slot);
+                equipmentSlots[i].OnDragEvent += slot => OnDragEvent(slot);
+                equipmentSlots[i].OnDropEvent += slot => OnDropEvent(slot);
             }
-            
-        }
-        previousItem = null;
-        return false;   
-    }
-
-    public bool RemoveItem(EquippableItem item)
-    {
-        for (int i = 0; i < equipmentSlots.Length; i++)
+        }    
+        
+        private void OnValidate() 
         {
-            if(equipmentSlots[i].Item == item)
+            equipmentSlots = equipmentSlotsParent.GetComponentsInChildren<EquipmentSlot>();
+        }
+
+        public bool AddItem(EquippableItem item, out EquippableItem previousItem)
+        {
+            for (int i = 0; i < equipmentSlots.Length; i++)
             {
-                equipmentSlots[i].Item = null;
-                return true;
+                if(equipmentSlots[i].EquipmentType == item.EquipmentType)
+                {
+                    previousItem = (EquippableItem)equipmentSlots[i].Item;
+                    equipmentSlots[i].Item = item;
+                    equipmentSlots[i].Amount = 1;
+                    return true;
+                }
+                
             }
+            previousItem = null;
+            return false;   
         }
-        return false;   
-    }
 
-    public virtual void Clear()
-    {
-        for(int i = 0; i < equipmentSlots.Length; i++)
+        public bool RemoveItem(EquippableItem item)
         {
-            if(equipmentSlots[i].Item == null) continue;
-
-            RemoveItem((EquippableItem)equipmentSlots[i].Item);
-        }
-    }
-
-    public virtual bool HasItem(string ItemID)
-    {
-        for(int i = 0; i < equipmentSlots.Length; i++)
-        {
-            if(equipmentSlots[i].Item == null) continue;
-
-            if(equipmentSlots[i].Item.ID == ItemID)
+            for (int i = 0; i < equipmentSlots.Length; i++)
             {
-                return true;
+                if(equipmentSlots[i].Item == item)
+                {
+                    equipmentSlots[i].Item = null;
+                    return true;
+                }
+            }
+            return false;   
+        }
+
+        public virtual void Clear()
+        {
+            for(int i = 0; i < equipmentSlots.Length; i++)
+            {
+                if(equipmentSlots[i].Item == null) continue;
+
+                RemoveItem((EquippableItem)equipmentSlots[i].Item);
             }
         }
-        return false;
+
+        public virtual bool HasItem(string ItemID)
+        {
+            for(int i = 0; i < equipmentSlots.Length; i++)
+            {
+                if(equipmentSlots[i].Item == null) continue;
+
+                if(equipmentSlots[i].Item.ID == ItemID)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
     }
+
 }

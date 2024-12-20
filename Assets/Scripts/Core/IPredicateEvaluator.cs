@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public interface IPredicateEvaluator
+namespace RPG.Core
 {
-    bool? Evaluate(predicateName predicate, string[] parameters);
+    public interface IPredicateEvaluator
+    {
+        bool? Evaluate(predicateName predicate, string[] parameters);
+    }
 }
+
