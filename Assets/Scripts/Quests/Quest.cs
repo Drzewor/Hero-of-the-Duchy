@@ -15,7 +15,6 @@ namespace RPG.Quests
         [SerializeField] public int expReward;
         [SerializeField] public List<Item> itemReward;
         [SerializeField] public string id;
-        public bool isFinished = false;
 
         public string GetTitle()
         {
@@ -31,11 +30,6 @@ namespace RPG.Quests
         {
             if(nextQuest == null) return null;
             return nextQuest;
-        }
-
-        public void EndQuest()
-        {
-            isFinished = true;
         }
     }
 }

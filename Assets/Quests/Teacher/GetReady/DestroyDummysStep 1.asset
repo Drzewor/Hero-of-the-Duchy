@@ -9,13 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a1d8038e7b279c43877a524cb73ae25, type: 3}
-  m_Name: DestroyDummysStep
+  m_Script: {fileID: 11500000, guid: fa919ace8b9a7f54b9d7a603368afa28, type: 3}
+  m_Name: DestroyDummysStep 1
   m_EditorClassIdentifier: 
-  isFinished: 1
   stepDescription: The teacher told me to destroy 2 training dummies. That shouldn't
     be too hard.
   progressToFinish: 2
   stepID: DestroyDummysStep_ID
-  targetsNames:
-  - Dummy
+  targetsID:
+  - dfd2d1df-ce75-441a-b02e-4805d21dde19
+  - 7951d245-3d15-432e-98f2-d6ddc2070081
+  - 26f84ade-ed52-4256-856f-b58a9bad0c3c
+  - 9fc09385-2c3e-4f16-9bc4-c189888aad2a
+  QuestSceneIndex: 1

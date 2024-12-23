@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1459b79a3c78dbf47b87357912de4f27, type: 3}
-  m_Name: GetReadyQuest
+  m_Name: TestKillSpecific
   m_EditorClassIdentifier: 
-  questTitle: Get ready
+  questTitle: 
   nextQuest: {fileID: 0}
   steps:
-  - {fileID: 11400000, guid: b7b8910d0db82004f863620618a2184b, type: 2}
-  - {fileID: 11400000, guid: 1ba459c2e8e2cd841ac951527a9d6b8c, type: 2}
-  - {fileID: 11400000, guid: e6b6d6086ad24b947b06cbc80e73c49e, type: 2}
+  - {fileID: 11400000, guid: d9b5ad8094039f147b3d217d009db59c, type: 2}
+  - {fileID: 11400000, guid: f3522fcb7244bf04d8038c0d5d9bc4cf, type: 2}
   expReward: 0
   itemReward: []
-  id: GetReady_ID
+  id: 
+  isFinished: 0

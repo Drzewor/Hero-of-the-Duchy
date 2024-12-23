@@ -10,22 +10,18 @@ namespace RPG.Quests
     {
         [SerializeField] private List<string> targetsNames;
 
-        public override void TryToAdvance(object argument)
+        public override bool TryToAdvance(object argument)
         {
-            if(!(argument is Health)) return;
+            if(!(argument is Health)) return false;
             
             foreach(string target in targetsNames)
             {
                 if(((Health)argument).gameObject.name != target) continue;
 
-                stepProgress++;
-                
-                if(stepProgress >= progressToFinish)
-                {
-                    FinishQuestStep();
-                }
+                return true;
             }
 
+            return false;
         }
     }
 }

@@ -31,12 +31,12 @@ namespace RPG.Quests
             tittle.text = questStatus.GetQuest().GetTitle();
 
             sb.Length = 0;
-            foreach(QuestStep questStep in questStatus.GetQuest().steps)
+            for(int i = 0; i < questStatus.GetQuest().steps.Count; i++)
             {
                 if(sb.Length > 0) sb.AppendLine();
-                sb.Append(questStep.GetDescription());
+                sb.Append(questStatus.GetQuest().steps[i].GetDescription());
                 sb.AppendLine();
-                if(!questStep.isFinished) break;
+                if(i >= questStatus.stepInProgress) break;
             }
             log.text = sb.ToString();
         }

@@ -36,7 +36,7 @@ namespace RPG.Quests
             {
                 questButton = Instantiate(questButtonPrefab,questList);
                 questButton.GetComponent<QuestLogButton>().SetButton(questStatus, questTittle, log);
-                if(questStatus.GetQuest().isFinished)
+                if(questStatus.isFinished)
                 {
                     questButton.GetComponentInChildren<TMP_Text>().color = Color.green;
                 }

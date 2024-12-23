@@ -10,8 +10,8 @@ namespace RPG.Saving
     [ExecuteAlways]
     public class SaveableEntity : MonoBehaviour
     {
-        [SerializeField] string uniqueIdentifier = "";
-        static Dictionary<string, SaveableEntity> globalLookup = new Dictionary<string, SaveableEntity>();
+        [SerializeField] private string uniqueIdentifier = "";
+        private static Dictionary<string, SaveableEntity> globalLookup = new Dictionary<string, SaveableEntity>();
 
 
         public string GetUniqueIdentifier()

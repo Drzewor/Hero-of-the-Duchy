@@ -29,6 +29,11 @@ namespace RPG.Quests
             eventActivator.CheckForTrigger(quest.id, QuestEventActivator.TriggerType.QuestStart);
 
             questInfoDisplay.DisplayQuestAddInfo(quest.GetTitle());
+
+            if(quests[quests.Count-1].CheckPreCompletion())
+            {
+                TryToAdvanceQuests(null);
+            }
         }
 
         private void Clear()
@@ -42,9 +47,9 @@ namespace RPG.Quests
 
             for(int i = 0; i < quests.Count; i++)
             {
-                if(quests[i].GetQuest().isFinished) continue;
+                if(quests[i].isFinished) continue;
 
-                quests[i].GetCurrentQuestStep().TryToAdvance(argument);
+                quests[i].TryToAdvance(argument);
                 
                 if(quests[i].TryMoveToNextQuestStep())
                 {
@@ -55,9 +60,14 @@ namespace RPG.Quests
 
                     eventActivator.CheckForTrigger(quests[i].GetQuest().GetQuestStep(quests[i].stepInProgress).GetStepId(), 
                     QuestEventActivator.TriggerType.StepStart);
+
+                    if(quests[i].CheckPreCompletion())
+                    {
+                        TryToAdvanceQuests(null);
+                    }
                 }
 
-                if(quests[i].GetQuest().isFinished)
+                if(quests[i].isFinished)
                 {
                     GiveRewards(quests[i].GetQuest());
 
@@ -114,14 +124,14 @@ namespace RPG.Quests
                     {
                         if(questStatus.GetQuest().id == parameters[0])
                         {
-                            return questStatus.GetQuest().isFinished;
+                            return questStatus.isFinished;
                         }
                     }
                     return false;
                 case predicateName.IsQuestStepActive:
                     foreach(QuestStatus questStatus in quests)
                     {
-                        if(questStatus.GetQuest().isFinished == true) continue;
+                        if(questStatus.isFinished) continue;
                         if(questStatus.GetCurrentQuestStep().GetStepId() == parameters[0])
                         {
                             return true;
@@ -131,11 +141,11 @@ namespace RPG.Quests
                 case predicateName.CompletedQuestStep:
                     foreach(QuestStatus questStatus in quests)
                     {
-                        foreach(QuestStep questStep in questStatus.GetQuest().steps)
+                        for(int i = 0; i < questStatus.GetQuest().steps.Count; i++)
                         {
-                            if(questStep.GetStepId() == parameters[0])
+                            if(questStatus.GetQuest().steps[i].GetStepId() == parameters[0])
                             {
-                                return questStep.isFinished;
+                                return questStatus.stepInProgress > i; 
                             }
                         }
                     }
@@ -153,7 +163,7 @@ namespace RPG.Quests
 
             foreach(QuestStatus status in quests)
             {
-                QuestSaveData questSave = new QuestSaveData(status.GetQuest().id, status.stepInProgress, status.progressOfStep, status.GetQuest().isFinished);
+                QuestSaveData questSave = new QuestSaveData(status.GetQuest().id, status.stepInProgress, status.progressOfStep, status.isFinished);
                 questSaveDatas.Add(questSave);
             }
 

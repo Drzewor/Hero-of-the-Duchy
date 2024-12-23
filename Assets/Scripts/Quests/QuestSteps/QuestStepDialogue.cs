@@ -8,21 +8,18 @@ namespace RPG.Quests
     public class QuestStepDialogue : QuestStep
     {
         [SerializeField] private List<string> dialogueTriggerName;
-        public override void TryToAdvance(object argument)
+        public override bool TryToAdvance(object argument)
         {
-            if(!(argument is string)) return;
+            if(!(argument is string)) return false;
             
             foreach(string questID in dialogueTriggerName)
             {
                 if((string)argument == questID)
                 {
-                    stepProgress++;
-                    if(stepProgress >= progressToFinish)
-                    {
-                        FinishQuestStep();
-                    }
+                    return true;
                 }
             }
+            return false;
         }
     }
 }

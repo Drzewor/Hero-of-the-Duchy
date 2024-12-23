@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a1d8038e7b279c43877a524cb73ae25, type: 3}
-  m_Name: KillGoblinsInAmbushStep
+  m_Name: QuestStepToCheckProgress
   m_EditorClassIdentifier: 
-  isFinished: 1
-  stepDescription: If we don't deal with these nasty things now, there may be more
-    of them later. Time to put the training to the test.
-  progressToFinish: 4
+  isFinished: 0
+  stepDescription: Next Step
+  progressToFinish: 1
   stepID: ID is not always required
   targetsNames:
-  - Goblin Thug
+  - 123

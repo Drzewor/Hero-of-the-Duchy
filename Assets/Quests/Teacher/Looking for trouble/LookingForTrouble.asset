@@ -17,10 +17,9 @@ MonoBehaviour:
   steps:
   - {fileID: 11400000, guid: ab8329e64b5c6fb4ba6c3acf9455dedf, type: 2}
   - {fileID: 11400000, guid: 794cdeb65da633144afc06c018a96f4b, type: 2}
-  - {fileID: 11400000, guid: dbcc5365323593e43afc8ef380038556, type: 2}
+  - {fileID: 11400000, guid: e6afc1ec3fe7ba542884e54f8600aaf2, type: 2}
   - {fileID: 11400000, guid: 97dc584b82e4e5f4ab5d528cec55676d, type: 2}
   - {fileID: 11400000, guid: b2a47a7e929d66c4e9f070f5ea936031, type: 2}
   expReward: 50
   itemReward: []
   id: LookingForTrouble_ID
-  isFinished: 1
