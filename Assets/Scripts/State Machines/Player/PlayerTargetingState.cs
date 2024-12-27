@@ -131,7 +131,7 @@ namespace RPG.StateMachine.Player
 
         private void OnSwapTarget()
         {
-            stateMachine.Targeter.SwapTarget();
+            stateMachine.Targeter.SwapTarget(false);
         }
     }
 

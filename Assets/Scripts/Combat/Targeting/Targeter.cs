@@ -18,6 +18,7 @@ namespace RPG.Combat
         private const float targetRadius = 1f;
         private bool isChangingTarget = false;
         private Coroutine activeCorutine = null;
+        private Target oldTargetInChange = null;
         private List<Target> targets = new List<Target>();
 
         public Target CurrentTarget {get; private set;}
@@ -71,15 +72,20 @@ namespace RPG.Combat
             return true;
         }
 
-        public void SwapTarget()
+        public void SwapTarget(bool isCurrentTargetGone)
         {
             if(isChangingTarget) return;
 
             Target newTarget = null;
-            int currentTargetIndex = targets.IndexOf(CurrentTarget);
+            int currentTargetIndex = 0;
             int i;
 
-            if(currentTargetIndex == targets.Count - 1)
+            if(CurrentTarget != null)
+            {
+                currentTargetIndex = targets.IndexOf(CurrentTarget);
+            }
+
+            if(currentTargetIndex == targets.Count - 1 || currentTargetIndex == -1)
             {
                 i = 0;
             }
@@ -96,8 +102,15 @@ namespace RPG.Combat
                 break;
             }
 
+            if(newTarget == null && isCurrentTargetGone)
+            {
+                cineTargetGroup.RemoveMember(CurrentTarget.transform);
+                CurrentTarget = null;
+                return;
+            }
+
             if(newTarget == null) return;
-            activeCorutine = StartCoroutine(SwitchTargets(CurrentTarget,newTarget));
+            activeCorutine = StartCoroutine(SwitchTargets(CurrentTarget,newTarget,isCurrentTargetGone));
         }
 
         public void Cancel()
@@ -119,18 +132,22 @@ namespace RPG.Combat
 
         private void RemoveTarget(Target target)
         {
+            target.OnDisabled -= RemoveTarget;
+
             if(CurrentTarget == target)
             {
-                cineTargetGroup.RemoveMember(CurrentTarget.transform);
-                CurrentTarget = null;
+                SwapTarget(true);
             }
 
-            target.OnDisabled -= RemoveTarget;
-            targets.Remove(target);
+            if(oldTargetInChange != target)
+            {
+                targets.Remove(target);
+            }
         }
 
-        private IEnumerator SwitchTargets(Target oldTarget, Target newTarget)
+        private IEnumerator SwitchTargets(Target oldTarget, Target newTarget, bool isOldTargetGone)
         {
+            oldTargetInChange = oldTarget;
             isChangingTarget = true;
             cineTargetGroup.AddMember(newTarget.transform, 0, targetRadius);
             int oldTargetIndex = cineTargetGroup.FindMember(oldTarget.transform);
@@ -153,6 +170,19 @@ namespace RPG.Combat
 
             cineTargetGroup.RemoveMember(oldTarget.transform);
             isChangingTarget = false;
+            oldTargetInChange = null;
+
+            if(isOldTargetGone || GetComponent<SphereCollider>().radius < 
+            Vector3.Distance(oldTarget.transform.position,transform.position))
+            {
+                targets.Remove(oldTarget);
+            }
+
+            if(CurrentTarget.GetComponent<Health>().isDead || GetComponent<SphereCollider>().radius < 
+            Vector3.Distance(CurrentTarget.transform.position,transform.position))
+            {
+                SwapTarget(true);
+            }
         }
     }
 

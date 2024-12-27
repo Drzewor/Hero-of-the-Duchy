@@ -31,7 +31,7 @@ namespace RPG.Inventories
             return item.GetCopy();
         }
 
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
         private void OnValidate()
         {
             LoadItems();
@@ -76,7 +76,7 @@ namespace RPG.Inventories
             }
             return assets;
         }
-    #endif
+#endif
     }
 
 }
