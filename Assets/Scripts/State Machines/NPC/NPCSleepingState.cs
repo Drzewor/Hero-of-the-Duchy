@@ -33,7 +33,8 @@ namespace RPG.StateMachine.NPC
 
         public override void Exit()
         {
-            bed.isOccupied = false;
+            bed.SetisOccupied(false);
+            stateMachine.SetObjectToInteract(null);
         }
     }
 }

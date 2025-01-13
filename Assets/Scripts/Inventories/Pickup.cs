@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using RPG.StateMachine.NPC;
 using RPG.StateMachine.Player;
 using TMPro;
 using UnityEngine;
@@ -13,9 +14,11 @@ namespace RPG.Inventories
         public PickupSpawner spawner;
         private Inventory inventory;
 
-        public void Interaction(GameObject player)
+        public void Interaction(GameObject interactor)
         {
-            inventory = player.GetComponent<PlayerStateMachine>().InventoryManager.inventory;
+            if(interactor.GetComponent<NPCStateMachine>() != null) return;
+
+            inventory = interactor.GetComponent<PlayerStateMachine>().InventoryManager.inventory;
             Item itemCopy = item.GetCopy();
             for(int i = 0; i < amount;)
             {

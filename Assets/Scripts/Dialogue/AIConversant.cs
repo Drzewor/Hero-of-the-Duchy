@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using RPG.StateMachine.NPC;
 using RPG.StateMachine.Player;
 using TMPro;
 using UnityEngine;
@@ -16,10 +17,12 @@ namespace RPG.Dialogue
             return conversantName;
         }
 
-        public void Interaction(GameObject player)
+        public void Interaction(GameObject interactor)
         {
+            if(interactor.GetComponent<NPCStateMachine>() != null) return;
+            
             if(dialogues.Count == 0) return;
-            PlayerConversant conversant = player.GetComponent<PlayerConversant>();
+            PlayerConversant conversant = interactor.GetComponent<PlayerConversant>();
             Dialogue dialogueToDisplay = null;
             foreach(Dialogue dialogue in dialogues)
             {
@@ -32,7 +35,7 @@ namespace RPG.Dialogue
             if(dialogueToDisplay == null) return;
 
             conversant.StartDialogue(this, dialogueToDisplay);
-            PlayerStateMachine stateMachine = player.GetComponent<PlayerStateMachine>();
+            PlayerStateMachine stateMachine = interactor.GetComponent<PlayerStateMachine>();
             stateMachine.SwitchState(new PlayerDialogueState(stateMachine));    
         }
 

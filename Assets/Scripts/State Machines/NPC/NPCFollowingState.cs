@@ -34,6 +34,8 @@ namespace RPG.StateMachine.NPC
 
         public override void Tick(float deltaTime)
         {
+            Move(deltaTime);
+
             if(stateMachine.NPCTargeter.currentTarget != null && !stateMachine.NPCTargeter.currentTarget.isDead)
             {
                 stateMachine.SwitchState(new NPCChasingState(stateMachine,this));

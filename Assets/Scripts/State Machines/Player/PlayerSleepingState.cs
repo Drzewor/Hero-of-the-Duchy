@@ -37,7 +37,7 @@ namespace RPG.StateMachine.Player
 
         public override void Exit()
         {
-            bed.isOccupied = false;
+            bed.SetisOccupied(false);
         }
 
     }

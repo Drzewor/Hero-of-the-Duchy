@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using RPG.StateMachine.NPC;
 using RPG.StateMachine.Player;
 using TMPro;
 using UnityEngine;
@@ -27,10 +28,10 @@ namespace RPG.Inventories
             SetStartingItems();
         }
 
-        public void Interaction(GameObject player)
+        public void Interaction(GameObject interactor)
         {
-            if(itemsParent == null) return;
-            PlayerStateMachine stateMachine = player.GetComponent<PlayerStateMachine>();
+            if(itemsParent == null || interactor.GetComponent<NPCStateMachine>() != null) return;
+            PlayerStateMachine stateMachine = interactor.GetComponent<PlayerStateMachine>();
             stateMachine.SwitchState(new PlayerItemStashState(stateMachine, itemsParent, this, snapingPosition));
         }
 

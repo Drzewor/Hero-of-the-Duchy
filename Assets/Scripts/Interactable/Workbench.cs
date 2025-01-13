@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using RPG.StateMachine.NPC;
 using RPG.StateMachine.Player;
 using TMPro;
 using UnityEngine;
@@ -9,9 +10,11 @@ public class Workbench : MonoBehaviour, IInteractable
     [SerializeField] Transform snapingPosition;
     [SerializeField] private string raycastText;
 
-    public void Interaction(GameObject player)
+    public void Interaction(GameObject interactor)
     {
-        PlayerStateMachine stateMachine = player.GetComponent<PlayerStateMachine>();
+        if(interactor.GetComponent<NPCStateMachine>() != null) return;
+
+        PlayerStateMachine stateMachine = interactor.GetComponent<PlayerStateMachine>();
         stateMachine.SwitchState(new PlayerCraftingState(stateMachine, snapingPosition));
     }
     public void HandleRaycast(GameObject player)

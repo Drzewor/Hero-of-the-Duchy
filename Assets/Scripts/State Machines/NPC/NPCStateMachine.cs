@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -12,7 +11,6 @@ namespace RPG.StateMachine.NPC
 {
     public class NPCStateMachine : StateMachine, ISaveable
     {
-        private bool isStartingStateSet = false;
         [field: SerializeField] public Animator Animator {get; private set;}
         [field: SerializeField] public NPCTargeter NPCTargeter {get; private set;}
         [field: SerializeField] public CharacterController Controller {get; private set;}
@@ -42,18 +40,20 @@ namespace RPG.StateMachine.NPC
         [field: SerializeField] public float MinSuspiciousTime {get; private set;} = 6;
         [field: SerializeField] public Transform TargetToFollow {get; private set;}
         [field: SerializeField] public Attack[] Attacks {get; private set;}    
-        [Space(15)] 
-        [SerializeField]private bool useStartingState  = true;
+        [field: SerializeField] public GameObject ObjectToInteract {get; private set;} = null;
         private void Start() 
         {
             Agent.updatePosition = false;
             Agent.updateRotation = false;
             if(Health.isDead) return;
-            if(useStartingState)
-            {
-                SetStartingState(new NPCIdleState(this));
-            }
             SetHomePosition(gameObject.transform.position);
+            if(ObjectToInteract != null && ObjectToInteract.TryGetComponent<IInteractable>(out IInteractable interactable))
+            {
+                SwitchState(new NPCInteractState(this, interactable, ObjectToInteract.transform.position));
+                return;
+            }
+            SwitchState(new NPCIdleState(this));
+            
         }
 
         private void OnEnable() 
@@ -76,15 +76,6 @@ namespace RPG.StateMachine.NPC
         private void HandleDeath(Health health)
         {
             SwitchState(new NPCDeadState(this));
-        }
-        
-        public void SetStartingState(NPCBaseState state)
-        {
-            if(!isStartingStateSet)
-            {
-                SwitchState(state);
-                isStartingStateSet = true;
-            }
         }
 
         public void SetWeapon(WeaponLogic weapon)
@@ -127,6 +118,11 @@ namespace RPG.StateMachine.NPC
             MovementSpeed = speed;
         }
 
+        public void SetObjectToInteract(GameObject objectToInteract)
+        {
+            ObjectToInteract = objectToInteract;
+        }
+
         public void SetStatDamageBonus(statDamageBonus statDamageBonus)
         {
             if(statDamageBonus == statDamageBonus.Strength)
@@ -150,6 +146,15 @@ namespace RPG.StateMachine.NPC
             }
         }
 
+        //for the future use
+        public void Interact(GameObject objectToInteract)
+        {
+            if(objectToInteract.TryGetComponent<IInteractable>(out IInteractable interactable))
+            {
+                SwitchState(new NPCInteractState(this,interactable,objectToInteract.transform.position));
+            }
+        }
+
         public object CaptureState()
         {
             Dictionary<string, object> data = new Dictionary<string, object>();
@@ -157,13 +162,22 @@ namespace RPG.StateMachine.NPC
             data["rotation"] = new SerializableVector3(transform.eulerAngles);
             data["homePosition"] = new SerializableVector3(HomePosition);
 
-            if(TargetToFollow != null && TargetToFollow.TryGetComponent<SaveableEntity>(out SaveableEntity saveableEntity))
+            if(TargetToFollow != null && TargetToFollow.TryGetComponent<SaveableEntity>(out SaveableEntity targetToFollow))
             {
-                data["targetToFollow"] = saveableEntity.GetUniqueIdentifier();
+                data["targetToFollow"] = targetToFollow.GetUniqueIdentifier();
             }
             else
             {
                 data["targetToFollow"] = null;
+            }
+
+            if(ObjectToInteract != null && ObjectToInteract.TryGetComponent<SaveableEntity>(out SaveableEntity objectToInteract))
+            {
+                data["objectToInteract"] = objectToInteract.GetUniqueIdentifier();
+            }
+            else
+            {
+                data["objectToInteract"] = null;
             }
 
             return data;
@@ -172,25 +186,64 @@ namespace RPG.StateMachine.NPC
         public void RestoreState(object state)
         {
             Dictionary<string, object> data = (Dictionary<string, object>)state;
+            bool lookForTargetToFollow = false;
+            string TargetToFollowID = null;
+            bool lookForObjectToInteract = false;
+            string ObjectToInteractID = null;
+
             Controller.enabled = false;
             transform.position = ((SerializableVector3)data["position"]).ToVector();
             transform.eulerAngles = ((SerializableVector3)data["rotation"]).ToVector();
             SetHomePosition(((SerializableVector3)data["homePosition"]).ToVector());
 
-            if(data.ContainsKey("targetToFollow") && data["targetToFollow"] != null)
+            if(data.ContainsKey("targetToFollow"))
             {
-                string targetID = (string)data["targetToFollow"];
-                SaveableEntity[] allEntities = FindObjectsOfType<SaveableEntity>();
+                if(data["targetToFollow"] == null)
+                {
+                    SetTargetToFollow(null);
+                }
+                else
+                {
+                    lookForTargetToFollow = true;
+                    TargetToFollowID = (string)data["targetToFollow"];
+                }
+            }
+            if(data.ContainsKey("objectToInteract"))
+            {
+                if(data["objectToInteract"] == null)
+                {
+                    SetObjectToInteract(null);
+                }
+                else
+                {
+                    lookForObjectToInteract = true;
+                    ObjectToInteractID = (string)data["objectToInteract"];
+                }
+            }
 
+            if(lookForTargetToFollow || lookForObjectToInteract)
+            {
+                SaveableEntity[] allEntities = FindObjectsOfType<SaveableEntity>();
                 foreach(SaveableEntity entity in allEntities)
                 {
-                    if(entity.GetUniqueIdentifier() == targetID)
+                    if(lookForTargetToFollow && entity.GetUniqueIdentifier() == TargetToFollowID)
                     {
                         SetTargetToFollow(entity.transform);
+                        lookForTargetToFollow = false;
+                    }
+                    if(lookForObjectToInteract && entity.GetUniqueIdentifier() == ObjectToInteractID)
+                    {
+                        SetObjectToInteract(entity.gameObject);
+                        lookForObjectToInteract = false;
+                    }
+
+                    if(!lookForTargetToFollow && !lookForObjectToInteract)
+                    {
                         break;
                     }
                 }
             }
+
 
             Controller.enabled = true;
             NPCTargeter.currentTarget = null;

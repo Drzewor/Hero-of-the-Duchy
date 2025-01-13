@@ -263,6 +263,7 @@ MonoBehaviour:
   <Target>k__BackingField: {fileID: 535129523262198457}
   <Character>k__BackingField: {fileID: 768196888239681938}
   <MovementSpeed>k__BackingField: 5.5
+  <RunningSpeed>k__BackingField: 5
   <AttackRange>k__BackingField: 2
   <AttackDamage>k__BackingField: 25
   <StatDamageBonus>k__BackingField: 0
@@ -272,6 +273,7 @@ MonoBehaviour:
   <MinCircleRange>k__BackingField: 5.5
   <MaxCirclingTime>k__BackingField: 4
   <MinCirclingTime>k__BackingField: 0.5
+  <CirclingSpeed>k__BackingField: 3.5
   <ChargeRange>k__BackingField: 5
   <DodgeDuration>k__BackingField: 1
   <DodgeDistance>k__BackingField: 4
@@ -280,7 +282,7 @@ MonoBehaviour:
   <MinSuspiciousTime>k__BackingField: 6
   <TargetToFollow>k__BackingField: {fileID: 0}
   <Attacks>k__BackingField: []
-  useStartingState: 1
+  <ObjectToInteract>k__BackingField: {fileID: 0}
 --- !u!143 &9049456146632275658
 CharacterController:
   m_ObjectHideFlags: 0
@@ -505,7 +507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cee48f0e2ded64449453b318eb06de0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  factionSO: {fileID: 0}
+  factionSO: {fileID: 11400000, guid: d8b2200c223eb3d4db975b3dea32cbc7, type: 2}
 --- !u!1 &1752834372638464446
 GameObject:
   m_ObjectHideFlags: 0
