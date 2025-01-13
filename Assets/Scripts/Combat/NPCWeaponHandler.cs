@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using RPG.Inventories;
 using RPG.StateMachine.NPC;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace RPG.Combat
 {
@@ -37,19 +36,19 @@ namespace RPG.Combat
             DisableWepon();
         }
 
+        //called in animation
         public void EnableWepon()
         {
-            weaponLogic.gameObject.GetComponent<Collider>().enabled = true;
-            weaponLogic.SwitchTrails(true);
+            weaponLogic.EnableWepon();
         }
 
+        //called in animation
         public void DisableWepon()
         {
-            weaponLogic.gameObject.GetComponent<Collider>().enabled = false;
-            weaponLogic.ClearColidersList();
-            weaponLogic.SwitchTrails(false);
+            weaponLogic.DisableWepon();
         }
 
+        //called in animation
         public void Shoot()
         {
             if(weaponLogic.projectilePrefab == null) return;

@@ -29,7 +29,7 @@ namespace RPG.StateMachine.Player
             if(timer >= TimeToLoadSave && !isLoading)
             {
                 isLoading = true;
-                GameObject.FindObjectOfType<SavingWraper>().Load();
+                GameObject.FindObjectOfType<SavingWraper>().ContinueGame();
             }
         }
 

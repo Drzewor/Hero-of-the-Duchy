@@ -109,6 +109,19 @@ namespace RPG.Combat
                 trails.Stop();
             }
         }
+
+        public void EnableWepon()
+        {
+            gameObject.GetComponent<Collider>().enabled = true;
+            SwitchTrails(true);
+        }
+
+        public void DisableWepon()
+        {
+            gameObject.GetComponent<Collider>().enabled = false;
+            ClearColidersList();
+            SwitchTrails(false);            
+        }
     }
 }
 
