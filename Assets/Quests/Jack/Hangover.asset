@@ -17,7 +17,6 @@ MonoBehaviour:
   steps:
   - {fileID: 11400000, guid: b17c36d5d2b31e04c8e8575017f1cee1, type: 2}
   - {fileID: 11400000, guid: 51961037e8ebc6d4298928bc3a1d4ac3, type: 2}
-  expReward: 0
+  expReward: 10
   itemReward: []
   id: 
-  isFinished: 0

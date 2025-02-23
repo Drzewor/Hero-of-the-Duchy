@@ -18,6 +18,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b7b8910d0db82004f863620618a2184b, type: 2}
   - {fileID: 11400000, guid: 1ba459c2e8e2cd841ac951527a9d6b8c, type: 2}
   - {fileID: 11400000, guid: e6b6d6086ad24b947b06cbc80e73c49e, type: 2}
-  expReward: 0
+  expReward: 50
   itemReward: []
   id: GetReady_ID

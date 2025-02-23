@@ -43,19 +43,9 @@ MonoBehaviour:
   attacks:
   - <AnimationName>k__BackingField: UnarmAttack1
     <TransitionDuration>k__BackingField: 0.1
-    <ComboStateIndex>k__BackingField: 1
-    <ComboAttackTime>k__BackingField: 0.95
-    <ForceTime>k__BackingField: 0.6
-    <Force>k__BackingField: 5
-    <Knockback>k__BackingField: 3
-    <DamageMultiplier>k__BackingField: 1
-    <StaminaCost>k__BackingField: 10
-    <ManaCost>k__BackingField: 0
-  - <AnimationName>k__BackingField: UnarmAttack2
-    <TransitionDuration>k__BackingField: 0.1
     <ComboStateIndex>k__BackingField: -1
     <ComboAttackTime>k__BackingField: 0.95
-    <ForceTime>k__BackingField: 0.5
+    <ForceTime>k__BackingField: 0.6
     <Force>k__BackingField: 5
     <Knockback>k__BackingField: 3
     <DamageMultiplier>k__BackingField: 1

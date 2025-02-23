@@ -83,5 +83,9 @@ PrefabInstance:
       propertyPath: uniqueIdentifier
       value: efeacfd4-672a-440e-9f2e-dc1f2b348570
       objectReference: {fileID: 0}
+    - target: {fileID: 8331141790499056076, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
+      propertyPath: expBounty
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2796452d3bd4c0c4a83820c25cffc73f, type: 3}
