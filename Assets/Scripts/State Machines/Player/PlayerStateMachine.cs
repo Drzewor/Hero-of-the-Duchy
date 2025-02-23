@@ -17,7 +17,7 @@ namespace RPG.StateMachine.Player
     {
         private bool isStartingStateSet = false;
         private const float YAxisSpeed = 2;
-        private const float XAxisSpeed = 150;
+        private const float XAxisSpeed = 120;
         [field: SerializeField] public InputReader InputReader {get; private set;}
         [field: SerializeField] public CharacterController characterController {get; private set;}
         [field: SerializeField] public CinemachineFreeLook cinemachineFreeLook {get; private set;}

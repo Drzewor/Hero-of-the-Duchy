@@ -78,103 +78,7 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   m_CustomBlends: {fileID: 0}
-  m_ParentHash:
-  - m_Hash: 1011166836
-    m_ParentHash: 756556552
-  - m_Hash: 788460410
-    m_ParentHash: 756556552
-  - m_Hash: 1914514016
-    m_ParentHash: 756556552
-  - m_Hash: 699097072
-    m_ParentHash: 756556552
-  - m_Hash: -1546996312
-    m_ParentHash: 756556552
-  - m_Hash: -1120014632
-    m_ParentHash: 756556552
-  - m_Hash: -755355357
-    m_ParentHash: 756556552
-  - m_Hash: 259516527
-    m_ParentHash: 756556552
-  - m_Hash: 1544405105
-    m_ParentHash: 756556552
-  - m_Hash: -1063883918
-    m_ParentHash: 756556552
-  - m_Hash: -92294675
-    m_ParentHash: 756556552
-  - m_Hash: 1214908708
-    m_ParentHash: 756556552
-  - m_Hash: -1001605330
-    m_ParentHash: 756556552
-  - m_Hash: 1180051813
-    m_ParentHash: 756556552
-  - m_Hash: 1023427811
-    m_ParentHash: 756556552
-  - m_Hash: -823703521
-    m_ParentHash: 756556552
-  - m_Hash: 1782447373
-    m_ParentHash: 756556552
-  - m_Hash: -214651721
-    m_ParentHash: 756556552
-  - m_Hash: -2076992479
-    m_ParentHash: 756556552
-  - m_Hash: 1470488623
-    m_ParentHash: 756556552
-  - m_Hash: -1955363981
-    m_ParentHash: 756556552
-  - m_Hash: 310039241
-    m_ParentHash: 756556552
-  - m_Hash: 1702748767
-    m_ParentHash: 756556552
-  - m_Hash: -1334577339
-    m_ParentHash: 756556552
-  - m_Hash: 695903999
-    m_ParentHash: 756556552
-  - m_Hash: 585382737
-    m_ParentHash: 756556552
-  - m_Hash: 230188126
-    m_ParentHash: 585382737
-  - m_Hash: 1911844345
-    m_ParentHash: 585382737
-  - m_Hash: -479991077
-    m_ParentHash: 756556552
-  - m_Hash: 793156180
-    m_ParentHash: -479991077
-  - m_Hash: 309372945
-    m_ParentHash: -479991077
-  - m_Hash: 2127862615
-    m_ParentHash: -479991077
-  - m_Hash: -113127054
-    m_ParentHash: -479991077
-  - m_Hash: 2026270452
-    m_ParentHash: -479991077
-  - m_Hash: 1983519550
-    m_ParentHash: 756556552
-  - m_Hash: 496685194
-    m_ParentHash: 1983519550
-  - m_Hash: -1478419840
-    m_ParentHash: 1983519550
-  - m_Hash: 1032856944
-    m_ParentHash: 1983519550
-  - m_Hash: 1599738110
-    m_ParentHash: 1983519550
-  - m_Hash: -1383891310
-    m_ParentHash: 1983519550
-  - m_Hash: 1223898785
-    m_ParentHash: 1983519550
-  - m_Hash: 1647199183
-    m_ParentHash: 1983519550
-  - m_Hash: -652018590
-    m_ParentHash: 756556552
-  - m_Hash: 1326086781
-    m_ParentHash: 756556552
-  - m_Hash: -1999558070
-    m_ParentHash: 756556552
-  - m_Hash: -1318694384
-    m_ParentHash: 756556552
-  - m_Hash: 1463796537
-    m_ParentHash: -1318694384
-  - m_Hash: -1213778823
-    m_ParentHash: -1318694384
+  m_ParentHash: []
 --- !u!1 &2056318075234793225
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,8 +357,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2056318076324089412}
-  m_LocalRotation: {x: -0.0796282, y: 0.8874025, z: 0.16741596, w: 0.42207602}
-  m_LocalPosition: {x: -1.8043671, y: 0.19999999, z: 1.7303934}
+  m_LocalRotation: {x: -0.17025867, y: 0.45889074, z: 0.09007784, w: 0.86736226}
+  m_LocalPosition: {x: -19.744476, y: 0.6700001, z: -16.573608}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2056318077194711784}
@@ -525,7 +429,7 @@ MonoBehaviour:
   m_XAxis:
     Value: 43.801117
     m_SpeedMode: 0
-    m_MaxSpeed: 150
+    m_MaxSpeed: 100
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: 
@@ -908,7 +812,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2056318077194711782}
-  m_LocalRotation: {x: 0.036324948, y: 0.000000059604645, z: 0.000000007450581, w: 0.99934006}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
